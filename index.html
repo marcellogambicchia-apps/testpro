@@ -10,7 +10,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Wallet-PRO</title>
-<meta name="walletpro-build" content="walletpro-2.3.11-test-20261118">
+<meta name="walletpro-build" content="walletpro-3.0.0-20261118">
 <style>
   :root {
     --bg: #F2F2F7; --card: #FFFFFF; --text: #1C1C1E; --subtext: #8E8E93;
@@ -277,6 +277,41 @@ body.widget-moving { user-select:none; -webkit-user-select:none; }
   font-weight:600;
 }
 #view-impostazioni .ios-data-content .danger:hover { background:#c62836 !important; }
+
+/* Wallet-PRO 3.0: icona Dashboard multicolore, proporzionata alle altre icone. */
+.wp-dashboard-donut {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+  border-radius: 50%;
+  background: conic-gradient(#087cff 0deg 173deg, #30c956 173deg 267deg,
+                             #ff9900 267deg 324deg, #6257d9 324deg 360deg);
+  position: relative;
+}
+.wp-dashboard-donut::after {
+  content: "";
+  position: absolute;
+  inset: 5.5px;
+  border-radius: 50%;
+  background: var(--tab-bg);
+}
+/* Solo il pannello Aggiungi: lascia scoperta e utilizzabile la barra di navigazione. */
+#addModal {
+  bottom: var(--wp-tabbar-height, 62px);
+  z-index: 90;
+  align-items: flex-end;
+  padding: 8px 12px 8px;
+}
+#addModal .modal-sheet {
+  width: 100%;
+  max-width: 500px;
+  max-height: 100%;
+  border-radius: 20px;
+  padding-bottom: 20px;
+  overscroll-behavior: contain;
+}
+
 </style>
 <style>
 /* File picker nativi Safari: input fuori schermo, non display:none. */
@@ -460,7 +495,7 @@ window.walletProOneSignalReady = null;
 </div>
 <div class="container">
   <div class="header">
-    <div class="wp-brand"><h1>Wallet-PRO</h1><div class="wp-brand-version">Versione 2.3.11 TEST</div></div>
+    <div class="wp-brand"><h1>Wallet-PRO</h1><div class="wp-brand-version">Versione 3.0.0</div></div>
     <div class="header-controls">
       <select id="yearSelect" class="year-select" aria-label="Seleziona Anno"></select>
 
@@ -754,7 +789,7 @@ window.walletProOneSignalReady = null;
 </div>
 
 <nav class="tab-bar">
-  <button type="button" class="tab-item active" data-tab="dashboard"><span class="tab-icon">⊞</span><span>Dashboard</span></button>
+  <button type="button" class="tab-item active" data-tab="dashboard"><span class="tab-icon wp-dashboard-donut" aria-hidden="true"></span><span>Dashboard</span></button>
   <button type="button" class="tab-item" data-tab="entrate"><span class="tab-icon income-arrow">↗</span><span>Entrate</span></button>
   <button type="button" class="tab-item" data-tab="spese"><span class="tab-icon expense-arrow">↘</span><span>Uscite</span></button>
   <button type="button" class="tab-item" id="tabAddBtn"><span class="tab-icon">⊕</span><span>Aggiungi</span></button>
@@ -4343,7 +4378,32 @@ if(languageControl)languageControl.addEventListener('change',function(){input.va
 translateBottomNavigation();
 render();
 })();
-</script></body>
+</script>
+<script>
+(function () {
+  function syncWalletTabBarHeight() {
+    var nav = document.querySelector('.tab-bar');
+    if (nav) document.documentElement.style.setProperty('--wp-tabbar-height',
+      Math.ceil(nav.getBoundingClientRect().height) + 'px');
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', syncWalletTabBarHeight, {once:true});
+  } else {
+    syncWalletTabBarHeight();
+  }
+  window.addEventListener('resize', syncWalletTabBarHeight);
+  if (typeof ResizeObserver !== 'undefined') {
+    var start = function () {
+      var nav = document.querySelector('.tab-bar');
+      if (nav) new ResizeObserver(syncWalletTabBarHeight).observe(nav);
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, {once:true});
+    else start();
+  }
+})();
+</script>
+
+</body>
 </html>
 
 <!-- Wallet-PRO: Info allineato alla barra tab nativa -->
