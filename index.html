@@ -381,7 +381,7 @@ window.walletProParseAmount = function(value, locale) {
   var n=Number(s);return Number.isFinite(n)?(negative?-n:n):NaN;
 };
 </script>
-<!-- TEST: OneSignal disabilitato per evitare iscrizioni e worker del sito principale. -->
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
 /* Wallet-PRO 2.2: validazione e ripristino comune, senza servizi esterni. */
 (function(){'use strict';
@@ -432,8 +432,21 @@ window.walletProBackup22={validMain,validateKeys,snapshot,restore};
 })();
 </script>
 <script>
-// Versione TEST: notifiche push OneSignal disattivate intenzionalmente.
-window.walletProOneSignalReady = null;
+window.OneSignalDeferred = window.OneSignalDeferred || [];
+window.walletProOneSignalReady = new Promise(function(resolve, reject) {
+  window.OneSignalDeferred.push(async function(OneSignal) {
+    try {
+      await OneSignal.init({
+        appId: "c3c2efd9-1d3c-4806-aacc-8486e777c0c7",
+        serviceWorkerPath: "/Wallet-PRO/OneSignalSDKWorker.js",
+        serviceWorkerParam: {scope: "/Wallet-PRO/onesignal/"},
+        notifyButton: {enable: false},
+        allowLocalhostAsSecureOrigin: false
+      });
+      resolve(OneSignal);
+    } catch(err) { reject(err); }
+  });
+});
 </script>
 <style>
 /* Avvisi Dashboard — aspetto iOS, adattivo a modalità chiara/scura */
@@ -701,11 +714,11 @@ window.walletProOneSignalReady = null;
 <div class="list-card" style="padding:14px">
  <label class="wp-notify-line"><span>Avvisi all'apertura</span><input id="wpNotifyOpen" type="checkbox"></label>
  <label class="wp-notify-line"><span>Notifiche sul dispositivo</span><input id="wpNotifyDevice" type="checkbox"></label>
- <div class="row-sub" style="margin:10px 0">Promemoria un giorno prima delle scadenze. Gli avvisi locali funzionano quando Wallet-PRO viene aperta; le notifiche push richiedono HTTPS, autorizzazione e iscrizione OneSignal. L’invio automatico delle scadenze con app chiusa richiede ancora un sistema di pianificazione.</div>
+ <div class="row-sub" style="margin:10px 0">Promemoria un giorno prima delle scadenze. Gli avvisi locali funzionano quando Wallet-PRO viene aperta; le notifiche push richiedono HTTPS, autorizzazione e iscrizione OneSignal. Per le scadenze con app chiusa, aggiungi gli eventi al calendario del telefono.</div>
  <button id="wpNotifyTest" type="button" class="action-btn">Invia notifica di prova</button>
  <div id="wpNotifyStatus" class="row-sub" role="status" aria-live="polite" style="margin-top:10px"></div>
  <div id="wpNotifyDue" role="status" aria-live="polite" style="margin-top:10px"></div>
- <div style="margin-top:14px"><details class="settings-accordion"><summary class="settings-accordion-title">Inserisci Scadenze <span class="settings-accordion-chevron" aria-hidden="true"></span></summary><div class="list-card" style="padding:14px"><div class="row-sub">Scadenze salvate solo sul dispositivo. Avvisi locali all’apertura; per le notifiche push automatiche con app chiusa occorre ancora collegare un servizio sicuro. Non generano movimenti bancari.</div><label class="form-label">Descrizione</label><input id="wpRecurringName" class="form-input" placeholder="Affitto"><label class="form-label">Importo previsto (€)</label><input id="wpRecurringAmount" class="form-input" inputmode="decimal"><label class="form-label" for="wpReminderType">Ripetizione</label><select id="wpReminderType" class="form-input"><option value="monthly">Ogni mese</option><option value="yearly">Ogni anno</option><option value="once">Una sola volta</option></select><div id="wpReminderDayWrap"><label class="form-label" for="wpRecurringDay">Giorno del mese (1–31)</label><input id="wpRecurringDay" class="form-input" type="number" min="1" max="31" value="1"></div><div id="wpReminderDateWrap" style="display:none"><label class="form-label" for="wpReminderDate">Data della scadenza</label><input id="wpReminderDate" class="form-input" type="date"></div><button id="wpAddRecurring" class="action-btn" type="button">Aggiungi scadenza</button><div id="wpRecurringList"></div></div></details></div>
+ <div style="margin-top:14px"><details class="settings-accordion"><summary class="settings-accordion-title">Inserisci Scadenze <span class="settings-accordion-chevron" aria-hidden="true"></span></summary><div class="list-card" style="padding:14px"><div class="row-sub">Scadenze salvate solo sul dispositivo. Puoi aggiungerle al calendario del telefono con un avviso un giorno prima. Il calendario non si aggiorna automaticamente se modifichi o cancelli la scadenza. Non generano movimenti bancari.</div><label class="form-label">Descrizione</label><input id="wpRecurringName" class="form-input" placeholder="Affitto"><label class="form-label">Importo previsto (€)</label><input id="wpRecurringAmount" class="form-input" inputmode="decimal"><label class="form-label" for="wpReminderType">Ripetizione</label><select id="wpReminderType" class="form-input"><option value="monthly">Ogni mese</option><option value="yearly">Ogni anno</option><option value="weekly">Ogni settimana</option><option value="once">Una sola volta</option></select><div id="wpReminderDayWrap"><label class="form-label" for="wpRecurringDay">Giorno del mese (1–31)</label><input id="wpRecurringDay" class="form-input" type="number" min="1" max="31" value="1"></div><div id="wpReminderDateWrap" style="display:none"><label class="form-label" for="wpReminderDate">Data della scadenza</label><input id="wpReminderDate" class="form-input" type="date"></div><label class="form-label" for="wpReminderCount">Numero scadenze (per ripetizioni; vuoto = senza fine)</label><input id="wpReminderCount" class="form-input" type="number" min="1" max="1200" placeholder="Es. 12"><button id="wpAddRecurring" class="action-btn" type="button">Aggiungi scadenza</button><div id="wpRecurringList"></div></div></details></div>
 </div>
 
 
@@ -819,6 +832,17 @@ window.walletProOneSignalReady = null;
       <button type="button" id="segEvento" class="seg-btn">Evento</button>
     </div>
 
+<div id="wpVoiceBox" style="margin:12px 0;padding:12px;border:1px solid var(--border);border-radius:14px;background:var(--input-bg)">
+ <label class="form-label" for="wpVoiceText">🎙️ Inserimento vocale / dettatura</label>
+ <div class="row-sub" style="margin-bottom:8px">Pronuncia o detta una frase, per esempio: «Ho speso 35 euro di benzina ieri». L'app compilerà i campi, senza salvarli automaticamente.</div>
+ <textarea id="wpVoiceText" class="form-input" rows="2" placeholder="Ho speso 35 euro di benzina ieri" style="width:100%;resize:vertical"></textarea>
+ <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button id="wpVoiceStart" type="button" class="mini-btn">🎙️ Parla (solo offline)</button><button id="wpVoiceApply" type="button" class="mini-btn">Compila campi</button></div>
+ <div id="wpVoiceMeter" aria-label="Livello del microfono" style="display:flex;align-items:center;gap:9px;margin-top:10px">
+   <span id="wpVoiceMeterLabel" style="font-size:12px;color:var(--text-secondary,inherit);min-width:54px">In attesa</span>
+   <div id="wpVoiceBars" aria-hidden="true" style="display:flex;align-items:center;justify-content:center;gap:3px;height:28px;flex:1;max-width:190px"></div>
+ </div>
+ <div id="wpVoiceStatus" class="row-sub" role="status" aria-live="polite" style="margin-top:7px">Puoi anche usare il microfono della tastiera del telefono. La dettatura della tastiera segue le impostazioni privacy del dispositivo.</div>
+</div>
     <div id="formNetto">
       <div class="form-group"><label class="form-label" for="inpYear">Anno</label><input type="number" id="inpYear" class="form-input" min="1990" max="2100"></div>
       <div class="form-group"><label class="form-label" for="inpMonth">Mese</label>
@@ -3918,18 +3942,39 @@ return base.cents+delta}
 function render(){var b=balance();$('wpBalanceValue').textContent=b===null?'Da impostare':euro(b);$('wpBalanceNote').textContent=b===null?'Configura il saldo nelle Impostazioni':'Saldo al '+today()+' · base '+cfg.balance.date+' · solo movimenti con data certa';
 if(cfg.balance){$('wpOpeningDate').value=cfg.balance.date;$('wpOpeningAmount').value=(cfg.balance.cents/100).toFixed(2).replace('.',',')}
 var d=read(),cats=walletproBudgetCategories(d.expenses,cfg.budgets);var sel=$('wpBudgetCategory'),old=sel.value;sel.innerHTML=cats.map(x=>'<option value="'+escape(x)+'">'+escape(x)+'</option>').join('');if(cats.includes(old))sel.value=old;
-$('wpRecurringList').innerHTML=cfg.reminders.map(x=>'<div class="list-row"><div><strong>'+escape(x.name)+'</strong><div class="row-sub">'+(x.type==='once'?'Singola · '+escape(x.date||''):x.type==='yearly'?'Annuale · '+escape((x.date||'').slice(5)):'Mensile · giorno '+escape(x.day))+' · '+euro(x.amount)+'</div></div><button type="button" class="mini-btn" data-del-reminder="'+escape(x.id)+'">Elimina</button></div>').join('')||'<div class="row-sub">Nessuna scadenza</div>';
+$('wpRecurringList').innerHTML=cfg.reminders.map(x=>'<div class="list-row"><div><strong>'+escape(x.name)+'</strong><div class="row-sub">'+(x.type==='once'?'Singola · '+escape(x.date||''):x.type==='yearly'?'Annuale · '+escape((x.date||'').slice(5)):x.type==='weekly'?'Settimanale · '+escape(x.date||''):'Mensile · giorno '+escape(x.day))+(x.count?' · '+escape(x.count)+' occorrenze':'')+' · '+euro(x.amount)+'</div></div><div style="display:flex;gap:6px;flex-wrap:wrap"><button type="button" class="mini-btn" data-calendar-reminder="'+escape(x.id)+'">Aggiungi al calendario</button><button type="button" class="mini-btn" data-del-reminder="'+escape(x.id)+'">Elimina</button></div></div>').join('')||'<div class="row-sub">Nessuna scadenza</div>';
 $('wpGoalList').innerHTML=cfg.goals.map(x=>'<div class="list-row"><div><strong>'+escape(x.name)+'</strong><div class="row-sub">'+euro(x.saved)+' / '+euro(x.target)+' · '+(Number(x.target)>0?Math.round(Number(x.saved)/Number(x.target)*100):0)+'%</div></div><button type="button" class="mini-btn" data-del-goal="'+escape(x.id)+'">Elimina</button></div>').join('')||'<div class="row-sub">Nessun obiettivo</div>';
 $('wpAccent').value=cfg.accent||'default';document.documentElement.setAttribute('data-wp-accent',cfg.accent||'default');
 }
 window.addEventListener('walletpro:data-changed',render);window.addEventListener('walletpro:legacy-restored',render);document.addEventListener('visibilitychange',()=>{if(!document.hidden)render()});
 $('wpSaveBalance').onclick=()=>{var date=$('wpOpeningDate').value,amount=parse($('wpOpeningAmount').value);if(!validDate(date)||date>today()||amount===null)return alert('Inserisci una data valida non futura e un saldo numerico.');cfg.balance={date:date,cents:amount,snapshot:sameDaySnapshot(date)};try{save();$('wpBalanceFeedback').textContent='Saldo aggiornato. I movimenti fino a questa data sono già compresi nel saldo inserito.'}catch(e){alert('Salvataggio non riuscito: '+e.message)}};
 /* Budget categoria gestito dal modulo di salvataggio validato sottostante. */
-$('wpReminderType').onchange=()=>{var monthly=$('wpReminderType').value==='monthly';$('wpReminderDayWrap').style.display=monthly?'':'none';$('wpReminderDateWrap').style.display=monthly?'none':''};
-$('wpAddRecurring').onclick=()=>{var name=$('wpRecurringName').value.trim(),amount=parse($('wpRecurringAmount').value),day=Number($('wpRecurringDay').value),type=$('wpReminderType').value,date=$('wpReminderDate').value;if(!name||name.length>80||amount===null||amount<=0)return alert('Controlla descrizione e importo');if(type==='monthly'&&(!Number.isInteger(day)||day<1||day>31))return alert('Inserisci un giorno da 1 a 31');if(type!=='monthly'&&(!validDate(date)||(type==='once'&&date<today())))return alert('Inserisci una data valida, non passata per le scadenze singole');cfg.reminders.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),name:name,amount:amount,type:type,day:type==='monthly'?day:undefined,date:type!=='monthly'?date:undefined});save();window.dispatchEvent(new Event('walletpro:reminders-changed'));$('wpRecurringName').value='';$('wpRecurringAmount').value=''};
+$('wpReminderType').onchange=()=>{var monthly=$('wpReminderType').value==='monthly';$('wpReminderDayWrap').style.display=monthly?'':'none';$('wpReminderDateWrap').style.display=monthly?'none':'';$('wpReminderCount').disabled=$('wpReminderType').value==='once'};
+$('wpAddRecurring').onclick=()=>{var name=$('wpRecurringName').value.trim(),amount=parse($('wpRecurringAmount').value),day=Number($('wpRecurringDay').value),type=$('wpReminderType').value,date=$('wpReminderDate').value,countRaw=$('wpReminderCount').value.trim(),count=countRaw?Number(countRaw):null;if(countRaw&&(!Number.isInteger(count)||count<1||count>1200))return alert('Numero scadenze: inserisci un valore da 1 a 1200');if(!name||name.length>80||amount===null||amount<=0)return alert('Controlla descrizione e importo');if(type==='monthly'&&(!Number.isInteger(day)||day<1||day>31))return alert('Inserisci un giorno da 1 a 31');if(type!=='monthly'&&(!validDate(date)||(type==='once'&&date<today())))return alert('Inserisci una data valida, non passata per le scadenze singole');cfg.reminders.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),name:name,amount:amount,type:type,day:type==='monthly'?day:undefined,date:type!=='monthly'?date:undefined,count:type!=='once'?count:undefined});save();window.dispatchEvent(new Event('walletpro:reminders-changed'));$('wpRecurringName').value='';$('wpRecurringAmount').value=''};
 $('wpAddGoal').onclick=()=>{var name=$('wpGoalName').value.trim(),target=parse($('wpGoalTarget').value),saved=parse($('wpGoalSaved').value);if(!name||name.length>80||target===null||target<=0||saved===null||saved<0)return alert('Controlla gli importi');cfg.goals.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),name:name,target:target,saved:saved});save()};
 $('wpAccent').onchange=e=>{cfg.accent=e.target.value;save()};
-document.addEventListener('click',e=>{var b=e.target.closest('[data-del-budget],[data-del-reminder],[data-del-goal]');if(!b)return;/* budget deletion handled by dedicated budget module */if(b.hasAttribute('data-del-reminder'))cfg.reminders=cfg.reminders.filter(x=>x.id!==b.getAttribute('data-del-reminder'));if(b.hasAttribute('data-del-goal'))cfg.goals=cfg.goals.filter(x=>x.id!==b.getAttribute('data-del-goal'));save();if(b.hasAttribute('data-del-reminder'))window.dispatchEvent(new Event('walletpro:reminders-changed'))});
+// Calendar export: only generic title, date and recurrence leave the device in the .ics file.
+function wpIcsDate(d){return d.replace(/-/g,'')}
+function wpIcsEscape(v){return String(v).replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/,/g,'\\,').replace(/;/g,'\\;')}
+function wpFirstMonthly(day){var now=new Date(),y=now.getFullYear(),m=now.getMonth();for(var i=0;i<24;i++){var first=new Date(y,m+i,1),last=new Date(first.getFullYear(),first.getMonth()+1,0).getDate(),candidate=new Date(first.getFullYear(),first.getMonth(),Math.min(day,last),12);if(candidate>=new Date(now.getFullYear(),now.getMonth(),now.getDate(),0))return candidate.getFullYear()+'-'+String(candidate.getMonth()+1).padStart(2,'0')+'-'+String(candidate.getDate()).padStart(2,'0')}return today()}
+function wpCalendarExport(r){
+ var start=r.type==='monthly'?wpFirstMonthly(Number(r.day)||1):r.date;
+ if(!validDate(start)){alert('Data della scadenza non valida');return}
+ // Calendar apps import one recurring VEVENT rather than separate events.
+ var rule=r.type==='monthly'?'FREQ=MONTHLY;BYMONTHDAY='+Math.min(Number(r.day)||1,31):r.type==='yearly'?'FREQ=YEARLY':r.type==='weekly'?'FREQ=WEEKLY':'';
+ if(rule&&r.count)rule+=';COUNT='+Math.floor(r.count);
+ var startDate=new Date(start+'T12:00:00'),endDate=new Date(startDate.getFullYear(),startDate.getMonth(),startDate.getDate()+1,12);
+ var end=endDate.getFullYear()+String(endDate.getMonth()+1).padStart(2,'0')+String(endDate.getDate()).padStart(2,'0');
+ var lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Wallet-PRO//Scadenze//IT','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT','UID:'+String(r.id).replace(/[^a-zA-Z0-9-]/g,'')+'@wallet-pro.local','DTSTAMP:'+new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'').replace(/Z$/,'Z'),'DTSTART;VALUE=DATE:'+wpIcsDate(start),'DTEND;VALUE=DATE:'+end,'SUMMARY:'+wpIcsEscape('Promemoria Wallet-PRO')];
+ if(rule)lines.push('RRULE:'+rule);
+ lines.push('BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:Promemoria Wallet-PRO','TRIGGER:-P1D','END:VALARM','END:VEVENT','END:VCALENDAR','');
+ var blob=new Blob([lines.join('\r\n')],{type:'text/calendar;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Wallet-PRO-scadenza.ics';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);
+ alert('File calendario pronto. Aprilo o importalo nel calendario iPhone/Android e conferma l’aggiunta. Verifica che l’avviso un giorno prima sia attivo. Modifiche e cancellazioni successive non sono sincronizzate automaticamente.');
+}
+document.addEventListener('click',e=>{var b=e.target.closest('[data-calendar-reminder],[data-del-budget],[data-del-reminder],[data-del-goal]');if(!b)return;
+ if(b.hasAttribute('data-calendar-reminder')){var item=cfg.reminders.find(x=>String(x.id)===b.getAttribute('data-calendar-reminder'));if(item)wpCalendarExport(item);return}
+ if(b.hasAttribute('data-del-reminder')){var id=b.getAttribute('data-del-reminder'),r=cfg.reminders.find(x=>String(x.id)===id);if(!r)return;if(!confirm('Eliminare la scadenza da Wallet-PRO?\n\nSe l’hai aggiunta al calendario, dovrai eliminare anche l’evento o l’intera serie dal calendario del telefono.'))return;cfg.reminders=cfg.reminders.filter(x=>String(x.id)!==id);save();window.dispatchEvent(new Event('walletpro:reminders-changed'));alert('Scadenza eliminata da Wallet-PRO. Se era presente nel calendario, apri Calendario e cancella anche l’evento o tutta la serie ricorrente.');return}
+ if(b.hasAttribute('data-del-goal'))cfg.goals=cfg.goals.filter(x=>x.id!==b.getAttribute('data-del-goal'));save()});
 function collect(){var keys=window.walletProBackup22.snapshot();window.walletProBackup22.validateKeys(keys);return {format:'walletpro-encrypted-backup',version:1,createdAt:new Date().toISOString(),keys:keys}}
 function bytes(a){return Array.from(a)}
 function b64(a){var s='';a.forEach(function(x){s+=String.fromCharCode(x)});return btoa(s)}
@@ -4400,6 +4445,151 @@ render();
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, {once:true});
     else start();
   }
+})();
+</script>
+
+<script>
+/* Wallet-PRO: interpretazione del testo interamente locale; nessun invio esterno. */
+(function(){
+  'use strict';
+  function el(id){return document.getElementById(id)}
+  function status(t){el('wpVoiceStatus').textContent=t}
+  function parse(raw){
+    var t=raw.toLocaleLowerCase('it-IT').trim();
+    var m=t.match(/(?:€\s*|euro\s*)(\d[\d.]*[,.]?\d*)|(?:^|\s)(\d[\d.]*[,.]?\d*)\s*(?:€|euro|eur)\b/i);
+    if(!m)return null;
+    var amount=(m[1]||m[2]).replace(/\./g,'').replace(',','.');
+    if(!Number.isFinite(Number(amount))||Number(amount)<=0)return null;
+    var income=/\b(ricevut[oaie]?|incassat[oaie]?|stipendio|pensione|entrata|bonifico ricevuto|rimborso ricevuto)\b/.test(t) && !/\b(pagat[oaie]?|spes[oaie]?|uscita)\b/.test(t);
+    var date=new Date();date.setHours(12,0,0,0);
+    if(/\bieri\b/.test(t))date.setDate(date.getDate()-1);
+    else if(/\b(l'altro ieri|avantieri)\b/.test(t))date.setDate(date.getDate()-2);
+    var dm=t.match(/\b(\d{1,2})[\/\-.](\d{1,2})(?:[\/\-.](\d{2,4}))?\b/);
+    if(dm){var yr=dm[3]?Number(dm[3]):date.getFullYear();if(yr<100)yr+=2000;var dt=new Date(yr,Number(dm[2])-1,Number(dm[1]),12);if(dt.getDate()!==Number(dm[1])||dt.getMonth()!==Number(dm[2])-1)return null;date=dt;}
+    var cat='Altro';
+    if(income){cat=/stipendio|busta paga/.test(t)?'Stipendio':/pensione/.test(t)?'Pensione':/rimborso/.test(t)?'Rimborsi':/bonifico/.test(t)?'Bonifici':'Altro';}
+    else if(/benzina|diesel|gasolio|carburante|auto|parcheggio|pedaggio|treno|autobus/.test(t))cat='Auto & Trasporti';
+    else if(/supermercato|spesa alimentare|conad|coop|esselunga|lidl|alimentari/.test(t))cat='Alimentari';
+    else if(/bolletta|luce|gas|acqua|affitto|utenze|enel/.test(t))cat='Casa & Utenze';
+    else if(/farmacia|medico|salute|visita medica/.test(t))cat='Salute';
+    else if(/ristorante|pizza|cinema|bar|vacanza/.test(t))cat='Tempo Libero';
+    else if(/rata|prestito|finanziamento|mutuo/.test(t))cat='Rate & Finanziamenti';
+    var desc=raw.trim().slice(0,140);
+    return {income:income,amount:Number(amount).toFixed(2).replace('.',','),date:date,cat:cat,desc:desc};
+  }
+  el('wpVoiceApply').addEventListener('click',function(){
+    var p=parse(el('wpVoiceText').value);
+    if(!p){status('Non riesco a riconoscere un importo valido. Prova: Ho speso 35 euro di benzina ieri.');return;}
+    if(p.income){
+      el('segNetto').click();el('inpYear').value=p.date.getFullYear();el('inpMonth').value=p.date.getMonth();el('inpAmount').value=p.amount;
+      var c=el('monthlyIncomeCategory');if(Array.from(c.options).some(function(o){return o.value===p.cat}))c.value=p.cat;
+      var day=el('inpDay');if(day)day.value=p.date.getDate();
+      status('Entrata compilata. Controlla categoria, mese e giorno prima di salvare.');
+    }else{
+      el('segUscita').click();var d=p.date;el('expDate').value=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+      el('expAmount').value=p.amount;el('expDesc').value=p.desc;
+      var c=el('expCategory');if(Array.from(c.options).some(function(o){return o.value===p.cat}))c.value=p.cat;
+      status('Uscita compilata. Controlla tutti i campi e premi Salva Uscita per confermare.');
+    }
+  });
+  // Indicatore del livello audio: usa solo il microfono locale, senza registrare o trasmettere audio.
+  var meterBars=el('wpVoiceBars'), meterLabel=el('wpVoiceMeterLabel');
+  var meterStream=null, meterContext=null, meterAnalyser=null, meterFrame=0, meterData=null;
+  var voiceRecognition=null, voiceListening=false, meterStarting=false;
+  for(var bi=0;bi<13;bi++){
+    var bar=document.createElement('span');
+    bar.style.cssText='display:block;width:4px;height:4px;border-radius:4px;background:var(--accent,#3b82f6);opacity:.35;transition:height 65ms ease,opacity 65ms ease;flex-shrink:0';
+    meterBars.appendChild(bar);
+  }
+  function paintMeter(level){
+    var bars=meterBars.children;
+    for(var i=0;i<bars.length;i++){
+      var shape=1-Math.abs(i-6)/7;
+      var height=4+Math.round(Math.max(0,level)*25*shape);
+      bars[i].style.height=height+'px';
+      bars[i].style.opacity=level>.025?'.95':'.35';
+    }
+  }
+  function stopMeter(){
+    if(meterFrame){cancelAnimationFrame(meterFrame);meterFrame=0;}
+    if(meterStream){meterStream.getTracks().forEach(function(t){t.stop()});meterStream=null;}
+    if(meterContext){var old=meterContext;meterContext=null;old.close().catch(function(){});}
+    meterAnalyser=null;meterData=null;paintMeter(0);meterLabel.textContent='In attesa';
+    meterStarting=false;
+  }
+  function drawMeter(){
+    if(!meterAnalyser)return;
+    meterAnalyser.getByteTimeDomainData(meterData);
+    var sum=0;
+    for(var i=0;i<meterData.length;i++){var x=(meterData[i]-128)/128;sum+=x*x;}
+    var rms=Math.sqrt(sum/meterData.length);
+    var level=Math.min(1,rms*8);
+    paintMeter(level);
+    meterLabel.textContent=level>.09?'Voce rilevata':'In ascolto';
+    meterFrame=requestAnimationFrame(drawMeter);
+  }
+  async function startMeter(){
+    if(meterStarting||meterStream)return;
+    meterStarting=true;
+    try{
+      if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia)throw Error('Microfono non supportato');
+      var stream=await navigator.mediaDevices.getUserMedia({audio:true});
+      if(!voiceListening){stream.getTracks().forEach(function(t){t.stop()});meterStarting=false;return;}
+      meterStream=stream;
+      var AC=window.AudioContext||window.webkitAudioContext;
+      if(!AC)throw Error('Analisi audio non supportata');
+      meterContext=new AC();
+      var source=meterContext.createMediaStreamSource(stream);
+      meterAnalyser=meterContext.createAnalyser();
+      meterAnalyser.fftSize=512;
+      source.connect(meterAnalyser);
+      meterData=new Uint8Array(meterAnalyser.fftSize);
+      meterStarting=false;drawMeter();
+    }catch(e){
+      stopMeter();
+      if(voiceListening)meterLabel.textContent='Non disponibile';
+    }
+  }
+  function endVoice(){
+    voiceListening=false;voiceRecognition=null;stopMeter();
+    el('wpVoiceStart').textContent='🎙️ Parla (solo offline)';
+  }
+  el('wpVoiceStart').addEventListener('click',async function(){
+    if(voiceListening){
+      if(voiceRecognition)try{voiceRecognition.stop()}catch(e){}
+      endVoice();status('Ascolto terminato.');return;
+    }
+    var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+    if(!SR||typeof SR.available!=='function'){
+      status('Il riconoscimento vocale offline non è disponibile in questo browser. Usa il microfono della tastiera per dettare il testo, poi premi Compila campi.');return;
+    }
+    try{
+      status('Verifico il riconoscimento vocale offline…');
+      var available=await SR.available({langs:['it-IT'],processLocally:true});
+      if(available!=='available'){
+        status('Il pacchetto italiano offline non è già disponibile. Per privacy non avvio un servizio vocale online: usa la dettatura della tastiera.');return;
+      }
+      var r=new SR();r.lang='it-IT';r.processLocally=true;r.interimResults=false;r.maxAlternatives=1;
+      voiceRecognition=r;voiceListening=true;
+      r.onresult=function(e){el('wpVoiceText').value=e.results[0][0].transcript;status('Testo riconosciuto sul dispositivo. Premi Compila campi.');};
+      r.onerror=function(e){status('Microfono non disponibile: '+e.error+'. Puoi usare la tastiera.');endVoice();};
+      r.onend=function(){if(voiceListening&&!el('wpVoiceText').value)status('Registrazione terminata. Puoi usare il microfono della tastiera.');endVoice();};
+      r.start();
+      el('wpVoiceStart').textContent='■ Ferma ascolto';
+      status('Ascolto offline in corso…');
+      startMeter();
+    }catch(e){endVoice();status('Riconoscimento offline non disponibile. Usa il microfono della tastiera.');}
+  });
+  // Quando si chiude il pannello, rilascia immediatamente il microfono.
+  var voiceBox=el('wpVoiceBox');
+  var observer=new MutationObserver(function(){
+    if(voiceListening && !voiceBox.getClientRects().length){
+      if(voiceRecognition)try{voiceRecognition.abort()}catch(e){}
+      endVoice();
+    }
+  });
+  observer.observe(el('addModal'),{attributes:true,attributeFilter:['class','style']});
+
 })();
 </script>
 
