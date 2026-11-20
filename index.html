@@ -580,6 +580,42 @@ body.wp-lanna-refined #addModal .wp-lanna-voice-start {background:#ff3b30;color:
 body.wp-lanna-refined #addModal .wp-lanna-voice-start.recording {background:white;color:#d92c25;border:1px solid #d92c25}
 body.wp-lanna-refined #addModal .wp-lanna-voice-import {background:var(--input-bg);color:var(--text);border:1px solid var(--border)}
 </style>
+<style id="wp-lanna-final-adjustments">
+/* Barra di navigazione sospesa, indipendente dalla WebView nativa. */
+body.wp-lanna-refined > .tab-bar {
+  position:fixed!important; left:12px!important;right:12px!important;
+  bottom:calc(9px + env(safe-area-inset-bottom,0px))!important;
+  width:auto!important;max-width:600px;margin:0 auto!important;
+  border-radius:25px!important;padding:10px 7px!important;
+  min-height:63px;align-items:center;
+  border:1px solid rgba(255,255,255,.62)!important;
+  box-shadow:0 9px 30px rgba(38,50,77,.18),inset 0 1px rgba(255,255,255,.55)!important;
+  overflow:hidden;isolation:isolate;
+}
+body.dark.wp-lanna-refined > .tab-bar {border-color:rgba(255,255,255,.17)!important;box-shadow:0 9px 30px rgba(0,0,0,.38),inset 0 1px rgba(255,255,255,.10)!important}
+body.wp-lanna-refined > .tab-bar .tab-item {flex:1 1 0;min-width:0;border-radius:15px;padding:5px 1px!important}
+body.wp-lanna-refined > .tab-bar .tab-item.active {background:rgba(0,122,255,.09)}
+body.wp-lanna-refined {padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))!important}
+/* Aggiungi: azioni fisse in basso, Salva più largo di Annulla. */
+body.wp-lanna-refined #addModal.open {bottom:calc(86px + env(safe-area-inset-bottom,0px))!important}
+body.wp-lanna-refined #addModal>.modal-sheet {padding-bottom:100px!important}
+body.wp-lanna-refined #addModal .modal-top #closeModalBtn {display:none!important}
+body.wp-lanna-refined #addModal .wp-add-actions {
+ position:absolute;bottom:0;left:50%;transform:translateX(-50%);z-index:25;
+ width:calc(100% - 20px);max-width:540px;display:flex;gap:10px;
+ align-items:center;box-sizing:border-box;padding:11px 16px 12px;
+ background:rgba(248,249,253,.83);border-top:1px solid var(--border);
+ -webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);
+ border-radius:0 0 20px 20px;
+}
+body.dark.wp-lanna-refined #addModal .wp-add-actions {background:rgba(31,33,39,.85)}
+body.wp-lanna-refined #addModal .wp-add-actions .save-btn {flex:1 1 auto!important;width:auto!important;min-width:0;margin:0!important;min-height:50px!important}
+body.wp-lanna-refined #addModal .wp-add-actions #closeModalBtn {display:block!important;flex:0 0 94px!important;min-height:50px!important;border-radius:14px!important;padding:10px!important}
+/* Il gesto di pressione prolungata non deve selezionare o copiare il testo. */
+#wpLannaVoiceStart {touch-action:none!important;-webkit-touch-callout:none!important;-webkit-user-select:none!important;user-select:none!important;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+#wpLannaVoiceStart * {-webkit-user-select:none!important;user-select:none!important;pointer-events:none}
+#wpLannaVoiceStart svg {width:22px;height:22px;flex:none}
+</style>
 </head>
 <body>
 <div id="toast" class="toast"></div>
@@ -925,7 +961,7 @@ body.wp-lanna-refined #addModal .wp-lanna-voice-import {background:var(--input-b
       <label class="form-label" for="wpLannaVoiceText">Testo riconosciuto</label>
       <textarea class="form-input" id="wpLannaVoiceText" rows="3" placeholder="Ho speso 35 euro di benzina ieri"></textarea>
       <div class="wp-lanna-voice-actions">
-        <button type="button" class="wp-lanna-voice-start" id="wpLannaVoiceStart">🎙️ Tieni premuto</button>
+        <button type="button" class="wp-lanna-voice-start" id="wpLannaVoiceStart">🎙️ Avvia registrazione</button>
         <button type="button" class="wp-lanna-voice-import" id="wpLannaVoiceImport">Importa</button>
       </div>
       <div id="wpLannaVoiceStatus" class="row-sub" role="status" aria-live="polite" style="margin-top:9px">Il testo è interpretato sul dispositivo. Il microfono dipende dal supporto del browser.</div>
@@ -2169,6 +2205,7 @@ body.wp-lanna-refined #addModal .wp-lanna-voice-import {background:var(--input-b
       document.getElementById('inpAmount').value = '';
     }
     document.getElementById('expDesc').value = '';
+    document.getElementById('expDesc').dataset.smartManual='0';
     document.getElementById('expAmount').value = '';
     document.getElementById('expRecurring').checked = false;
     document.getElementById('evTitle').value = '';
@@ -2263,7 +2300,7 @@ body.wp-lanna-refined #addModal .wp-lanna-voice-import {background:var(--input-b
     var amount=best&&best.score>=65&&!ambiguous?best.value:null;
     var merchant=receiptMerchant(lines),date=receiptDate(lines);
     if(amount!==null)document.getElementById('expAmount').value=toDisplayAmount(amount).toFixed(2).replace('.',',');
-    if(merchant)document.getElementById('expDesc').value=merchant.slice(0,60);
+    if(merchant){document.getElementById('expDesc').value=merchant.slice(0,60);smartSuggestExpense(false);}
     if(date)document.getElementById('expDate').value=date;
     return {amount:amount,merchant:merchant,date:date,uncertain:amount===null,ambiguous:ambiguous};
   }
@@ -2548,7 +2585,9 @@ body.wp-lanna-refined #addModal .wp-lanna-voice-import {background:var(--input-b
     state.expenses.push({ date: dt, category: cat, desc: desc, amount: val, duplicateConfirmed: existingSameExpense });
     if (isRec) state.recurring.push({ category: cat, desc: desc, amount: val });
     currentYear = Number(dt.slice(0, 4));
-    saveState(); syncYearDropdown(); renderDashboard(); renderSpese(); closeModal();
+    if(!saveState())return;
+    smartRemember(desc,cat);
+    syncYearDropdown(); renderDashboard(); renderSpese(); closeModal();
     showToast('Uscita salvata: -' + fmtEur(val));
   });
 
@@ -3336,6 +3375,49 @@ body.wp-lanna-refined #addModal .wp-lanna-voice-import {background:var(--input-b
     return window.walletProParseAmount(v, locale);
   }
 
+  // Categorie intelligenti condivise fra inserimento, OCR, voce e importazioni.
+  // Tutto rimane in localStorage; non modifica i movimenti esistenti.
+  var SMART_CAT_KEY='walletpro_smart_categories_v1';
+  function smartWords(value){
+    var stop={pagamento:1,acquisto:1,operazione:1,bonifico:1,addebito:1,credito:1,carta:1,bancomat:1,transazione:1,esercente:1,negozio:1,terminale:1,rif:1,pos:1,del:1,della:1,per:1,con:1,via:1,spa:1,srl:1,italia:1};
+    return bankNorm(value).split(' ').filter(function(w){return w.length>=3&&!stop[w]&&!/^\d+$/.test(w)&&!/^\d{4,}$/.test(w);});
+  }
+  function smartKey(value){return smartWords(value).slice(0,5).join(' ');}
+  function smartRead(){try{var x=JSON.parse(localStorage.getItem(SMART_CAT_KEY)||'{}');return x&&typeof x==='object'&&!Array.isArray(x)?x:{}}catch(e){return {}}}
+  function smartRemember(desc,cat){
+    var key=smartKey(desc);if(!key||!cat||/^altro$/i.test(cat))return;
+    var m=smartRead();m[key]={category:cat,updated:Date.now()};
+    var keys=Object.keys(m);if(keys.length>450){keys.sort(function(a,b){return (m[a].updated||0)-(m[b].updated||0)});keys.slice(0,keys.length-400).forEach(function(k){delete m[k]})}
+    try{localStorage.setItem(SMART_CAT_KEY,JSON.stringify(m))}catch(e){}
+  }
+  function smartLearned(desc){
+    var key=smartKey(desc);if(!key)return null;
+    var m=smartRead(), exact=m[key];if(exact&&allCategories().indexOf(exact.category)>=0)return exact.category;
+    // Variante dello stesso negozio con numero terminale, località o identificativo.
+    var words=smartWords(desc), candidates={};
+    Object.keys(m).forEach(function(k){
+      var entry=m[k],c=entry&&entry.category;
+      if(allCategories().indexOf(c)<0)return;
+      var known=k.split(' '),common=known.filter(function(w){return words.indexOf(w)>=0&&w.length>=5});
+      if(common.length<1)return;
+      var overlap=common.length/Math.max(known.length,words.length);
+      if(overlap<0.5 && common.length<2)return;
+      var score=common.length*10+overlap*10;
+      if(!candidates[c]||candidates[c]<score)candidates[c]=score;
+    });
+    var ranked=Object.keys(candidates).sort(function(a,b){return candidates[b]-candidates[a]});
+    return ranked.length && (ranked.length===1||candidates[ranked[0]]>candidates[ranked[1]]+5)?ranked[0]:null;
+  }
+  function smartSuggestExpense(force){
+    var d=document.getElementById('expDesc'),c=document.getElementById('expCategory');if(!d||!c||!d.value.trim())return;
+    if(!force&&d.dataset.smartManual==='1')return;
+    var cat=smartLearned(d.value)||learnedExpenseCategory(d.value);
+    if(!cat){var fallback=bankCategory(d.value);if(fallback!=='Altro')cat=fallback;}
+    if(cat&&Array.from(c.options).some(function(o){return o.value===cat}))c.value=cat;
+  }
+  window.walletproSmartSuggest=function(){smartSuggestExpense(false)};
+  document.getElementById('expDesc').addEventListener('input',function(){smartSuggestExpense(false)});
+  document.getElementById('expCategory').addEventListener('change',function(){document.getElementById('expDesc').dataset.smartManual='1'});
   // Apprende le categorie dalle uscite già salvate, senza server o servizi esterni.
   // Preferisce causali uguali; poi prefissi e sequenze di parole significative.
   function learnedExpenseCategory(desc) {
@@ -3368,7 +3450,7 @@ body.wp-lanna-refined #addModal .wp-lanna-voice-import {background:var(--input-b
     return score>=60 ? best : null;
   }
   function bankCategory(desc) {
-    var learned=learnedExpenseCategory(desc);
+    var learned=smartLearned(desc)||learnedExpenseCategory(desc);
     if(learned) return learned;
     var d = bankNorm(desc);
     if (/supermerc|alimentari|conad|lidl|coop|carrefour|esselunga|spesa/.test(d)) return 'Alimentari';
@@ -4581,7 +4663,8 @@ function apply(){
    if(e('expDate'))e('expDate').value=[p.date.getFullYear(),String(p.date.getMonth()+1).padStart(2,'0'),String(p.date.getDate()).padStart(2,'0')].join('-');
    if(e('expAmount'))e('expAmount').value=p.amount;
    if(e('expDesc'))e('expDesc').value=p.desc;
-   if(p.cat)e('expCategory').value=p.cat;
+   if(typeof window.walletproSmartSuggest==='function')window.walletproSmartSuggest();
+   if(p.cat && (!e('expCategory').value || e('expCategory').value==='Altro'))e('expCategory').value=p.cat;
  }else{
    if(e('evYear'))e('evYear').value=p.date.getFullYear();if(e('evTitle'))e('evTitle').value=p.desc;if(e('evVal'))e('evVal').value=p.amount;
  }
@@ -4601,25 +4684,101 @@ for(let [id,kind] of [['btnSaveNetto','in'],['btnSaveUscita','out']]){
  });
 }
 const btn=e('wpLannaVoiceStart'),field=e('wpLannaVoiceText');
-let rec=null,held=false;
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+let rec=null,recording=false,starting=false,hasResult=false,finalText='',interimText='';
+function buttonState(active){
+ btn.classList.toggle('recording',active);
+ btn.setAttribute('aria-pressed',active?'true':'false');
+ const label=btn.querySelector('#wpLannaVoiceMicLabel');
+ if(label)label.textContent=active?'Ferma registrazione':'Avvia registrazione';
+ else btn.textContent=active?'Ferma registrazione':'Avvia registrazione';
+}
 if(SR){
- try{rec=new SR();rec.lang='it-IT';rec.continuous=false;rec.interimResults=false;
- rec.onresult=function(ev){field.value=ev.results[ev.results.length-1][0].transcript;status('Testo riconosciuto. Premi Importa per compilare i campi.')};
- rec.onerror=function(ev){status('Microfono non disponibile: '+(ev.error||'errore')+'. Puoi scrivere il testo manualmente.')};
- rec.onend=function(){held=false;btn.classList.remove('recording');btn.textContent='🎙️ Tieni premuto'};
+ try{
+  rec=new SR();rec.lang='it-IT';rec.continuous=true;rec.interimResults=true;rec.maxAlternatives=1;
+  rec.onstart=function(){starting=false;recording=true;buttonState(true);status('Ascolto in corso… parla chiaramente, poi tocca Ferma registrazione.');};
+  rec.onresult=function(ev){
+   let finals=[],partials=[];
+   for(let i=0;i<ev.results.length;i++){
+    const r=ev.results[i],txt=r[0]&&r[0].transcript||'';
+    (r.isFinal?finals:partials).push(txt);
+   }
+   finalText=finals.join(' ').trim();interimText=partials.join(' ').trim();
+   field.value=[finalText,interimText].filter(Boolean).join(' ').trim();
+   if(field.value){hasResult=true;status('Trascrizione in corso. Tocca Ferma registrazione quando hai finito.');}
+  };
+  rec.onerror=function(ev){
+   starting=false;recording=false;buttonState(false);
+   const messages={
+    'not-allowed':'Accesso al microfono negato. Consenti il microfono nelle impostazioni di Safari.',
+    'service-not-allowed':'Il servizio di riconoscimento vocale non è disponibile o non è autorizzato.',
+    'audio-capture':'Microfono non disponibile. Controlla i permessi e riprova.',
+    'network':'Riconoscimento vocale non disponibile senza rete in questo browser.',
+    'no-speech':'Non è stata rilevata alcuna voce. Tocca Avvia registrazione e riprova.',
+    'language-not-supported':'La lingua italiana non è supportata dal riconoscimento del browser.'
+   };
+   status(messages[ev.error]||('Errore riconoscimento vocale: '+(ev.error||'sconosciuto')));
+  };
+  rec.onend=function(){
+   const hadText=!!field.value.trim();starting=false;recording=false;buttonState(false);
+   if(hadText)status('Testo trascritto. Premi Importa per compilare i campi.');
+   else if(!hasResult)status('Nessun testo trascritto. Verifica il permesso microfono e riprova.');
+  };
  }catch(_){rec=null}
 }
-function start(ev){if(ev.type==='pointerdown'&&ev.button!==0)return;ev.preventDefault();if(!rec){status('Il riconoscimento vocale non è supportato da questo browser. Scrivi il testo e premi Importa.');return}if(held)return;held=true;btn.classList.add('recording');btn.textContent='Rilascia per fermare';try{rec.start();status('Registrazione attiva. La disponibilità offline dipende dal browser.')}catch(err){held=false;status('Microfono non disponibile: '+err.message)}}
-function stop(ev){if(!held)return;ev.preventDefault();held=false;try{rec.stop()}catch(_){}btn.classList.remove('recording');btn.textContent='🎙️ Tieni premuto'}
-btn.addEventListener('pointerdown',start);window.addEventListener('pointerup',stop);window.addEventListener('pointercancel',stop);
-btn.addEventListener('keydown',function(ev){if(ev.key===' '||ev.key==='Enter')start(ev)});
-btn.addEventListener('keyup',function(ev){if(ev.key===' '||ev.key==='Enter')stop(ev)});
+function toggleRecording(ev){
+ if(ev){ev.preventDefault();ev.stopPropagation();}
+ if(!rec){status('Questo browser non offre il riconoscimento vocale. Puoi digitare il testo e premere Importa.');return;}
+ if(recording||starting){
+  starting=false;recording=false;buttonState(false);
+  try{rec.stop()}catch(err){status('Impossibile fermare la registrazione: '+err.message)}
+  return;
+ }
+ if(!window.isSecureContext){status('Il microfono richiede HTTPS (oppure localhost). Apri Wallet-PRO dal sito HTTPS.');return;}
+ hasResult=false;finalText='';interimText='';field.value='';
+ starting=true;buttonState(true);status('Attivazione microfono… consenti l’accesso quando richiesto.');
+ try{rec.start()}catch(err){starting=false;recording=false;buttonState(false);status('Impossibile avviare il riconoscimento: '+err.message)}
+}
+btn.addEventListener('click',toggleRecording);
+btn.addEventListener('contextmenu',function(ev){ev.preventDefault()});
+buttonState(false);
 e('wpLannaVoiceImport').addEventListener('click',apply);
 for(let id of ['segNetto','segUscita','segEvento'])e(id).addEventListener('click',function(){pending=null});
 })();
 </script>
 <script>document.body.classList.add("wp-lanna-refined");</script>
+<script id="wp-lanna-final-actions">
+(function(){
+ function init(){
+  var modal=document.getElementById('addModal'),sheet=modal&&modal.querySelector('.modal-sheet');
+  var cancel=document.getElementById('closeModalBtn');
+  if(!sheet||!cancel)return;
+  var dock=document.createElement('div');dock.className='wp-add-actions';
+  var forms=['formNetto','formUscita','formEvento'];
+  var saves=['btnSaveNetto','btnSaveUscita','btnSaveEvento'];
+  saves.forEach(function(id){var b=document.getElementById(id);if(b)dock.appendChild(b)});
+  dock.appendChild(cancel);modal.appendChild(dock);
+  function update(){var active=forms.findIndex(function(id){var f=document.getElementById(id);return f&&getComputedStyle(f).display!=='none'});
+   saves.forEach(function(id,i){var b=document.getElementById(id);if(b)b.style.display=i===active?'block':'none'});
+  }
+  var observer=new MutationObserver(update);
+  forms.forEach(function(id){var f=document.getElementById(id);if(f)observer.observe(f,{attributes:true,attributeFilter:['style','class']})});
+  update();
+  var btn=document.getElementById('wpLannaVoiceStart');if(!btn)return;
+  var svg='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5m-4 0h8"/></svg>';
+  var label=document.createElement('span');label.id='wpLannaVoiceMicLabel';
+  function render(){var recording=btn.classList.contains('recording');label.textContent=recording?'Ferma registrazione':'Avvia registrazione';btn.replaceChildren();btn.insertAdjacentHTML('afterbegin',svg);btn.appendChild(label);btn.setAttribute('aria-pressed',recording?'true':'false')}
+  // Avoid interfering with the original microphone event listeners.
+  new MutationObserver(render).observe(btn,{attributes:true,attributeFilter:['class']});
+  render();
+  btn.addEventListener('contextmenu',function(e){e.preventDefault()});
+  btn.addEventListener('selectstart',function(e){e.preventDefault()});
+  btn.addEventListener('dragstart',function(e){e.preventDefault()});
+  // Safari may not emit Pointer Events on older versions; original listeners remain active.
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
 </body>
 </html>
 
