@@ -1224,7 +1224,7 @@
     });
     return best;
   }
-  function extractReceiptData(text) {
+  function extractReceiptData(text, applyFields) {
     var lines=String(text||'').split(/\r?\n/).map(function(x){return x.trim();}).filter(Boolean);
     var candidates=[];
     var totalRx=/\b(?:TOTALE(?:\s+(?:DA\s*PAGARE|PAGATO|DOCUMENTO|COMPLESSIVO|EUR|EURO))?|TOT\.?|IMPORTO\s+(?:PAGATO|DOVUTO|TOTALE)|DA\s*PAGARE|AMOUNT\s*DUE|TOTAL)\b/i;
@@ -1251,9 +1251,9 @@
     var ambiguous=!!(best&&runner&&Math.abs(best.score-runner.score)<12&&Math.abs(best.value-runner.value)>0.009);
     var amount=best&&best.score>=65&&!ambiguous?best.value:null;
     var merchant=receiptMerchant(lines),date=receiptDate(lines);
-    if(amount!==null)document.getElementById('expAmount').value=toDisplayAmount(amount).toFixed(2).replace('.',',');
-    if(merchant){document.getElementById('expDesc').value=merchant.slice(0,60);smartSuggestExpense(false);}
-    if(date)document.getElementById('expDate').value=date;
+    if(applyFields!==false && amount!==null)document.getElementById('expAmount').value=toDisplayAmount(amount).toFixed(2).replace('.',',');
+    if(applyFields!==false && merchant){document.getElementById('expDesc').value=merchant.slice(0,60);smartSuggestExpense(false);}
+    if(applyFields!==false && date)document.getElementById('expDate').value=date;
     return {amount:amount,merchant:merchant,date:date,uncertain:amount===null,ambiguous:ambiguous};
   }
   // Aumenta contrasto e risoluzione localmente per migliorare la lettura delle cifre.
@@ -1263,9 +1263,9 @@
       var url = URL.createObjectURL(file);
       img.onload = function() {
         try {
-          var maxEdge = 2600;
-          var scale = Math.min(2.2, maxEdge / Math.max(img.naturalWidth, img.naturalHeight));
-          scale = Math.max(1, scale);
+          var maxEdge = 1700;
+          var scale = Math.min(1.6, maxEdge / Math.max(img.naturalWidth, img.naturalHeight));
+          scale = Math.min(1.6, Math.max(0.2, scale));
           var canvas = document.createElement('canvas');
           canvas.width = Math.round(img.naturalWidth * scale);
           canvas.height = Math.round(img.naturalHeight * scale);
@@ -1564,14 +1564,36 @@
     var input = this;
     loadOcrLibrary(function() {
       if (typeof Tesseract === 'undefined') { status.textContent = 'Motore OCR non disponibile'; input.value = ''; return; }
-      prepareReceiptImage(file).then(function(image) { return Tesseract.recognize(image, 'ita+eng', {
-        workerPath:new URL('vendor/worker.min.js', document.baseURI).href, corePath:new URL('vendor/tesseract-core.wasm.js', document.baseURI).href,
-        langPath:new URL('vendor/lang', document.baseURI).href, workerBlobURL:false, gzip:true, logger:function(m) { if(m && m.status) status.textContent = 'OCR locale: ' + m.status + (m.progress ? ' ' + Math.round(m.progress*100) + '%' : ''); }
-      }); }).then(function(result) {
-        var txt = result && result.data ? result.data.text : '';
-        var found = extractReceiptData(txt);
-        status.textContent = (found.uncertain ? 'Importo non affidabile: inseriscilo o correggilo manualmente. ' : 'Importo individuato: controllalo prima di salvare. ') + (found.merchant ? 'Negozio: '+found.merchant+'. ' : 'Negozio non identificato. ') + (found.date ? 'Data: '+found.date+'.' : 'Data non identificata: verifica la data.');
-      }).catch(function(err) { status.textContent = 'OCR non riuscito. Verifica i file vendor locali e riprova.'; }).then(function(){ input.value=''; });
+      var opts = {workerPath:new URL('vendor/worker.min.js', document.baseURI).href,
+        corePath:new URL('vendor/tesseract-core.wasm.js', document.baseURI).href,
+        langPath:new URL('vendor/lang', document.baseURI).href, workerBlobURL:false, gzip:true,
+        logger:function(m){if(m&&m.status)status.textContent='OCR locale: '+m.status+(m.progress?' '+Math.round(m.progress*100)+'%':'');}};
+      var first=null, second=null, firstImage=null;
+      prepareReceiptImage(file).then(function(image){
+        firstImage=image;
+        return Tesseract.recognize(image,'ita+eng',opts);
+      }).then(function(result){
+        first=extractReceiptData(result&&result.data?result.data.text:'',false);
+        // La seconda lettura usa il file originale solo se il totale non è attendibile.
+        if(first.amount!==null&&!first.ambiguous)return null;
+        status.textContent='Seconda lettura OCR sullo scontrino originale…';
+        return Tesseract.recognize(file,'ita+eng',opts);
+      }).then(function(result){
+        if(result)second=extractReceiptData(result&&result.data?result.data.text:'',false);
+        var chosen=first;
+        if(second&&second.amount!==null&&(first.amount===null||first.ambiguous))chosen=second;
+        if(first&&second&&first.amount!==null&&second.amount!==null&&Math.abs(first.amount-second.amount)>0.009){
+          chosen={amount:null,merchant:first.merchant||second.merchant,date:first.date||second.date,uncertain:true,ambiguous:true};
+        }
+        if(chosen.amount!==null)document.getElementById('expAmount').value=toDisplayAmount(chosen.amount).toFixed(2).replace('.',',');
+        if(chosen.merchant){document.getElementById('expDesc').value=chosen.merchant.slice(0,60);smartSuggestExpense(false);}
+        if(chosen.date)document.getElementById('expDate').value=chosen.date;
+        status.textContent=(chosen.ambiguous?'Letture discordanti: controlla manualmente il totale. ':
+          chosen.uncertain?'Totale non riconosciuto: inseriscilo manualmente. ':'Importo individuato: controllalo prima di salvare. ')+
+          (chosen.merchant?'Negozio: '+chosen.merchant+'. ':'Negozio non identificato. ')+
+          (chosen.date?'Data: '+chosen.date+'.':'Data non identificata: verifica la data.');
+      }).catch(function(err){status.textContent='OCR non riuscito: '+(err&&err.message?err.message:'verifica i file OCR locali');})
+      .then(function(){if(firstImage&&firstImage.width){firstImage.width=0;firstImage.height=0;}input.value='';});
     });
   });
 
@@ -2080,24 +2102,29 @@
   }
 
   function readPayFile(pdfjs, file) {
-    return readFileBuffer(file).then(function(buf) {
-      return pdfjs.getDocument({ data: buf, isEvalSupported: false }).promise;
-    }).then(function(pdf) {
-      return extractPdfLines(pdf).then(function(lines) {
-        if (lines.length >= 3) return { lines: lines, ocr: false };
-        return askOcr().then(function(allowed) {
-          if (!allowed) return { lines: [], ocr: false };
-          return ocrPdfPage(pdf).catch(function(err) { throw new Error('OCR PDF locale non riuscito. Verifica i file vendor.'); }).then(function(txt) {
-            var ls = String(txt).split(/\r?\n/).map(function(s) { return s.trim(); }).filter(Boolean);
-            return { lines: ls, ocr: true };
+    var loadingTask=null, pdf=null;
+    return readFileBuffer(file).then(function(buf){
+      loadingTask=pdfjs.getDocument({data:buf,isEvalSupported:false});
+      buf=null;
+      return loadingTask.promise;
+    }).then(function(doc){
+      pdf=doc;
+      return extractPdfLines(pdf).then(function(lines){
+        if(lines.length>=3)return {lines:lines,ocr:false};
+        return askOcr().then(function(allowed){
+          if(!allowed)return {lines:[],ocr:false};
+          return ocrPdfPage(pdf).then(function(txt){
+            return {lines:String(txt).split(/\r?\n/).map(function(x){return x.trim();}).filter(Boolean),ocr:true};
           });
         });
       });
-    }).then(function(res) {
-      var note = '';
-      if (!res.lines.length) note = 'PDF scansionato senza testo: compila a mano';
-      else if (res.ocr) note = 'Letto con OCR locale: controlla i valori';
-      return makeRow(file.name, parsePayslip(res.lines, file.name), note);
+    }).then(function(res){
+      var note=!res.lines.length?'PDF senza testo: compila a mano':res.ocr?'Letto con OCR locale: controlla i valori':'';
+      return makeRow(file.name,parsePayslip(res.lines,file.name),note);
+    }).finally(function(){
+      // PDF.js trattiene font, immagini e pagine finché il documento non viene distrutto.
+      if(loadingTask)return Promise.resolve(loadingTask.destroy()).catch(function(){});
+      if(pdf)return Promise.resolve(pdf.destroy()).catch(function(){});
     });
   }
 
@@ -2216,6 +2243,7 @@
     files.sort(function(a, b) { return a.name.localeCompare(b.name); });
     var run = ++payRun;
     payRows = []; payOcrAllowed = null;
+    try{sessionStorage.removeItem('walletpro_pdf_preview_v1');}catch(_){}
     document.getElementById('payRows').innerHTML = '';
     document.getElementById('payModal').classList.add('open');
     setPayProgress('Caricamento lettore PDF...', true);
@@ -2227,10 +2255,12 @@
           if (run !== payRun) return;
           setPayProgress('Lettura ' + (idx + 1) + '/' + files.length + ': ' + file.name, true);
           wpImportProgress('pdf','Analisi PDF '+(idx+1)+' di '+files.length+': '+file.name,idx/files.length,false);
-          return readPayFile(pdfjs, file).then(
+          return new Promise(function(resolve){setTimeout(resolve,25);}).then(function(){return readPayFile(pdfjs,file);}).then(
             function(row) { payRows.push(row); wpImportProgress('pdf','PDF elaborati: '+(idx+1)+' di '+files.length,(idx+1)/files.length,false); },
             function(err) { payRows.push(makeRow(file.name, { amount: null, m: -1, y: 0 }, 'PDF non leggibile: ' + (err && err.message ? err.message : 'errore sconosciuto'))); wpImportProgress('pdf','PDF elaborati: '+(idx+1)+' di '+files.length,(idx+1)/files.length,false); }
-          );
+          ).then(function(){
+            try{sessionStorage.setItem('walletpro_pdf_preview_v1',JSON.stringify(payRows));}catch(_){}
+          });
         });
       });
       return chain;
@@ -2246,6 +2276,10 @@
     });
   }
 
+  // Recupero locale dell'anteprima dopo un riavvio della PWA, senza salvare stipendi.
+  try{var prev=JSON.parse(sessionStorage.getItem('walletpro_pdf_preview_v1')||'[]');
+    if(Array.isArray(prev)&&prev.length){payRows=prev.filter(function(r){return r&&typeof r.name==='string'&&typeof r.amount==='string';});}
+  }catch(_){}
   document.getElementById('btnPayFiles').addEventListener('click', function() { wpImportProgress('pdf','Seleziona i PDF da importare…',null,false); document.getElementById('payFilesInput').click(); });
   document.getElementById('btnPayFolder').addEventListener('click', function() { wpImportProgress('pdf','Seleziona una cartella di PDF…',null,false); document.getElementById('payFolderInput').click(); });
   ['payFilesInput', 'payFolderInput'].forEach(function(id) {
@@ -2300,6 +2334,7 @@
     if (imported) {
       currentYear = last;
       saveState(); syncYearDropdown(); renderDashboard(); renderEntrate(); renderStorico();
+      try{sessionStorage.removeItem('walletpro_pdf_preview_v1');}catch(_){}
       closePayModal();
     }
     var summary = 'PDF: ' + imported + ' nuovi stipendi, ' + duplicates + ' duplicati ignorati, ' + conflicts + ' importi diversi non modificati.';
