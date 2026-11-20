@@ -10,7 +10,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Wallet-PRO</title>
-<meta name="walletpro-build" content="walletpro-3.1.0-ricorrenze-20261120">
+<meta name="walletpro-build" content="walletpro-3.1.0-idb-safe-20261120">
 <link rel="stylesheet" href="assets/walletpro.css">
 
 
@@ -325,6 +325,7 @@
        <button type="button" id="btnExportJson" class="action-btn">Esegui backup completo JSON</button>
       <label id="btnImportJson" for="jsonFileInput" class="action-btn wp-file-label" role="button" tabindex="0">Ripristina backup completo JSON</label>
       <input type="file" id="jsonFileInput" accept=".json" class="wp-accessible-file">
+      <div style="padding:12px 15px;font-size:13px;color:var(--subtext)"><strong>Archivio locale IndexedDB (test)</strong><div id="wpIdbStorageInfo" role="status" aria-live="polite" style="padding:8px 0">Verifica disponibilità…</div><button type="button" class="action-btn" id="wpIdbRefresh">Verifica archivio e spazio</button><button type="button" class="action-btn" id="wpIdbPersist">Richiedi archiviazione persistente</button><p>IndexedDB è una copia locale, non un backup esterno. Il backup JSON resta necessario. Nessun ripristino automatico.</p></div>
       <button type="button" id="btnResetAll" class="action-btn danger">Azzera Tutti i Dati</button>
     </div>
     </details>
@@ -456,6 +457,7 @@
     </div>
   </div>
 </div>
+<script src="assets/indexeddb-sicuro.js"></script>
 <script src="assets/walletpro-core.js"></script>
 
 <script src="assets/dashboard-trascinamento.js"></script>
@@ -488,6 +490,7 @@
 
 <script src="assets/pannello-aggiungi.js"></script>
 <script src="assets/backup-reminder.js"></script>
+<script src="assets/indexeddb-opzioni.js"></script>
 </body>
 </html>
 

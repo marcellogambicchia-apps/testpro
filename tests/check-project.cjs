@@ -7,8 +7,11 @@ const html=read('index.html'), sw=read('sw.js');
 const scripts=[...html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"[^>]*><\/script>/g)].map(x=>x[1]);
 const locals=scripts.filter(x=>!/^https?:\/\//.test(x));
 assert(html.includes('Versione 3.1.0'),'Versione visibile modificata');
-assert(html.includes('walletpro-3.1.0-ricorrenze-20261120'),'Meta build non aggiornato');
-assert(sw.includes('wallet-pro-v310-ricorrenze-20261120'),'Cache non aggiornata');
+const build=(html.match(/<meta name="walletpro-build" content="([^"]+)"/)||[])[1];
+const cache=(sw.match(/const CACHE_NAME\s*=\s*'([^']+)'/)||[])[1];
+assert(build&&cache,'Identificativi build/cache assenti');
+assert(build.includes('3.1.0')&&cache.includes('v310'),'Versione build/cache non coerente');
+assert(build.split('-').slice(-2).join('-')===cache.split('-').slice(-2).join('-'),'Cache non aggiornata rispetto al meta build');
 assert(html.includes('class="wp-lanna-refined"'),'Classe del body mancante');
 assert(!html.includes('part-17.js'),'Script inutile ancora incluso');
 for(const f of locals){ assert(fs.existsSync(path.join(root,f)),`Script mancante: ${f}`); }
