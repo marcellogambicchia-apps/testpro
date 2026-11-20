@@ -1,4 +1,4 @@
-WALLET-PRO 3.1.0 (TEST) — PACCHETTO GITHUB COMPLETO
+WALLET-PRO 3.1.0 — PACCHETTO UFFICIALE GITHUB COMPLETO
 
 1. Prima di pubblicare, crea un backup JSON completo dalla versione attuale e conservalo.
 2. Carica TUTTI i file e le cartelle nella radice del repository GitHub Wallet-PRO, inclusa la cartella nascosta .github e OneSignalSDKWorker.js.
@@ -9,6 +9,6 @@ WALLET-PRO 3.1.0 (TEST) — PACCHETTO GITHUB COMPLETO
 7. Le scadenze finanziarie restano locali; il file .ics contiene solo titolo generico, data, ricorrenza e avviso. Non include importi o descrizioni.
 8. Le scadenze mensili nei giorni 29–31 sono gestite con date valide anche nei mesi corti; verificare gli eventi esportati sul calendario del dispositivo.
 9. Verifica su iPhone e Android l'importazione .ics e l'avviso. La consegna delle notifiche del calendario dipende dalle impostazioni del dispositivo.
-10. Conserva il precedente ZIP 2.3.11 come versione di ripristino.
+10. Conserva uno ZIP del repository ufficiale precedente come versione di ripristino.
 
 IndexedDB: replica locale latest/previous; nessun ripristino automatico. Le copie non proteggono dalla cancellazione dei dati Safari: eseguire regolarmente backup JSON.

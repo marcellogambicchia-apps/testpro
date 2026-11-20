@@ -11,30 +11,16 @@
     syncWalletTabBarHeight();
   }
   window.addEventListener('resize', syncWalletTabBarHeight);
-  // iOS Safari can move position:fixed controls to the top of the software keyboard.
-  // During text entry in Aggiungi, keep the navigation dock at the page bottom,
-  // behind the keyboard rather than floating over the input fields.
-  function syncKeyboardDock() {
+  // Il pannello Aggiungi ha uno stacking context superiore alla barra.
+  // Non spostare la barra con visualViewport: iOS potrebbe farla risalire
+  // sopra la tastiera durante la modifica dell'importo.
+  function clearLegacyDockTransform() {
     var nav = document.querySelector('body > .tab-bar');
-    var modal = document.getElementById('addModal');
-    if (!nav) return;
-    var viewport = window.visualViewport;
-    var focus = document.activeElement;
-    var textFocus = focus && (focus.matches('input:not([type=checkbox]):not([type=radio]), textarea, select') || focus.isContentEditable);
-    if (!modal || !modal.classList.contains('open') || !textFocus || !modal.contains(focus) || !viewport) {
-      nav.style.removeProperty('transform');
-      return;
-    }
-    var obscured = Math.max(0, window.innerHeight - viewport.height - viewport.offsetTop);
-    nav.style.transform = obscured > 90 ? 'translateY(' + Math.round(obscured) + 'px)' : '';
+    if (nav) nav.style.removeProperty('transform');
   }
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', syncKeyboardDock);
-    window.visualViewport.addEventListener('scroll', syncKeyboardDock);
-  }
-  document.addEventListener('focusin', syncKeyboardDock);
-  document.addEventListener('focusout', function () { requestAnimationFrame(syncKeyboardDock); });
-  document.addEventListener('click', function () { requestAnimationFrame(syncKeyboardDock); });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', clearLegacyDockTransform, {once:true});
+  } else clearLegacyDockTransform();
 
   if (typeof ResizeObserver !== 'undefined') {
     var start = function () {
