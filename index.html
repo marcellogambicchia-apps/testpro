@@ -10,14 +10,14 @@
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Wallet-PRO</title>
-<meta name="walletpro-build" content="walletpro-3.1.0-ui-20261120">
+<meta name="walletpro-build" content="walletpro-3.1.0-ricorrenze-20261120">
 <link rel="stylesheet" href="assets/walletpro.css">
 
 
-<script src="assets/part-01.js"></script>
+<script src="assets/importi.js"></script>
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script src="assets/part-02.js"></script>
-<script src="assets/part-03.js"></script>
+<script src="assets/backup-validazione.js"></script>
+<script src="assets/onesignal-config.js"></script>
 
 
 
@@ -28,7 +28,7 @@
 
 
 </head>
-<body>
+<body class="wp-lanna-refined">
 <div id="toast" class="toast"></div>
 <div id="wpResetOverlay" hidden>
   <div class="wp-reset-dialog" role="dialog" aria-modal="true" aria-labelledby="wpResetTitle" aria-describedby="wpResetDescription">
@@ -456,23 +456,23 @@
     </div>
   </div>
 </div>
-<script src="assets/part-04.js"></script>
+<script src="assets/walletpro-core.js"></script>
 
-<script src="assets/part-05.js"></script>
-<script src="assets/part-06.js"></script>
+<script src="assets/dashboard-trascinamento.js"></script>
+<script src="assets/informazioni.js"></script>
 
-<script src="assets/part-07.js"></script>
-<script src="assets/part-08.js"></script>
+<script src="assets/budget-categorie.js"></script>
+<script src="assets/funzioni-locali.js"></script>
 
 
-<script src="assets/part-09.js"></script>
-<script src="assets/part-10.js"></script>
-<script src="assets/part-11.js"></script>
-<script src="assets/part-12.js"></script>
+<script src="assets/budget-salvataggio.js"></script>
+<script src="assets/avvisi-dashboard.js"></script>
+<script src="assets/notifiche-locali.js"></script>
+<script src="assets/abbonamenti-analisi.js"></script>
 <!-- WALLET-PRO UPDATE CHECK START -->
 
 <div id="wpUpdateBanner" role="status" aria-live="polite"><div style="flex:1"><strong>Nuova versione disponibile</strong><small>Aggiorna Wallet-PRO senza cancellare i tuoi dati.</small></div><button type="button" id="wpUpdateNow">Aggiorna ora</button><button type="button" id="wpUpdateDismiss" aria-label="Chiudi avviso">×</button></div>
-<script src="assets/part-13.js"></script>
+<script src="assets/banner-aggiornamenti.js"></script>
 <!-- WALLET-PRO UPDATE CHECK END -->
 <!-- Sicurezza fase 1: importazioni locali; aggiornamenti solo stessa origine; OneSignal SDK/worker invariati. Nessuna CSP restrittiva prima di test push iOS. -->
 
@@ -481,12 +481,12 @@
 <div id="wpHelpSheet"><div class="wp-help-handle" aria-hidden="true"></div>
 <div class="wp-help-head"><h2 id="wpHelpTitle">Guida Wallet-PRO</h2><button type="button" id="wpHelpClose">Chiudi guida</button></div>
 <input type="search" id="wpHelpSearch" autocomplete="off" aria-label="Cerca nella guida" placeholder="Cerca una funzione…">
-<div id="wpHelpCount" aria-live="polite"></div><div id="wpHelpResults"></div></div></div><script src="assets/part-14.js"></script>
-<script src="assets/part-15.js"></script>
+<div id="wpHelpCount" aria-live="polite"></div><div id="wpHelpResults"></div></div></div><script src="assets/guida.js"></script>
+<script src="assets/barra-navigazione.js"></script>
 
-<script src="assets/part-16.js"></script>
-<script src="assets/part-17.js"></script>
-<script src="assets/part-18.js"></script>
+<script src="assets/importazione-pdf.js"></script>
+
+<script src="assets/pannello-aggiungi.js"></script>
 <script src="assets/backup-reminder.js"></script>
 </body>
 </html>

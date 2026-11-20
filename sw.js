@@ -1,6 +1,6 @@
 /* Wallet-PRO 3.1.0: precache verificata, navigazione protetta, offline. */
-const CACHE_NAME = 'wallet-pro-v310-ui-20261120';
-const ESSENTIAL = ['./index.html','./assets/walletpro.css','./assets/backup-reminder.js','./assets/part-01.js','./assets/part-02.js','./assets/part-03.js','./assets/part-04.js','./assets/part-05.js','./assets/part-06.js','./assets/part-07.js','./assets/part-08.js','./assets/part-09.js','./assets/part-10.js','./assets/part-11.js','./assets/part-12.js','./assets/part-13.js','./assets/part-14.js','./assets/part-15.js','./assets/part-16.js','./assets/part-17.js','./assets/part-18.js','./vendor/pdf.mjs','./vendor/pdf.worker.mjs',
+const CACHE_NAME = 'wallet-pro-v310-ricorrenze-20261120';
+const ESSENTIAL = ['./index.html','./assets/walletpro.css','./assets/backup-reminder.js','./assets/importi.js','./assets/backup-validazione.js','./assets/onesignal-config.js','./assets/walletpro-core.js','./assets/dashboard-trascinamento.js','./assets/informazioni.js','./assets/budget-categorie.js','./assets/funzioni-locali.js','./assets/budget-salvataggio.js','./assets/avvisi-dashboard.js','./assets/notifiche-locali.js','./assets/abbonamenti-analisi.js','./assets/banner-aggiornamenti.js','./assets/guida.js','./assets/barra-navigazione.js','./assets/importazione-pdf.js','./assets/pannello-aggiungi.js','./vendor/pdf.mjs','./vendor/pdf.worker.mjs',
  './vendor/xlsx.full.min.js','./vendor/tesseract.min.js','./vendor/worker.min.js',
  './vendor/tesseract-core.wasm.js','./vendor/tesseract-core.wasm',
  './vendor/lang/ita.traineddata.gz','./vendor/lang/eng.traineddata.gz'];
