@@ -10,7 +10,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Wallet-PRO</title>
-<meta name="walletpro-build" content="walletpro-3.1.1-20261120">
+<meta name="walletpro-build" content="walletpro-3.1.0-ui-20261120">
 <link rel="stylesheet" href="assets/walletpro.css">
 
 
@@ -41,7 +41,7 @@
 </div>
 <div class="container">
   <div class="header">
-    <div class="wp-brand"><h1>Wallet-PRO</h1><div class="wp-brand-version">Versione 3.0.0</div></div>
+    <div class="wp-brand"><h1>Wallet-PRO</h1><div class="wp-brand-version">Versione 3.1.0</div></div>
     <div class="header-controls">
       <select id="yearSelect" class="year-select" aria-label="Seleziona Anno"></select>
 
@@ -328,8 +328,8 @@
       <button type="button" id="btnResetAll" class="action-btn danger">Azzera Tutti i Dati</button>
     </div>
     </details>
+    <button type="button" id="wpHelpLauncher" class="wp-help-settings-button" aria-label="Apri la Guida" title="Apri la Guida" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.6 2.6 0 0 1 5 1c0 2-2.5 2.1-2.5 4"/><path d="M12 17.4h.01"/></svg><span id="wpHelpLauncherLabel">Guida</span></button>
 
-    
     <div class="footer-credit">Created By Marcello Gambicchia (2026) <button type="button" id="btnAboutWallet" class="about-info-btn" aria-label="Informazioni su Wallet-PRO" title="Informazioni su Wallet-PRO">i</button></div>
   </div>
 </div>
@@ -340,7 +340,6 @@
   <button type="button" class="tab-item" data-tab="spese"><span class="tab-icon expense-arrow">↘</span><span>Uscite</span></button>
   <button type="button" class="tab-item" id="tabAddBtn"><span class="tab-icon">⊕</span><span>Aggiungi</span></button>
   <button type="button" class="tab-item" data-tab="impostazioni" aria-label="Impostazioni" title="Impostazioni"><span class="tab-icon settings-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.7 2.7h4.6l.6 2.2a7.5 7.5 0 0 1 1.6.9l2.2-.6 2.3 4-1.6 1.6a7.9 7.9 0 0 1 0 1.8l1.6 1.6-2.3 4-2.2-.6a7.5 7.5 0 0 1-1.6.9l-.6 2.2H9.7l-.6-2.2a7.5 7.5 0 0 1-1.6-.9l-2.2.6-2.3-4 1.6-1.6a7.9 7.9 0 0 1 0-1.8L3 9.2l2.3-4 2.2.6a7.5 7.5 0 0 1 1.6-.9z"/><circle cx="12" cy="11.7" r="3"/></svg></span></button>
-  <button type="button" class="tab-item" id="wpHelpLauncher" aria-label="Info" title="Info" aria-haspopup="dialog"><span class="tab-icon settings-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M12 10.5v6"/><circle cx="12" cy="7.6" r="0.85" fill="currentColor" stroke="none"/></svg></span><span id="wpHelpLauncherLabel">Guida</span></button>
 </nav>
 <div id="aboutWalletModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="aboutWalletTitle">
   <div class="modal-sheet">
@@ -373,7 +372,7 @@
       <textarea class="form-input" id="wpLannaVoiceText" rows="3" placeholder="Ho speso 35 euro di benzina ieri"></textarea>
       <div class="wp-lanna-voice-actions">
         <button type="button" class="wp-lanna-voice-start" id="wpLannaVoiceStart">🎙️ Avvia registrazione</button>
-        <button type="button" class="wp-lanna-voice-import" id="wpLannaVoiceImport">Importa</button>
+        <button type="button" class="wp-lanna-voice-import" id="wpLannaVoiceImport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5m-4 0h8"/></svg><span>Importa</span></button>
       </div>
       <div id="wpLannaVoiceStatus" class="row-sub" role="status" aria-live="polite" style="margin-top:9px">Il testo è interpretato sul dispositivo. Il microfono dipende dal supporto del browser.</div>
     </div>

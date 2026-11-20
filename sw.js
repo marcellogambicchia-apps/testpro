@@ -1,5 +1,5 @@
-/* Wallet-PRO 3.0.0: precache verificata, navigazione protetta, offline. */
-const CACHE_NAME = 'wallet-pro-v311-20261120';
+/* Wallet-PRO 3.1.0: precache verificata, navigazione protetta, offline. */
+const CACHE_NAME = 'wallet-pro-v310-ui-20261120';
 const ESSENTIAL = ['./index.html','./assets/walletpro.css','./assets/backup-reminder.js','./assets/part-01.js','./assets/part-02.js','./assets/part-03.js','./assets/part-04.js','./assets/part-05.js','./assets/part-06.js','./assets/part-07.js','./assets/part-08.js','./assets/part-09.js','./assets/part-10.js','./assets/part-11.js','./assets/part-12.js','./assets/part-13.js','./assets/part-14.js','./assets/part-15.js','./assets/part-16.js','./assets/part-17.js','./assets/part-18.js','./vendor/pdf.mjs','./vendor/pdf.worker.mjs',
  './vendor/xlsx.full.min.js','./vendor/tesseract.min.js','./vendor/worker.min.js',
  './vendor/tesseract-core.wasm.js','./vendor/tesseract-core.wasm',

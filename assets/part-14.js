@@ -59,15 +59,15 @@ var languageControl=document.getElementById('languageSelect');
 function translateBottomNavigation(){
  var l=lang();
  var labels={
- it:['Dashboard','Entrate','Uscite','Aggiungi','Impostazioni','Guida'],
- en:['Dashboard','Income','Expenses','Add','Settings','Guide'],
- es:['Panel','Ingresos','Gastos','Añadir','Ajustes','Guía'],
- fr:['Tableau de bord','Revenus','Dépenses','Ajouter','Paramètres','Guide'],
- de:['Übersicht','Einnahmen','Ausgaben','Hinzufügen','Einstellungen','Hilfe']
+ it:['Dashboard','Entrate','Uscite','Aggiungi','Opzioni','Guida'],
+ en:['Dashboard','Income','Expenses','Add','Options','Guide'],
+ es:['Panel','Ingresos','Gastos','Añadir','Opciones','Guía'],
+ fr:['Tableau de bord','Revenus','Dépenses','Ajouter','Options','Guide'],
+ de:['Übersicht','Einnahmen','Ausgaben','Hinzufügen','Optionen','Hilfe']
  }[l];
- var selectors=['[data-tab="dashboard"]','[data-tab="entrate"]','[data-tab="spese"]','#tabAddBtn','[data-tab="impostazioni"]','#wpHelpLauncher'];
+ var selectors=['[data-tab="dashboard"]','[data-tab="entrate"]','[data-tab="spese"]','#tabAddBtn','[data-tab="impostazioni"]'];
  selectors.forEach(function(selector,i){var b=document.querySelector('.tab-bar '+selector);if(!b)return;
-  if(i===4){var existing=b.querySelector('.wp-nav-caption');if(existing)existing.remove();b.setAttribute('aria-label',labels[i]);b.setAttribute('title',labels[i]);return;}
+  if(i===4){var existing=b.querySelector('.wp-nav-caption');if(!existing){existing=document.createElement('span');existing.className='wp-nav-caption';b.appendChild(existing);}existing.textContent=labels[i];b.setAttribute('aria-label',labels[i]);b.setAttribute('title',labels[i]);return;}
   var caption=b.querySelector('.wp-nav-caption');
   if(!caption){caption=document.createElement('span');caption.className='wp-nav-caption';
    if(i===4){b.appendChild(caption)}else if(i===5){caption=document.getElementById('wpHelpLauncherLabel');if(caption)caption.classList.add('wp-nav-caption')}
