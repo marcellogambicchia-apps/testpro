@@ -10,7 +10,7 @@
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <title>Wallet-PRO</title>
-<meta name="walletpro-build" content="walletpro-3.1.0-add-overlay-20261120">
+<meta name="walletpro-build" content="walletpro-4.0.0-rc.1-assistant-20261126">
 <link rel="stylesheet" href="assets/walletpro.css">
 
 
@@ -41,7 +41,7 @@
 </div>
 <div class="container">
   <div class="header">
-    <div class="wp-brand"><h1>Wallet-PRO</h1><div class="wp-brand-version">Versione 3.1.0</div></div>
+    <div class="wp-brand"><h1>Wallet-PRO</h1><div class="wp-brand-version">Versione 4.0.0-rc.1</div></div>
     <div class="header-controls">
       <select id="yearSelect" class="year-select" aria-label="Seleziona Anno"></select>
 
@@ -49,7 +49,7 @@
   </div>
 
   <div id="view-dashboard" class="view active">
-    <div id="wpDashboardReminders" aria-live="polite" style="display:none"></div>
+    <div class="card" id="wpAssistantLauncher"><button type="button" class="action-btn" id="wpAssistantOpen">Assistente Wallet-PRO</button></div><div id="wpAssistantCharts"></div><div id="wpDashboardReminders" aria-live="polite" style="display:none"></div>
     
     <div id="eventsBanner" class="events-banner" style="display:none;">
       <div class="events-banner-title">Eventi &amp; Scatti dell'Anno</div>
@@ -335,7 +335,7 @@
   </div>
 </div>
 
-<nav class="tab-bar">
+<div id="view-assistente" class="view"><div class="card"><h3 class="chart-title">Assistente Wallet-PRO</h3><div class="row-sub">Analisi locali in euro. Scrivi una domanda o un comando.</div><div id="wpAssistantLog" role="log" aria-live="polite"></div><form id="wpAssistantForm"><label class="form-label" for="wpAssistantText">Scrivi all'assistente</label><textarea id="wpAssistantText" class="form-input" rows="2" placeholder="Grafico carburante 2026"></textarea><button type="submit" class="action-btn">Invia</button></form><div class="row-sub">Esempi: totale uscite 2026; confronto stipendio 2025 e 2026; aggiungi spesa 35 euro benzina ieri.</div></div><div class="card"><h3 class="chart-title">Importa documenti</h3><div id="wpDocArchive" class="card"></div><div id="wpAssistantImports"></div></div><button type="button" class="action-btn" id="wpAssistantBack">Torna alla Dashboard</button></div><nav class="tab-bar">
   <button type="button" class="tab-item active" data-tab="dashboard"><span class="tab-icon wp-dashboard-donut" aria-hidden="true"></span><span>Dashboard</span></button>
   <button type="button" class="tab-item" data-tab="entrate"><span class="tab-icon income-arrow">↗</span><span>Entrate</span></button>
   <button type="button" class="tab-item" data-tab="spese"><span class="tab-icon expense-arrow">↘</span><span>Uscite</span></button>
@@ -491,6 +491,10 @@
 <script src="assets/pannello-aggiungi.js"></script>
 <script src="assets/backup-reminder.js"></script>
 <script src="assets/indexeddb-opzioni.js"></script>
+<script src="assets/periodi-intelligenti.js"></script>
+<script src="assets/documenti-parser.js"></script>
+<script src="assets/documenti-intelligenti.js"></script>
+<script src="assets/assistente-intelligente.js"></script>
 </body>
 </html>
 

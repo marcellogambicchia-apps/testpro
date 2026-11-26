@@ -1179,6 +1179,8 @@
     setModalSegment(mode || 'netto');
   }
 
+  // Bridge UI: non salva movimenti; riutilizza le conferme originali.
+  window.walletProAssistantUI = {open:openModal, tab:switchTab, currency:()=>prefs.currency, categories:()=>({income:incomeCategories(),expense:allCategories()})};
   function closeModal() { document.getElementById('addModal').classList.remove('open'); }
 
   function setModalSegment(mode) {
@@ -1232,33 +1234,44 @@
   function extractReceiptData(text, applyFields) {
     var lines=String(text||'').split(/\r?\n/).map(function(x){return x.trim();}).filter(Boolean);
     var candidates=[];
-    var totalRx=/\b(?:TOTALE(?:\s+(?:DA\s*PAGARE|PAGATO|DOCUMENTO|COMPLESSIVO|EUR|EURO))?|TOT\.?|IMPORTO\s+(?:PAGATO|DOVUTO|TOTALE)|DA\s*PAGARE|AMOUNT\s*DUE|TOTAL)\b/i;
-    var excludeRx=/\b(?:SUB\s*TOTALE|SUBTOTALE|IVA|IMPOSTA|IMPONIBILE|SCONTO|RISPARMIO|RESTO|CAMBIO|ARTICOLI|QUANTIT[AÀ]|Q\.?TA|PREZZO\s*UNITARIO|PUNTI|SALDO\s*PRECEDENTE|TESSERA|CONTANTE\s*RICEVUTO|CONTANTI\s*RICEVUTI|PAGATO\s*CON|TENDERED)\b/i;
+    var strong=/\b(?:TOTALE\s*(?:COMPLESSIVO|DOCUMENTO|DA\s*PAGARE|PAGATO)?|IMPORTO\s*PAGATO|DA\s*PAGARE|TOTAL(?:E)?|AMOUNT\s*DUE)\b/i;
+    var paid=/\b(?:IMPORTO\s*PAGATO|TOTALE\s*COMPLESSIVO|TOTALE\s*DA\s*PAGARE|DA\s*PAGARE)\b/i;
+    var exclude=/\b(?:DI\s*CUI\s*IVA|IVA|IMPOSTA|IMPONIBILE|SCONTO|RISPARMIO|RESTO|CAMBIO|ARTICOLI|QUANTIT[AÀ]|PREZZO\s*UNITARIO|PUNTI|TESSERA|CONTANTE\s*RICEVUTO|CONTANTI\s*RICEVUTI|SUB\s*TOTALE|SUBTOTALE)\b/i;
     lines.forEach(function(line,i){
-      var norm=line.toUpperCase().replace(/T0TALE/g,'TOTALE');
-      var matches=norm.match(/(?:\d{1,3}(?:[.,]\d{3})+|\d{1,6})[.,]\s*\d{2}\b/g)||[];
-      matches.forEach(function(raw,j){
-        var value=receiptMoney(raw.replace(/\s/g,''));if(value===null)return;
-        var previous=(lines[i-1]||'').toUpperCase();
+      var norm=line.toUpperCase().replace(/T0TALE/g,'TOTALE').replace(/IMP0RT0/g,'IMPORTO').replace(/PAGAT0/g,'PAGATO');
+      var prev=(lines[i-1]||'').toUpperCase();
+      // IVA, sconti e resto non possono neppure confermare altri candidati.
+      if(exclude.test(norm))return;
+      var matches=(norm.match(/(?:\d{1,3}(?:[.,]\d{3})+|\d{1,6})[.,]\s*\d{2}\b/g)||[]).map(receiptMoney).filter(v=>v!==null);
+      matches.forEach(function(value,j){
+        var isStrong=strong.test(norm), nearStrong=strong.test(prev);
         var score=0;
-        if(totalRx.test(norm))score+=105;
-        if(/DA\s*PAGARE|TOTALE\s*(?:DOCUMENTO|COMPLESSIVO)|IMPORTO\s*(?:PAGATO|DOVUTO)/i.test(norm))score+=55;
-        if(!totalRx.test(norm)&&totalRx.test(previous))score+=48;
-        if(excludeRx.test(norm))score-=180;
-        if(/\b(?:CARTA|BANCOMAT|POS|PAGAMENTO\s+ELETTRONICO)\b/i.test(norm))score+=12;
-        if(matches.length>1&&j!==matches.length-1)score-=20;
-        score+=i/Math.max(lines.length,1)*12;
+        if(isStrong)score+=125;
+        if(paid.test(norm))score+=95;
+        if(!isStrong&&nearStrong&&!exclude.test(prev))score+=70;
+        if(/\b(?:PAGAMENTO\s+ELETTRONICO|BANCOMAT|CARTA|POS)\b/i.test(norm))score+=55;
+        if(/\b(?:PREZZO|PRODOTTO|DESCRIZIONE|ARTICOLO)\b/i.test(norm))score-=75;
+        if(matches.length>1&&j!==matches.length-1)score-=15;
+        score+=i/Math.max(1,lines.length)*10;
         candidates.push({value:value,score:score,line:i});
       });
     });
+    // La ripetizione coerente su totale e pagamento e' una conferma, non un conflitto.
+    candidates.forEach(function(c){
+      var confirmations=candidates.filter(function(x){return x!==c&&x.score>=55&&Math.abs(x.value-c.value)<.005&&x.line!==c.line;}).length;
+      c.score+=Math.min(confirmations,3)*32;
+    });
     candidates.sort(function(a,b){return b.score-a.score||b.line-a.line;});
-    var best=candidates[0]||null,runner=candidates[1]||null;
-    var ambiguous=!!(best&&runner&&Math.abs(best.score-runner.score)<12&&Math.abs(best.value-runner.value)>0.009);
-    var amount=best&&best.score>=65&&!ambiguous?best.value:null;
+    var best=candidates[0]||null;
+    var rivals=candidates.filter(function(c){return best&&Math.abs(c.value-best.value)>.009&&c.score>=best.score-18;});
+    var ambiguous=!!(best&&rivals.length);
+    var amount=best&&best.score>=90&&!ambiguous?best.value:null;
     var merchant=receiptMerchant(lines),date=receiptDate(lines);
-    if(applyFields!==false && amount!==null)document.getElementById('expAmount').value=toDisplayAmount(amount).toFixed(2).replace('.',',');
-    if(applyFields!==false && merchant){document.getElementById('expDesc').value=merchant.slice(0,60);smartSuggestExpense(false);}
-    if(applyFields!==false && date)document.getElementById('expDate').value=date;
+    if(applyFields!==false){
+      if(amount!==null)document.getElementById('expAmount').value=toDisplayAmount(amount).toFixed(2).replace('.',',');
+      if(merchant)document.getElementById('expDesc').value=merchant.slice(0,60);
+      if(date)document.getElementById('expDate').value=date;
+    }
     return {amount:amount,merchant:merchant,date:date,uncertain:amount===null,ambiguous:ambiguous};
   }
   // Aumenta contrasto e risoluzione localmente per migliorare la lettura delle cifre.

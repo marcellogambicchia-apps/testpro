@@ -554,3 +554,6 @@ body.wp-lanna-refined #addModal.open > .modal-sheet {
 body.wp-lanna-refined #addModal .wp-lanna-voice-title {display:flex;align-items:center;gap:7px;}
 body.wp-lanna-refined #addModal .wp-lanna-voice-title svg {width:21px;height:21px;flex:none;stroke:currentColor;}
 body.wp-lanna-refined #addModal .wp-lanna-voice-start svg {width:21px;height:21px;flex:none;stroke:currentColor;}
+
+/* Assistente: componenti aggiuntivi, nessuna modifica alle regole esistenti. */
+#wpAssistantLog{max-height:48vh;overflow:auto;margin:12px 0;display:grid;gap:8px} .wp-assistant-bubble{white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid currentColor;border-radius:12px;padding:12px;font-size:14px} .wp-assistant-point{display:grid;grid-template-columns: minmax(50px,auto) 1fr minmax(72px,auto);gap:8px;align-items:center;font-size:12px;margin:6px 0}.wp-assistant-track{height:12px;background:rgba(127,127,127,.15);border-radius:8px}.wp-assistant-fill{height:100%;background:#007AFF;border-radius:8px}#wpAssistantImports{display:flex;flex-wrap:wrap;gap:8px} #wpAssistantCharts .card{margin-bottom:12px}#wpAssistantText{font-size:16px}
