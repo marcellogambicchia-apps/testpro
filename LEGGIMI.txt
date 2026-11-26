@@ -1,0 +1,9 @@
+WALLET-PRO 4.1.0 — conversione web di Lanna 1.0.0
+
+Caricare il contenuto di questo ZIP nella root del repository GitHub Pages esistente (non la cartella contenitore). Conservare la cronologia e le configurazioni GitHub. Usare HTTPS.
+
+Interfaccia e motore di Lanna 1.0.0; nome, logo e icone originali Wallet-PRO. Archivio browser IndexedDB/LocalStorage; formati di backup originali conservati nel codice. Prima di sostituire la web app eseguire un backup esterno, non cancellare i dati del sito. Compatibilità con gli archivi Wallet-PRO preesistenti non collaudata.
+
+Face ID nativo, WidgetKit e notifiche native non disponibili; avvisi in apertura mantenuti. Dettatura solo con riconoscimento locale supportato dal browser. Nessun fallback remoto aggiunto. Cache offline dopo prima apertura online e installazione del service worker.
+
+Verifiche: sintassi 52 blocchi JavaScript e service worker; presenza 20 risorse precache; icone e manifest. Test browser bloccato dall'ambiente (ERR_BLOCKED_BY_ADMINISTRATOR). Non certificata come release finale collaudata. Testare importazione, backup/ripristino e aggiornamento da 3.1/4.0 con dati fittizi prima di usare dati reali.

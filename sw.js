@@ -1,9 +1,6 @@
 /* Wallet-PRO 3.1.0: precache verificata, navigazione protetta, offline. */
-const CACHE_NAME = 'wallet-pro-v400-rc1-assistant-20261126';
-const ESSENTIAL = ['./assets/documenti-parser.js','./assets/documenti-intelligenti.js','./assets/periodi-intelligenti.js','./assets/assistente-intelligente.js','./index.html','./assets/walletpro.css','./assets/backup-reminder.js','./assets/importi.js','./assets/backup-validazione.js','./assets/onesignal-config.js','./assets/indexeddb-sicuro.js','./assets/indexeddb-opzioni.js','./assets/walletpro-core.js','./assets/dashboard-trascinamento.js','./assets/informazioni.js','./assets/budget-categorie.js','./assets/funzioni-locali.js','./assets/budget-salvataggio.js','./assets/avvisi-dashboard.js','./assets/notifiche-locali.js','./assets/abbonamenti-analisi.js','./assets/banner-aggiornamenti.js','./assets/guida.js','./assets/barra-navigazione.js','./assets/importazione-pdf.js','./assets/pannello-aggiungi.js','./vendor/pdf.mjs','./vendor/pdf.worker.mjs',
- './vendor/xlsx.full.min.js','./vendor/tesseract.min.js','./vendor/worker.min.js',
- './vendor/tesseract-core.wasm.js','./vendor/tesseract-core.wasm',
- './vendor/lang/ita.traineddata.gz','./vendor/lang/eng.traineddata.gz'];
+const CACHE_NAME = 'wallet-pro-v410-lanna-web-20261126';
+const ESSENTIAL = ["./apple-touch-icon.png", "./icon-512.png", "./manifest.json", "./icon-192.png", "./index.html", "./vendor/tesseract-core.wasm.js", "./vendor/Tesseract-Core-4.0.4-LICENSE", "./vendor/pdf.worker.mjs", "./vendor/tesseract.min.js.LICENSE.txt", "./vendor/tesseract.min.js", "./vendor/Tesseract-4.1.4-LICENSE.md", "./vendor/SheetJS-0.20.3-LICENSE", "./vendor/worker.min.js", "./vendor/xlsx.full.min.js", "./vendor/tesseract-core.wasm", "./vendor/pdf.mjs", "./vendor/worker.min.js.LICENSE.txt", "./vendor/lang/ita.traineddata.gz", "./vendor/lang/eng.traineddata.gz", "./vendor/lang/Tessdata-Fast-COPYRIGHT.txt"];
 const OPTIONAL = ['./','./manifest.json','./apple-touch-icon.png','./icon-192.png','./icon-512.png'];
 const ROOT = new URL('./', self.registration.scope);
 const HOME = new URL('index.html', ROOT).pathname;
