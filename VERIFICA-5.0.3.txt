@@ -1,0 +1,7 @@
+WALLET-PRO 5.0.3 — rapporto di verifica
+25/25 controlli con DOM e CSS reali e modulo tastiera isolato in Chromium: 21 controlli del layout precedente, tre controlli delle origini e dello scorrimento del documento, un controllo diagnostica senza contenuti chat.
+55/55 hash CSP verificati con DOMParser Chromium, nessun attributo evento inline, nessun ID statico duplicato.
+60/60 controlli sintassi JavaScript applicativa (node --check).
+20/20 test Service Worker con fetch/Cache Storage simulati e risorse reali.
+Verifica integrità dei 17 asset del service worker, coerenza release e confronto degli ZIP.
+Limiti: iPhone/Safari reale, deployment GitHub e app completa con tastiera reale non verificati. Non sono stati rieseguiti tutti i test funzionali storici. Non viene certificata una versione stabile.
