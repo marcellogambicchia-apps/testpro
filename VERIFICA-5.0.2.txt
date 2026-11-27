@@ -1,0 +1,7 @@
+WALLET-PRO 5.0.2 — rapporto di verifica
+21/21 test del layout in Chromium con DOM e CSS reali della chat, modulo tastiera e VisualViewport simulata: apertura, chiusura, resize, pan, menu fermo, compositore sopra area visibile, riapertura, multilinea, scroll del contenitore e uscita dalla chat.
+55/55 hash CSP verificati con DOMParser Chromium, nessun attributo evento inline, nessun ID statico duplicato.
+60/60 controlli sintassi JavaScript applicativa (node --check).
+20/20 test Service Worker con fetch/Cache Storage simulati e risorse reali: installazione, integrità, risorse opzionali, migrazione, conservazione della cache precedente in caso di errore.
+Controllo coerenza di versione: testata, Informazioni, DEBUG, meta build, titolo, version.json, cache.
+Limiti: iPhone/Safari reale e deployment GitHub non verificati. Non sono stati rieseguiti tutti i test funzionali storici. Non viene certificata una versione stabile. Dati e file originali preservati.
