@@ -1,9 +1,9 @@
-/* Wallet-PRO 5.0.0 — verified release assets, local data independent of cache. */
+/* Wallet-PRO 5.0.1 — verified release assets, local data independent of cache. */
 const ROOT=new URL('./',self.registration.scope),HOME=new URL('index.html',ROOT).pathname;
-const CACHE_NAME='wallet-pro-v500-20261127-'+encodeURIComponent(ROOT.pathname);
+const CACHE_NAME='wallet-pro-v501-20261127-'+encodeURIComponent(ROOT.pathname);
 const CORE=["./index.html", "./manifest.json", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png", "./assets/notifiche-locali-5.0.0.js", "./assets/onesignal-config-5.0.0.js", "./assets/protezione-locale-5.0.0.js"],OPTIONAL=["./vendor/pdf.mjs", "./vendor/pdf.worker.mjs", "./vendor/xlsx.full.min.js", "./vendor/tesseract.min.js", "./vendor/tesseract-core.wasm.js", "./vendor/tesseract-core.wasm", "./vendor/worker.min.js", "./vendor/lang/ita.traineddata.gz", "./vendor/lang/eng.traineddata.gz"];
 const HASH={
-  "./index.html": "ebfaf8a60892b2469c28459182cfcc36c10bb03ae15835e9aa606489e0fd4bf7",
+  "./index.html": "f8aac7b475fd927860f82dd24012a5b2936d4c71f6e759e7c78bd5cbdf771d6c",
   "./manifest.json": "20fdd09f8bbce9d99d8dc7d582849cc4abf211d372d13f35ea52d1facf15942d",
   "./icon-192.png": "a4a9705b2f87c2941a918014ee5f308b9ce95fcdacd73a77ab80564298d3286a",
   "./icon-512.png": "82846f9fe28b0e1b0a19b03f47288a268764a14251d79b14bbe785677c87ce8f",
@@ -28,7 +28,7 @@ function isHome(path){return path===ROOT.pathname||path===HOME;}
 async function valid(response,path){if(!response?.ok||response.type==='opaque')return false;try{const bytes=await response.clone().arrayBuffer(),digest=await crypto.subtle.digest('SHA-256',bytes);return Array.from(new Uint8Array(digest),x=>x.toString(16).padStart(2,'0')).join('')===HASH[path];}catch{return false;}}
 async function cacheOne(cache,path){if(inFlight.has(path))return inFlight.get(path);const task=(async()=>{const req=new Request(key(path),{cache:'reload',credentials:'same-origin'}),response=await fetch(req);if(!await valid(response,path))throw Error('Risorsa non integra o non disponibile: '+path);await cache.put(key(path),response);})();inFlight.set(path,task);try{await task;}finally{inFlight.delete(path);}}
 self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(CACHE_NAME);try{const results=await Promise.allSettled(CORE.map(path=>cacheOne(cache,path)));if(results.some(r=>r.status==='rejected'))throw Error('Installazione incompleta: versione precedente conservata');await self.skipWaiting();}catch(e){await caches.delete(CACHE_NAME);throw e;}})()));
-const previous=['wallet-pro-v421-20261127','wallet-pro-v420-telecom-charts-20261127'];
+const previous=['wallet-pro-v500-20261127-'+encodeURIComponent(ROOT.pathname),'wallet-pro-v421-20261127','wallet-pro-v420-telecom-charts-20261127'];
 self.addEventListener('activate',event=>event.waitUntil((async()=>{const keys=await caches.keys(),cache=await caches.open(CACHE_NAME);for(const name of previous){if(!keys.includes(name))continue;const old=await caches.open(name);for(const path of OPTIONAL){try{if(await cache.match(key(path)))continue;const hit=await old.match(key(path),{ignoreSearch:true});if(await valid(hit,path))await cache.put(key(path),hit);}catch(e){console.warn('Migrazione facoltativa:',path,e);}}
 // Never delete a cache containing another installation's paths on the same origin.
 try{const entries=await old.keys();if(entries.length&&entries.every(req=>new URL(req.url).origin===ROOT.origin&&new URL(req.url).pathname.startsWith(ROOT.pathname))&&await old.match(key('./index.html'),{ignoreSearch:true}))await caches.delete(name);}catch(e){console.warn('Pulizia cache precedente:',e);}}

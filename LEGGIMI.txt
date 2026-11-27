@@ -1,29 +1,10 @@
-PACCHETTO COMPLETO — tutti i file della release (non una patch).
-Per una nuova installazione, estrai e carica il contenuto dello ZIP nella root del repository; includi .nojekyll e .github se crei un nuovo repository. Per aggiornare un repository esistente 4.1.9, 4.2.0 o 4.2.1 non personalizzato, usa preferibilmente la patch cumulativa. Conserva workflow personalizzati e Secrets. Non caricare lo ZIP stesso su Pages.
+PACCHETTO COMPLETO — nuova installazione o archivio di sicurezza. Per aggiornare la 5.0.0 esistente, preferisci la patch dedicata. Mantieni i workflow e le configurazioni personalizzate.
 
-Wallet-PRO 5.0.0 — release completa candidata al collaudo, 27 novembre 2026
-Base: Wallet-PRO 4.2.1. PWA HTML/CSS/JavaScript per GitHub Pages. Nessun Vite, Node.js, npm o build per l’installazione.
+Wallet-PRO 5.0.1 — correzione layout tastiera, 27 novembre 2026.
+Base: 5.0.0 originale. PWA HTML/CSS/JavaScript, GitHub Pages; nessun Vite, build o npm.
 
-PRIMA DI AGGIORNARE
-1. Esporta un backup JSON e verifica il file mediante Verifica integrità backup; conserva anche una copia del repository precedente. Il backup JSON non è cifrato: proteggilo. Puoi usare il backup cifrato AES-GCM.
-2. Mantieni esattamente lo stesso dominio, repository/percorso e ramo Pages: cambiare origine può rendere inaccessibili i dati locali. Non cancellare i dati Safari o l’app Home, i Secrets o i workflow GitHub Actions.
-3. Pubblica i file tutti insieme nello stesso commit. Attendi il deployment Pages; apri l’app online e premi Aggiorna ora se disponibile. Controlla che la pagina e version.json mostrino 5.0.0. Non svuotare lo storage per forzare l’aggiornamento.
-4. Il nuovo worker verifica i byte SHA-256 dei file essenziali della release. Carica i file esattamente come forniti. Una risorsa mancante o di una versione diversa fa fallire l’installazione del worker senza cancellare la precedente cache. Se hai configurazioni o manifest personalizzati, non sovrascriverli alla cieca: occorre una variante della release con gli hash aggiornati. Non editare index.html senza aggiornare anche gli hash CSP, né cambiare file verificati senza rigenerare gli hash nel worker e usare un nuovo nome cache.
+MODIFICA: il compositore della chat si posiziona sopra la tastiera mediante VisualViewport. Il menu principale conserva la posizione precedente ed è nascosto/non interattivo quando la tastiera lo copre. Alla chiusura torna visibile nella stessa posizione. Font input 16 px, nessuno zoom programmato, conversazione ridimensionata. La correzione non modifica dati, P.A., grafici, importazioni o notifiche. Le risorse JS esterne conservano il nome 5.0.0 perché sono identiche.
 
-COSA È INCLUSO
-- Tutte le funzioni della 4.2.1, compresi P.A., movimenti, budget, import PDF/Excel/CSV, OCR, bollette luce/gas/internet/telefonia, acquisizione locale dei loghi, grafici linee/barre, confronto e trascinamento. Chiavi dati, schema IndexedDB, librerie, icone, manifest e workflow conservati.
-- Archiviazione persistente su richiesta esplicita, verifica esito, promemoria dopo 30 giorni senza backup confermato. Il browser può eliminare i dati; conferma un backup solo dopo aver verificato il file salvato fuori dall’app. Il checksum non è una firma e non sostituisce la cifratura.
-- CSP senza unsafe-inline per gli script, hash dei blocchi eseguibili e differiti, niente attributi evento HTML inline, correzioni mirate ai rendering testuali/etichette e agli accessi alle mappe. Rimane il CSS inline per compatibilità e restano autorizzati gli endpoint necessari a OneSignal; non è una certificazione di sicurezza né un audit di ogni possibile input.
-- Cache essenziale separata dalle risorse PDF, Excel e OCR. Le 17 risorse statiche note sono verificate tramite SHA-256 prima di essere aggiunte; le risorse facoltative già presenti nella cache 4.2.0/4.2.1 possono essere migrate se identiche. Il worker non memorizza richieste arbitrarie. Verifica / prepara per l’utilizzo offline controlla le nove risorse facoltative, anche senza rete se già presenti; riscarica eventuali risorse mancanti o non integre quando online. In caso di spazio insufficiente il download in cache può fallire: controlla l'esito prima di andare offline. La cache non è il database finanziario.
-- OneSignal resta facoltativo: connetti il servizio con consenso, poi attiva la spunta. La disattivazione confermata salva la preferenza e impedisce la riconnessione automatica nei successivi avvii. Riapri l’app per chiudere una sessione SDK già caricata. Non vengono inviati documenti o movimenti finanziari dall’app a OneSignal; il servizio gestisce dati tecnici di connessione e iscrizione. Gli avvisi all’apertura e l’esportazione calendario rimangono disponibili. Non sono equivalenti alle notifiche push a PWA chiusa, che richiedono rete e infrastruttura di invio.
-- Nessuna migrazione a Vite. Consolidamento conservativo: il grande index.html e l’ordine dei moduli restano, evitando una riscrittura rischiosa. I tre moduli di protezione e notifiche sono separati e versionati. Il codice non è stato interamente rifattorizzato.
+PRIMA: esporta e conserva un backup JSON o cifrato. Non cambiare dominio, percorso o ramo Pages, non cancellare i dati Safari né la PWA. Pubblica i file tutti nello stesso commit, attendi il deployment Pages e apri online; verifica la versione 5.0.1. Non modificare i file protetti da hash CSP o SHA-256 senza rigenerare gli hash. Il worker migra le risorse facoltative valide della cache precedente.
 
-COLLAUDO PRIMA DI DICHIARARE STABILE
-1. Controlla totali, dati storici, buste paga, bollette, categorie e apprendimenti P.A. esistenti.
-2. Prova alternanza grafici linee/barre, riordino, riavvio e assenza di errori DEBUG.
-3. Importa una fattura telefonica reale, prova anteprima, doppioni, collegamenti e solo dati tecnici.
-4. Prova backup e verifica integrità JSON/cifrato; verifica ripristino su archivio separato di prova.
-5. Prepara l’offline online, poi riapri la PWA in modalità aereo; prova import PDF, Excel e OCR. Controlla la migrazione della cache e l’aggiornamento Pages.
-6. Verifica consenso, disattivazione e ricezione reale di Web Push OneSignal su iPhone. Non modificare la configurazione push in produzione senza test.
-
-TEST: vedi VERIFICA-5.0.0.txt. L’avvio integrale HTTPS non è stato eseguibile nell’ambiente (ERR_BLOCKED_BY_ADMINISTRATOR). Nessuna pubblicazione GitHub, nessun accesso ai dati reali dell'utente, nessun collaudo Safari/iPhone eseguito. Release completa candidata, non stabilità definitiva certificata.
+COLLAUDO: apri P.A. su iPhone, tocca Scrivi, digita, verifica barra immediatamente sopra tastiera, menu coperto, chiudi con ✓, verifica ritorno senza spostamenti, ripeti e invia un messaggio. Controlla anche gli altri campi di input, rotazione e modalità chiara/scura. Test su iPhone reale non eseguito: candidata correttiva, non certificata stabile. Vedi VERIFICA-5.0.1.txt. I risultati della 5.0.0 sono storici e non sono stati tutti rieseguiti.

@@ -1,0 +1,6 @@
+WALLET-PRO 5.0.1 — verifica correzione tastiera
+17/17 controlli mirati: Chromium con stili e DOM reali estratti dalla release, esecuzione del modulo tastiera e VisualViewport simulata; menu fermo e nascosto, compositore a 8 px dal bordo visibile, apertura/chiusura, pan, resize, riapertura, font 16 px, assenza eccezioni.
+55/55 hash CSP verificati con DOMParser Chromium; nessun attributo evento inline, nessun ID statico duplicato.
+60/60 controlli sintassi JavaScript applicativa (node --check).
+20/20 test service worker in simulazione Cache Storage/fetch con risorse reali e digest SHA-256.
+Limiti: non è un test end-to-end Safari/PWA su iPhone; tastiera e visual viewport sono simulate. I 165 test della 5.0.0 non sono stati tutti ripetuti; VERIFICA-5.0.0.txt contiene il rapporto storico. Nessun accesso ai dati utente o pubblicazione GitHub.
