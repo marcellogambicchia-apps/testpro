@@ -1,0 +1,9 @@
+WALLET-PRO 5.0.4 — VERIFICHE
+- 60/60 controlli sintassi JavaScript applicativa (node --check); 55/55 hash CSP delle sorgenti inline interpretate da Chromium, nessun attributo evento inline né ID statico duplicato.
+- 20/20 test Service Worker con fetch/Cache Storage simulati e risorse reali; 17/17 hash asset verificati nello ZIP.
+- Configurazione OneSignal e worker identici byte per byte agli originali 3.1.0. 10/10 test con SDK e Notification simulati (startup, richiesta permesso, opt-in/out, sincronizzazione, worker e reset).
+- 34/34 controlli fatture telefoniche: estrazione sintetica, salvataggio, doppioni, schede, loghi, dataset e confronti P.A.; include nuova categoria.
+- 8/8 controlli Chromium colori Movimenti (chiaro, scuro, liquid glass chiaro/scuro), geometria e font invariati.
+- 25/25 controlli con modulo tastiera e DOM/CSS reali in Chromium con viewport simulata (regressione 5.0.3).
+- Controllo della guida tramite lettura del codice e verifica della versione; nessun riferimento alle versioni obsolete nei capitoli correnti. Non tutti i comandi della guida sono stati eseguiti end-to-end.
+- Limiti: test mirati e simulati, non collaudo generale dell'intera applicazione; Safari/iPhone reali, iscrizione e push OneSignal reali, OCR offline completo e PDF reali non collaudati. Nessun aggiornamento GitHub eseguito. Versione candidata.

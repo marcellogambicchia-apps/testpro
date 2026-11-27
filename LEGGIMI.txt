@@ -1,10 +1,22 @@
-PACCHETTO COMPLETO — nuova installazione o archivio di sicurezza. Per aggiornare un repository 5.0.2 originale, preferisci la patch. Mantieni i workflow e le configurazioni personalizzate.
+PATCH GITHUB — dalla 5.0.3 originale. Sostituisci i seguenti cinque file rispettando i percorsi:
+index.html
+sw.js
+version.json
+assets/onesignal-config-5.0.0.js
+assets/notifiche-locali-5.0.0.js
 
-Wallet-PRO 5.0.3 — correzione tastiera P.A. (27 novembre 2026).
-PWA HTML/CSS/JavaScript senza Vite. Basata sulla 5.0.2 originale.
+LEGGIMI.txt, STORICO.txt e VERIFICA-5.0.4.txt sono documentazione facoltativa. Non modificare gli altri file.
 
-Il modulo della tastiera ora misura separatamente le origini del documento e del posizionamento fisso e usa VisualViewport.pageTop per evitare un doppio conteggio dell'offset. Il vecchio CSS di posizionamento della chat è rimosso; la conversazione è l'unico pannello scorrevole. Menu principale nascosto e non interattivo quando coperto dalla tastiera. Nessuno zoom programmato. In Informazioni > Diagnostica tastiera si possono copiare le misure degli ultimi eventi, anche dopo aver chiuso la tastiera. Non contiene messaggi, movimenti, dati finanziari o identificativi. Le misure rimangono in memoria e non sono inviate a nessun servizio. Nessuna modifica alle chiavi di archiviazione o alle funzionalità finanziarie.
+Wallet-PRO 5.0.4 — aggiornamento da 5.0.3.
+PWA HTML/CSS/JavaScript, GitHub Pages; nessun Vite, Node o build necessario.
 
-PRIMA: esporta un backup JSON e conservalo. Non cancellare i dati di Safari, non rimuovere la PWA, non cambiare dominio, percorso o ramo Pages. Pubblica i tre file applicativi insieme in un unico commit. Verifica che il deployment Pages sia completato. Apri online Wallet-PRO, usa Aggiorna ora se compare l'avviso, poi chiudi e riapri la PWA. Controlla che la testata e Informazioni riportino 5.0.3. Se non cambia, verifica version.json pubblicato: aggiungi ?walletpro_check=503 all'URL del file version.json sullo stesso sito. Il valore deve essere 5.0.3. Non modificare index.html senza aggiornare CSP e hash del service worker.
+MODIFICHE
+- OneSignal: caricamento SDK v16 originale (script defer) e configurazione identica byte per byte alla 3.1.0, stesso App ID, worker push, percorso e scope. L’interruttore Notifiche sul dispositivo è sincronizzato con l’iscrizione effettiva; autorizzazione richiesta solo dopo tocco. Non serve più Connetti OneSignal. Il servizio si inizializza online anche senza attivazione push: tratta dati tecnici; i movimenti e documenti non gli vengono inviati. Manteniamo il modulo locale recente (scadenze settimanali, verifica worker, reset), adattato alla configurazione 3.1.0. Manifest e CSP sicura preservati, hash aggiornati. Non cambiare App ID, Secrets, dominio o percorso.
+- Guida interna 5.0.4, aggiornata in italiano e inglese: comandi P.A., inserimenti, grafici, documenti, backup, offline, sicurezza e notifiche. Le capacità effettive variano secondo i dati disponibili e il browser. Funzioni non supportate nella PWA non sono promesse.
+- Diagnostica tastiera rimossa da Informazioni. È inclusa nel DEBUG; per aprirlo senza un errore, tocca cinque volte di seguito il numero di versione nella testata. Copia diagnostica DEBUG include le ultime misure, senza messaggi della chat. Verifica e rimuovi eventuali informazioni personali prima di condividerla.
+- In Movimenti: selezione Entrata verde, Uscita rossa; non selezionato neutro. Forma, font, posizione e dimensioni invariati.
+- Nuove bollette e fatture in uscita: Casa & Utenze, indipendentemente dal gestore. La regola si applica ai PDF riconosciuti, descrizioni esplicite negli estratti/CSV e inserimenti manuali/chat; schede e loghi invariati. Salva solo dati non modifica i movimenti. Fatture telefoniche/altre fatture non pagate restano schede; per luce/gas viene rispettato uno stato esplicito di mancato pagamento. Se un movimento esistente è collegato univocamente durante un normale salvataggio, può essere riclassificato senza duplicarlo. Nessuna riclassificazione massiva automatica del passato.
 
-COLLAUDO: apri P.A., tocca il campo di scrittura, digita, verifica intestazione visibile, barra sopra tastiera, menu coperto. Chiudi la tastiera, verifica ripristino del menu e della barra. Se il problema resta, chiudi la tastiera, vai in Opzioni > Informazioni > Diagnostica tastiera e copia i dettagli prima di chiudere l'app. Il collaudo con tastiera fisica iPhone/Safari non è stato eseguito. I test Chromium usano geometrie simulate e non certificano la correzione su iOS.
+PRIMA: esporta un backup JSON e conservalo fuori dall’app. Non cancellare i dati Safari, non disinstallare la PWA. Pubblica i cinque file applicativi elencati nella patch in un unico commit, mantenendo percorsi e configurazioni GitHub. Attendi il deployment Pages. Riapri la PWA online, aggiorna se richiesto e verifica che la testata e Informazioni riportino 5.0.4. Non modificare i file a mano: i contenuti devono corrispondere agli hash CSP e cache.
+
+COLLAUDO IPHONE: apri Wallet-PRO dalla Home, vai in Opzioni > Notifiche, attendi OneSignal pronto, attiva Notifiche sul dispositivo, accetta la richiesta iOS. Premi Verifica OneSignal e controlla permesso, ID, token e i due worker. Cerca Wallet-PRO in Impostazioni > Notifiche e invia una notifica reale dalla dashboard OneSignal al dispositivo. Se l'autorizzazione è negata, verifica iOS; non cancellare l'archivio. Controlla anche colori, guida, categoria fatture, grafici e tastiera. Il ripristino della comparsa in Impostazioni e le push reali non sono garantiti prima del test fisico.

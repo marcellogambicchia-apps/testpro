@@ -1,3 +1,5 @@
+Wallet-PRO 5.0.4 — OneSignal originale 3.1.0, guida, DEBUG, colori movimenti, categoria Casa & Utenze.
+
 STORICO — materiale di riferimento. Le istruzioni valide sono esclusivamente nel LEGGIMI della release 5.0.0.
 
 PACCHETTO COMPLETO — tutti i file della release (non una patch).
