@@ -2,7 +2,106 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data: blob:; connect-src 'self' blob: data:; worker-src 'self' blob:; child-src 'self' blob:; frame-src 'none'; media-src 'self' data: blob:; object-src 'none'; base-uri 'none'; form-action 'none'; manifest-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval' blob: https://cdn.onesignal.com 'sha256-+NtDlVGtIT6mOoxkWsbFdAOtwsTlnsicujNFesXegBM=' 'sha256-P7k1k31p304wAIcIt65NM2p0agLAd4eD7AVki+qZwbo=' 'sha256-s4QYm1b8wOzNrBKq6JR5yh24T2GLWQ04fvV2XbqY2nM=' 'sha256-2e0urj73hWpTD9l44N6TnBZPfyl2zIlYMAepxGGL1u8=' 'sha256-xDHS0zbxH9v18lU3TaeKrrqaUHSHxPSL2mtsy2aWhIo=' 'sha256-Bhtb3GwIANyy7VI6qlI/vzUMjVgJ63BA72Rf4jDL7Is=' 'sha256-xWC5ur4uJ5H2tMp/5uY84egGk95LxbQ8cmXUb57TPdk=' 'sha256-aHZ6o2k9/7Zdn7r+V6IB0lPdBKSx5aoSBn/1aWG4Lao=' 'sha256-/yHyD5gyAAiY60HSqJmd9NUonFpLs37UxGPHy0fW6Rc=' 'sha256-JioVd/Iyrow/bnfTe+jyI9PU+ygY6S5c8klI1Hh5vf8=' 'sha256-K4oo9ZgeDY1H7DfkYTUmewrXBLuOZ0hn7aA3j3ZfbFw=' 'sha256-c7gOc3endIJzskZdzF+NM4z9BIiIH+LP0oLQ8gUAv+A=' 'sha256-aCg0XPr0vR92W2tKTfvli42dQ0MOlKjwLqxttxR0OA0=' 'sha256-x8Z5NAcC8wcXRrhNQOlktjQGkJDxxmNOk9swQ+6PGBs=' 'sha256-68rmCZg+AxK2b2st8SDDtlsLwYS28JTyGY7g0997OSY=' 'sha256-+Z/GNczoT33fRnTy4VGmcVT4i+BWGIuDkIv3U7c1IyU=' 'sha256-WkmY5Du5GsBWpknlKJrL9EfraTdzJXl6BJj2nhBFOuA=' 'sha256-syMISWEKBiE3m8OgoJOvKgvybGluP5KjDrVTl1pco2U=' 'sha256-bTOoHgX1AEm8Ce3b7p4X8vwXiV2Ur4Jb3r2pE1Gjt3o=' 'sha256-n5vCIsTFFVi23mbKWEZmJbZr9R4a3HVCKeq6SRYSvzQ=' 'sha256-9+M7kKwFjUIDpUgvK7C/SKEX12hWPaMRbVtOBA+fg7g=' 'sha256-dLIuZSNscOBW2AWLB3x9C/L5r9mTJ1KHda8Eeav4TuA=' 'sha256-+OPxgvGDrDMwoRk7Yd3dG9fGS5lqAbuJB+eCuQh3i6w=' 'sha256-as33mObYGaEw1YueYYcLDaP8mRfpoNEC/B6gD6LhLkg=' 'sha256-Jk9W9y6cjhrjPIj1nX7B1gX78gCZOqQUb6meBqfCXlQ=' 'sha256-daEdpEyAJIa8b2VkCqSKcw8PaExcB6Qro80XNes/sHA=' 'sha256-QnqUUIoBwKDlK6kIFhGLV6DhTSVVUgYTf7KzSn0Edoo=' 'sha256-lUrlNOwr2kJhHzsLwXHxPso4tIdXJDkCUh2A4n3q1rk=' 'sha256-F29aTCkhQiPWvmfhPHboS2SuJnVnVezZaul5icd/akE=' 'sha256-tBYlv/BA/T82p0m7Ufkq3GuMA/rsDLAmWcKp0AQQ5dg=' 'sha256-2oKcN9ZW/aiHfLftaAwpjXAPCfEGkeH0ZcxINsNdX3Y=' 'sha256-PnUgwk+79ZJCFRtfHg5H61qV8bMBgcAzAXqMNXNbwFg=' 'sha256-lxAa10Of7l3aosHYE4vKO+6xDwwKUKhltkAtLvJmGY8=' 'sha256-3+/bR3rZd0fcQNGOFppF48lNoxq7mNVfqg6+/tD0frY=' 'sha256-4P8oqW/n6Ul89dvBmHBAbWyHWcDq4WyE2D8PzjU7uwk=' 'sha256-kHLTA76+H6p1cwDEWkcB336WljzCvc0Mzd3B+WwsFOs=' 'sha256-9rEXmBFC/S6cJHnKHMV44xeVZ0oZWygOggl5TAc734A=' 'sha256-DPPwr9kJEolnAHFPmfl2DNOaw/nATxFblP3Nl90s4IU=' 'sha256-80QjHtXFy0qqCOg0RypPrDZ4Mzz84BHltdRFzEzLdY4=' 'sha256-TMbLWVHGHmlLvoSZw0/YvHAzQdsEmxz8VOKfhTucvHs=' 'sha256-h7SgsSbnjWzRb3PKGftOqcAxQioByQ7WgjL6Xicwo0E=' 'sha256-qjzkxRQ0APLz0VqEblGaRtxjrhZPmPMiLR0KcrZFgeM=' 'sha256-XtSmMQ7Z8txbT+EADBUd0Z2lqBCw80TjIv1VbBuNQCY=' 'sha256-8u8p13uxuXv9zARQ5ox15FvPVnRcUQbm/zj2HlnMdi4=' 'sha256-v67v5bpwklFL/nEIKX+kxytEz5NpSh4rAu3LYeIq2Lk=' 'sha256-AZtQ0QIIWFH9iTLPyKOWghf2stn/2jl3Mv4/7CH4JJ4=' 'sha256-CamP5c6/CDAHaN4bPNZu1f2ulfeKTznOaRCEVFPhtuk=' 'sha256-t1Qybzn5fbtPaspabStTNPs3HqodfUuipbVe4wcZCzA=' 'sha256-HSl7OpkED+7gZFTQebYKBu1gqflhp2aYNp5FA8XrVNs=' 'sha256-QZw8CTxoxrz6f0+mtvzckfFMiwcG3GsH47tZVffX7Co=' 'sha256-WRJr8j8K9Gq4wRvE/W/fS6ItkpVuLbPpGsUs6qVCbMs=' 'sha256-9OIMHraWZT1Yz8oYipfEjKg74XQNIZaRijplE54H31U=' 'sha256-LHxy+aFJygJyhK31AaYv2RMG3yy+0itCv8F8cCrUaFw=' 'sha256-AU4LxvREm3CVu5EG8dbq0T4XKr7dy5lYnjZNv76PXrQ=' 'sha256-L9h3JOHqYtHHJ+d/4eWLhr/rbadLqkhvSahPj3SMaVg='; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.onesignal.com; font-src 'self' data: blob:; connect-src 'self' blob: data: https://*.onesignal.com https://onesignal.com https://*.os.tc; worker-src 'self' blob:; child-src 'self' blob:; frame-src https://*.onesignal.com https://*.os.tc; media-src 'self' data: blob:; object-src 'none'; base-uri 'none'; form-action 'none'; manifest-src 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Wallet-PRO">
+<meta id="themeColorMeta" name="theme-color" content="#F2F2F7">
+<style id="wp417-initial-theme">html{background:#F2F2F7;color-scheme:light}html.wp-web-dark{background:#000;color-scheme:dark;--bg:#000}html.wp-web-dark body{background:#000}</style>
+<script id="wp417-early-theme">(()=>{try{const dark=!!JSON.parse(localStorage.getItem('lamiabp_pro_prefs_v1')||'{}').dark;document.documentElement.classList.toggle('wp-web-dark',dark);document.getElementById('themeColorMeta').content=dark?'#000000':'#F2F2F7';}catch(e){}})();</script>
+<script src="assets/onesignal-config-5.0.0.js"></script>
+<script src="assets/notifiche-locali-5.0.0.js"></script>
+<script src="assets/protezione-locale-5.0.0.js" defer></script>
+<script id="lanna-telecom">/* Lanna 1.1.0 – telecomunicazioni, estrazione locale prudente. */
+(()=>{'use strict';
+const TYPE='Internet e Telefonia';
+const norm=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+const operators=[['Iliad','iliad'],['WINDTRE','windtre|wind tre|infostrada|wind telecomunicazioni|h3g|tre italia|wind'],['TIM','telecom italia|tim'],['Vodafone','vodafone|omnitel'],['Fastweb','fastweb'],['Sky Wifi','sky wifi'],['Tiscali','tiscali'],['EOLO','eolo'],['PosteMobile','postemobile|poste mobile|postecasa'],['ho. Mobile','ho mobile'],['Very Mobile','very mobile'],['Kena Mobile','kena mobile|kena'],['CoopVoce','coopvoce|coop voce'],['Lycamobile','lycamobile'],['DIGI','digi mobil|digi mobile|digi italy'],['Enel Fibra','enel fibra'],['Aruba','aruba fibra|aruba s p a|aruba'],['Dimensione','dimensione srl|dimensione fibra'],['Unidata','unidata'],['Linkem','linkem'],['Starlink','starlink'],['Open Fiber','open fiber'],['Optima','optima'],['Retelit','retelit']];
+const providerOf=v=>{const s=norm(v);return operators.find(([n,a])=>new RegExp('(?:^| )('+a+')(?: |$)').test(s))?.[0]||'';};
+const labels={description:'Descrizione beni o servizi',serviceType:'Tipo servizio',offer:'Offerta',chargeType:'Tipo addebito',invoiceNumber:'Numero fattura',invoiceDate:'Emissione',dueDate:'Scadenza',debitDate:'Data pagamento effettiva',paymentMethod:'Metodo pagamento',paymentStatus:'Stato pagamento nel documento',nextInvoice:'Prossima fattura (indicativa)',clientId:'ID cliente',lineNumber:'Numero linea',migrationCode:'Codice migrazione',periodStart:'Inizio abbonamento',periodEnd:'Fine abbonamento',consumptionStart:'Inizio periodo consumi',consumptionEnd:'Fine periodo consumi',wifi:'Tecnologia Wi-Fi',accessTechnology:'Tecnologia accesso',payable:'Totale da pagare (€)',serviceTotal:'Servizi (€)',monthlyFee:'Canone lordo (€)',discount:'Sconti (€)',installation:'Installazione (€)',activation:'Attivazione (€)',extraTraffic:'Traffico a consumo (€)',modemRate:'Rata modem (€)',phoneRate:'Rata smartphone (€)',roaming:'Roaming (€)',vatRate:'Aliquota IVA (%)',vat:'IVA calcolata (€)',taxable:'Imponibile calcolato (€)',calls:'Chiamate effettuate',callSeconds:'Durata chiamate (secondi)',includedGB:'GB inclusi',usedGB:'GB consumati',remainingGB:'GB residui',downloadMbps:'Download dichiarato (Mbps)',uploadMbps:'Upload dichiarato (Mbps)',includedMinutes:'Minuti inclusi',usedMinutes:'Minuti utilizzati',includedSMS:'SMS inclusi',usedSMS:'SMS utilizzati',remainingCredit:'Credito residuo (€)',promotionEnd:'Fine promozione',renewalDate:'Prossimo rinnovo',ratePaid:'Rate pagate',rateTotal:'Rate totali',rateRemaining:'Rate residue'};
+const textFields=new Set(['description','serviceType','offer','chargeType','invoiceNumber','invoiceDate','dueDate','debitDate','paymentMethod','paymentStatus','nextInvoice','clientId','lineNumber','migrationCode','periodStart','periodEnd','consumptionStart','consumptionEnd','wifi','accessTechnology','promotionEnd','renewalDate']);
+const dateRE='(\\d{1,2}[./-]\\d{1,2}[./-](?:19|20)\\d{2})';
+function iso(v){const m=String(v||'').match(/^(\d{1,2})[./-](\d{1,2})[./-]((?:19|20)\d{2})$/);if(!m)return /^\d{4}-\d\d-\d\d$/.test(v||'')?v:null;const s=m[3]+'-'+m[2].padStart(2,'0')+'-'+m[1].padStart(2,'0');const d=new Date(s+'T00:00:00Z');return Number.isFinite(+d)&&d.toISOString().slice(0,10)===s?s:null;}
+function money(v){if(v==null)return null;v=String(v).replace(/\s/g,'').replace(/−/g,'-');if(v.includes(','))v=v.replace(/\./g,'').replace(',','.');const x=Number(v);return v!==''&&Number.isFinite(x)?x:null;}
+const amt='([+−-]?\\s*\\d+(?:[.,]\\d{3})*[.,]\\d{2})';
+function extract(raw,file){
+ const text=String(raw||'').replace(/\u00a0/g,' ').replace(/\r/g,'');const head=text.slice(0,5500);const h=norm(head);
+ if(!/\b(fattura|bolletta|conto telefonico)\b/i.test(head))return null;
+ const provider=providerOf(head.slice(0,600));
+ if(!/(?:telefon|telecomunic|fibra|internet|iliadbox|abbonamento mobile|\bsim\b|\badsl\b|\bftth\b|\bfttc\b|\bfwa\b|conto fastweb)/i.test(head)||(!provider&&!/\b(?:fibra|internet|telefonia|telecomunicazioni)\b/i.test(head.slice(0,1700))))return null;
+ if(/\b(?:POD\s*[: ]\s*IT[A-Z0-9]{8,}|PDR\s*[: ]\s*\d{10,})/i.test(head))return null;
+ const clean=text.replace(/[ \t]+/g,' ');const top=clean.slice(0,5500);const get=(re,s=top)=>s.match(re)?.[1]?.trim()||null;
+ const f=Object.fromEntries(Object.keys(labels).map(k=>[k,null]));
+ const date=(label,s=top)=>iso(get(new RegExp('(?:'+label+')[ :\\n]*(?:intorno al\\s*|circa\\s*)?'+dateRE,'i'),s));
+ const val=(label,s=clean)=>money(get(new RegExp('(?:'+label+')[ :\\n]*€?\\s*'+amt,'i'),s));
+ f.invoiceNumber=get(/\bFattura\s*(?:N[.°ºo]?|n°|numero)\s*[:.]?\s*([A-Z0-9][A-Z0-9/.-]{3,})/i)||get(/Fattura\s+mensile\s+n[°º.]?\s*([A-Z0-9/.-]+)/i);
+ f.invoiceDate=date('Data (?:di )?emissione');f.dueDate=date('Data (?:di )?scadenza|Scadenza pagamento');f.debitDate=date('Data (?:effettiva )?(?:di )?(?:pagamento|addebito|incasso)');f.nextInvoice=date('Data della prossima fattura');
+ f.clientId=get(/\b(?:ID utente|codice cliente|numero cliente)\s*:\s*([A-Z0-9-]+)/i);f.lineNumber=get(/\b(?:numero telefono fisso|numero linea|numero telefono|numero mobile)\s*:\s*([+\d][\d ]{5,17})/i);f.migrationCode=get(/codice di migrazione\s*:\s*([A-Z0-9]+)/i);
+ f.offer=get(/\bOfferta\s*:\s*([^\n]+?)(?=\s{2,}|\n|$)/i);f.paymentMethod=get(/Metodo di pagamento\s*:\s*([^\n]+?)(?=\n|$)/i);
+ f.paymentStatus=get(/(?:Status dei pagamenti|Stato (?:dei |del )?pagament[oi])\s*:\s*(Pagamento (?:eseguito|in attesa|non riuscito)|Pagat[oa]|Da pagare|Non pagat[oa])/i);
+ const total=val('Totale da pagare')??val('Importo da pagare')??val('Totale fattura');f.payable=total;
+ const details=clean.split(/DETTAGLI DEI TUOI SERVIZI|DETTAGLIO (?:DEI )?SERVIZI|DETTAGLIO COSTI/i)[1]||clean;const detail=details.split(/Comunicazione contrattuale|RIEPILOGO CONSUMI|Qualità dei servizi/i)[0];
+ f.serviceTotal=val('(?:^|\\n)\\s*Servizi',top);f.extraTraffic=val('Traffico a consumo',top);
+ function lineAmount(re){const values=[];for(const l of detail.split('\n')){if(!re.test(l))continue;const m=[...l.matchAll(new RegExp(amt+'\\s*(?:€|EUR)?(?=\\s+\\d{1,2}%|\\s*$)','gi'))];if(m.length===1){const v=money(m[0][1]);if(v!==null)values.push(v);}}return values.length?Math.round(values.reduce((a,b)=>a+b,0)*100)/100:null;}
+ f.monthlyFee=lineAmount(/^(?!.*(?:sconto|promozione)).*(?:abbonamento mensile|canone mensile)/i);f.discount=lineAmount(/sconto|promozione/i);f.installation=lineAmount(/\binstallazione\b/i);f.activation=lineAmount(/\battivazione\b/i);f.modemRate=lineAmount(/rata.*modem|modem.*rata/i);f.phoneRate=lineAmount(/rata.*(?:smartphone|telefono)|smartphone.*rata/i);f.roaming=lineAmount(/\broaming\b/i);
+ const rates=[...new Set([...detail.matchAll(/\b(\d{1,2})\s*%/g)].map(m=>+m[1]))];if(total!==null&&rates.length===1&&/IVA inclusa/i.test(top)){f.vatRate=rates[0];f.taxable=Math.round(total/(1+f.vatRate/100)*100)/100;f.vat=Math.round((total-f.taxable)*100)/100;}
+ const periods=[...clean.matchAll(new RegExp('(?:Dal|Da)\\s+'+dateRE+'\\s+(?:al|a)\\s+'+dateRE,'gi'))];
+ if(periods.length&&f.monthlyFee!==null){f.periodStart=iso(periods[0][1]);f.periodEnd=iso(periods[0][2]);}
+ const consumption=clean.split(/RIEPILOGO CONSUMI/i);if(consumption.length>1){const a=clean.slice(Math.max(0,clean.indexOf(consumption[1])-120),clean.indexOf(consumption[1])+400);const ps=[...a.matchAll(new RegExp('(?:Dal|Da)\\s+'+dateRE+'\\s+(?:al|a)\\s+'+dateRE,'gi'))];const p=ps.at(-1)||(periods.length>1?periods.at(-1):null);if(p){f.consumptionStart=iso(p[1]);f.consumptionEnd=iso(p[2]);}const c=consumption[1].slice(0,400);const call=get(/(\d+)\s+(?:\d+[hms]\s*)?Chiamate effettuate/i,c)||get(/Chiamate effettuate\s*[: ]\s*(\d+)/i,c);if(call!==null)f.calls=+call;const sec=get(/(\d+)s\s*(?:Chiamate effettuate\s*)?Durata chiamate/i,c)||get(/Durata chiamate\s*[: ]\s*(\d+)\s*s/i,c);if(sec!==null)f.callSeconds=+sec;}
+ f.wifi=get(/\b(Wi[ -]?Fi\s*[4567])\b/i);f.accessTechnology=get(/\b(FTTH|FTTC|ADSL|FWA)\b/i);
+ f.serviceType=/iliadbox|fibra|\binternet\b|\bFTTH\b|\bFTTC\b|\bADSL\b|\bFWA\b/i.test(top)?(/numero telefono fisso/i.test(top)?'Internet e voce fissa':'Internet'):'Telefonia';
+ f.chargeType=f.monthlyFee!==null||/fattura mensile/i.test(top)?'Ricorrente':f.installation!==null||f.activation!==null||/\bPuntuale\b/i.test(top)?'Una tantum':'Da verificare';
+ const numeric=(key,re)=>{const a=get(re,top);if(a!==null)f[key]=money(a);};
+ numeric('includedGB',/(?:GB inclusi|giga inclusi)\s*[: ]\s*(\d+(?:[.,]\d+)?)/i);numeric('usedGB',/(?:GB consumati|giga consumati|traffico dati consumato)\s*[: ]\s*(\d+(?:[.,]\d+)?)/i);numeric('remainingGB',/(?:GB residui|giga residui)\s*[: ]\s*(\d+(?:[.,]\d+)?)/i);numeric('remainingCredit',/credito residuo\s*[: ]\s*€?\s*(\d+(?:[.,]\d+)?)/i);
+ numeric('includedMinutes',/minuti inclusi\s*[: ]\s*(\d+)/i);numeric('usedMinutes',/minuti (?:utilizzati|consumati)\s*[: ]\s*(\d+)/i);numeric('includedSMS',/sms inclusi\s*[: ]\s*(\d+)/i);numeric('usedSMS',/sms (?:utilizzati|inviati)\s*[: ]\s*(\d+)/i);
+ for(const [key,label] of [['downloadMbps','download'],['uploadMbps','upload']]){const m=top.match(new RegExp(label+'\\s*[: ]\\s*(\\d+(?:[.,]\\d+)?)\\s*(Gbps|Mbps|Gbit/s|Mbit/s)','i'));if(m)f[key]=money(m[1])*(/^g/i.test(m[2])?1000:1);}
+ const rate=top.match(/rata\s+(\d+)\s+(?:di|su|\/)\s*(\d+)/i);if(rate&&+rate[1]<=+rate[2]){f.ratePaid=+rate[1];f.rateTotal=+rate[2];f.rateRemaining=+rate[2]-+rate[1];}
+ f.promotionEnd=date('Fine promozione|Scadenza promozione');f.renewalDate=date('Prossimo rinnovo|Data rinnovo');
+ for(const [k,v] of Object.entries(f))if(v===null)delete f[k];
+ const paid=!/in attesa|non riuscito|da pagare|non pagat/i.test(f.paymentStatus||'')&&(/^(pagamento eseguito|pagat[oa])$/i.test(f.paymentStatus||'')||!!f.debitDate);
+ return {type:TYPE,provider:provider||supplier(head)||'Gestore da verificare',amount:total,fields:f,file,paid};
+}
+const metrics=[[/scont|promozion/,'discount','Sconti'],[/\b(?:canone|abbonamento)\b/,'monthlyFee','Canone lordo'],[/installaz/,'installation','Installazione'],[/attivaz/,'activation','Attivazione'],[/traffico extra|traffico a consumo/,'extraTraffic','Traffico a consumo'],[/rata.*modem|modem.*rat/,'modemRate','Rate modem'],[/rata.*smartphone|smartphone.*rat/,'phoneRate','Rate smartphone'],[/roaming/,'roaming','Roaming'],[/giga.*inclus|gb.*inclus/,'includedGB','GB inclusi','GB'],[/giga.*residu|gb.*residu/,'remainingGB','GB residui','GB'],[/giga|\bgb\b/,'usedGB','GB consumati','GB'],[/durata.*chiamat/,'callSeconds','Durata chiamate','secondi'],[/chiamat/,'calls','Chiamate','numero'],[/\biva\b/,'vat','IVA calcolata'],[/imponibile/,'taxable','Imponibile'],[/credito residuo/,'remainingCredit','Credito residuo'],[/rate residue|rate mancanti/,'rateRemaining','Rate residue','numero'],[/download/,'downloadMbps','Download dichiarato','Mbps'],[/upload/,'uploadMbps','Upload dichiarato','Mbps'],[/minuti inclusi/,'includedMinutes','Minuti inclusi','minuti'],[/minuti utilizzati/,'usedMinutes','Minuti utilizzati','minuti'],[/sms inclusi/,'includedSMS','SMS inclusi','numero'],[/sms utilizzati/,'usedSMS','SMS utilizzati','numero']];
+function archive(){const a=JSON.parse(localStorage.getItem('lamiabp_utility_details_v1')||'[]');if(!Array.isArray(a))throw Error('Archivio non leggibile');return a.filter(x=>category(x?.type)===TYPE);}
+function scope(q){const s=norm(q);return (providerOf(s)||/\b(telefonia|telefonic[oaie]|internet|fibra|telecomunicazioni|giga|iliadbox)\b/.test(s))&&!/\b(luce|gas|kwh|smc|stipendio|busta paga)\b/.test(s)?s:null;}
+function dataset(q){const alt=/\b(?:fatture altro|documenti altro|altre fatture|fatture non riconosciute)\b/.test(norm(q));const s=scope(q)|| (alt?norm(q):null);if(!s)return null;const p=providerOf(s),m=metrics.find(x=>x[0].test(s)),key=m?.[1]||'payable';const a=(alt?JSON.parse(localStorage.getItem('lamiabp_utility_details_v1')||'[]').filter(b=>b&&category(b.type)==='Altro'):archive()).filter(b=>!p||(providerOf(b.provider)||b.provider)===p);const spend=key==='payable'&&/\b(?:speso|spesa|spese|pagato|pagati)\b/.test(s);const rows=a.map(b=>{let v=spend?b.linkedMovement?.amount:key==='payable'?b.amount:b.fields?.[key];let date=spend?b.linkedMovement?.date:['usedGB','calls','callSeconds','usedMinutes','usedSMS'].includes(key)?b.fields?.consumptionEnd:b.fields?.invoiceDate;return {date:iso(date)||'',amount:v==null||v===''?NaN:Number(v)};});return {documentMetric:true,title:(m?.[2]||(spend?'Uscite collegate':'Totale fatture'))+' '+(p||(alt?'Altro':TYPE)),unit:m?.[3]||'€',latest:['remainingGB','remainingCredit','rateRemaining','downloadMbps','uploadMbps','includedGB','includedMinutes','includedSMS'].includes(key),rows};}
+function answer(q){const s=scope(q);if(!s||!/\b(?:fattur\w*|bollett\w*|offerta|scadenz\w*|pagament\w*|migrazion\w*|canone|abbonamento)\b/.test(s)||/\b(grafic\w*|andamento|confront\w*|quanto|quanti|quante|spes\w*|media|totale)\b/.test(s)&&!/scadenz|prossima fattura|pagament|offerta|codice migrazion/.test(s))return null;const p=providerOf(s);let a=archive().filter(b=>!p||(providerOf(b.provider)||b.provider)===p);const y=s.match(/\b(?:19|20)\d{2}\b/)?.[0];if(y)a=a.filter(b=>b.fields?.invoiceDate?.startsWith(y));a.sort((x,y)=>String(y.fields?.invoiceDate||'').localeCompare(String(x.fields?.invoiceDate||'')));if(!a.length)return 'Non trovo fatture Telefonia e Internet per la richiesta.';const b=a[0],f=b.fields||{};const ks=/prossima fattura/.test(s)?['nextInvoice']:/scadenz/.test(s)?['dueDate','promotionEnd']:/pagament/.test(s)?['paymentStatus','debitDate','paymentMethod']:/offerta/.test(s)?['offer','serviceType']:/migrazion/.test(s)?['migrationCode']:['invoiceDate','chargeType','offer','monthlyFee','discount','payable','paymentStatus'];return b.provider+' · '+(f.invoiceDate||'Data non indicata')+'\n'+ks.map(k=>labels[k]+': '+(f[k]??'Non indicato')).join('\n');}
+function supplier(text){return String(text).match(/(?:fornitore|cedente\s*\/\s*prestatore|ragione sociale)\s*:\s*([^\n]{2,100})/i)?.[1]?.trim()||'';}
+function other(raw,file){const text=String(raw||'');if(!/\b(?:fattura|bolletta)\b/i.test(text.slice(0,5000)))return null;const f={};const get=r=>text.match(r)?.[1]?.trim()||null;f.invoiceNumber=get(/(?:fattura\s*(?:n[.°ºo]?|numero)|numero fattura)\s*[:.]?\s*([A-Z0-9][A-Z0-9/.-]{1,})/i);f.invoiceDate=iso(get(new RegExp('(?:data (?:di )?emissione|data fattura)[ :\\n]*'+dateRE,'i')));f.dueDate=iso(get(new RegExp('(?:data (?:di )?scadenza|scadenza pagamento)[ :\\n]*'+dateRE,'i')));f.payable=money(get(new RegExp('(?:totale da pagare|importo da pagare|totale fattura)[ :\\n]*€?\\s*'+amt,'i')));f.taxable=money(get(new RegExp('(?:totale imponibile|imponibile)[ :\\n]*€?\\s*'+amt,'i')));f.vat=money(get(new RegExp('(?:totale IVA)[ :\\n]*€?\\s*'+amt,'i')));f.paymentMethod=get(/(?:metodo|modalità) di pagamento\s*:\s*([^\n]{2,100})/i);f.paymentStatus=get(/(?:stato (?:del )?pagamento|status dei pagamenti)\s*:\s*([^\n]{2,80})/i);f.description=get(/(?:descrizione|oggetto)\s*:\s*([^\n]{2,200})/i);f.debitDate=iso(get(new RegExp('data (?:effettiva )?(?:di )?(?:pagamento|addebito)[ :\\n]*'+dateRE,'i')));return {type:'Altro',provider:supplier(text)||'Fornitore da verificare',amount:f.payable,fields:f,file,paid:!!f.debitDate||/^(pagamento eseguito|pagat[oa])$/i.test(f.paymentStatus||'')};}
+function category(type){return ['Luce','Gas'].includes(type)?type:[TYPE,'Telefonia e Internet','Telefonia','Internet'].includes(type)?TYPE:'Altro';}
+const LOGOS='lanna_provider_logos_v1';
+function logoKey(provider){return norm(providerOf(provider)||provider).replace(/\b(?:s p a|s r l|s a|italia spa)\b/g,'').trim();}
+function validLogo(v){return typeof v==='string'&&v.length<=48000&&/^data:image\/png;base64,[A-Za-z0-9+/]+={0,2}$/.test(v);}
+function logoArchive(){try{const a=JSON.parse(localStorage.getItem(LOGOS)||'{}');return Object.fromEntries(Object.entries(a||{}).filter(([k,v])=>k&&validLogo(v)));}catch(_){return {};}}
+function logoFor(provider){return logoArchive()[logoKey(provider)]||null;}
+function withLogo(a,provider,img){const key=logoKey(provider);if(!key||/da verificare|sconosciut/.test(key)||!validLogo(img)||Object.hasOwn(a,key)||Object.keys(a).length>=150)return false;a[key]=img;return true;}
+// Individua un'unica immagine raster piccola nella testata, mai un ritaglio di testo o del PDF completo.
+function logoCandidates(ops,OP,pageView){const out=[],stack=[];let m=[1,0,0,1,0,0],unsupported=0;const [x0,y0,x1,y1]=pageView,W=x1-x0,H=y1-y0;
+ function multiply(a,b){return [a[0]*b[0]+a[2]*b[1],a[1]*b[0]+a[3]*b[1],a[0]*b[2]+a[2]*b[3],a[1]*b[2]+a[3]*b[3],a[0]*b[4]+a[2]*b[5]+a[4],a[1]*b[4]+a[3]*b[5]+a[5]];}
+ for(let i=0;i<ops.fnArray.length;i++){const f=ops.fnArray[i],a=ops.argsArray[i];if(f===OP.save){stack.push(m.slice());continue;}if(f===OP.restore){m=stack.pop()||[1,0,0,1,0,0];continue;}if(f===OP.transform){m=multiply(m,a);continue;}if(f===OP.paintFormXObjectBegin||f===OP.beginGroup){unsupported++;continue;}if(f===OP.paintFormXObjectEnd||f===OP.endGroup){unsupported=Math.max(0,unsupported-1);continue;}if(unsupported||f!==OP.paintImageXObject)continue;
+ const [id,pw,ph]=a||[];if(!id||!Number.isFinite(pw)||!Number.isFinite(ph)||pw<35||ph<18||pw*ph>2000000||Math.abs(m[1])+Math.abs(m[2])>1e-5)continue;
+ const w=Math.abs(m[0]),h=Math.abs(m[3]),left=Math.min(m[4],m[4]+m[0]),bottom=Math.min(m[5],m[5]+m[3]),top=bottom+h;
+ if(left<x0||left+w>x1||top>y1+1||bottom<y1-H*.14||w<W*.045||w>W*.38||h<H*.012||h>H*.10||w/h<.6||w/h>6||pw/ph<.6||pw/ph>6)continue;
+ // Escludi codici quadrati potenzialmente QR: riconosciamo solo immagini oblunghe.
+ if(w/h<1.25||pw/ph<1.25)continue;
+ out.push({id,pw,ph});
+ }return [...new Map(out.map(x=>[x.id,x])).values()];}
+async function extractLogo(pdf,pdfjs,provider,header){try{const key=logoKey(provider);if(!key||/da verificare|sconosciut/.test(key)||logoFor(provider)||!norm(header.slice(0,1500)).includes(key))return null;
+ // Compatibilita con WebKit senza i metodi Map introdotti di recente dal PDF.js locale.
+ if(!Map.prototype.getOrInsertComputed)Object.defineProperty(Map.prototype,'getOrInsertComputed',{configurable:true,writable:true,value:function(k,cb){if(!this.has(k))this.set(k,cb(k));return this.get(k);}});
+ if(!Map.prototype.getOrInsert)Object.defineProperty(Map.prototype,'getOrInsert',{configurable:true,writable:true,value:function(k,v){if(!this.has(k))this.set(k,v);return this.get(k);}});
+ const page=await pdf.getPage(1),ops=await page.getOperatorList();const c=logoCandidates(ops,pdfjs.OPS,page.view);if(c.length!==1)return null;
+ const obj=await Promise.race([new Promise(resolve=>page.objs.get(c[0].id,resolve)),new Promise(resolve=>setTimeout(()=>resolve(null),1200))]);if(!obj||obj.width!==c[0].pw||obj.height!==c[0].ph)return null;
+ const src=document.createElement('canvas');src.width=obj.width;src.height=obj.height;const ctx=src.getContext('2d');if(!ctx)return null;
+ if(obj.bitmap)ctx.drawImage(obj.bitmap,0,0);else if(obj.data&&(obj.kind===2||obj.kind===3)){const data=ctx.createImageData(obj.width,obj.height);const step=obj.kind===2?3:4;if(obj.data.length!==obj.width*obj.height*step)return null;for(let i=0,j=0;i<obj.data.length;i+=step,j+=4){data.data[j]=obj.data[i];data.data[j+1]=obj.data[i+1];data.data[j+2]=obj.data[i+2];data.data[j+3]=step===4?obj.data[i+3]:255;}ctx.putImageData(data,0,0);}else return null;
+ const scale=Math.min(1,128/Math.max(src.width,src.height));const dest=document.createElement('canvas');dest.width=Math.max(1,Math.round(src.width*scale));dest.height=Math.max(1,Math.round(src.height*scale));const dc=dest.getContext('2d');if(!dc)return null;dc.drawImage(src,0,0,dest.width,dest.height);const result=dest.toDataURL('image/png');return validLogo(result)?result:null;
+ }catch(_){return null;}}
+
+function signature(b){const f=b?.fields||{};return category(b?.type)+'|'+norm(b?.provider)+'|'+(f.invoiceNumber?String(f.invoiceNumber).trim().toUpperCase():[f.invoiceDate,b?.amount,f.lineNumber||'',b?.file||b?.sourceName||''].join('|'));}
+window.LannaTelecom={TYPE,labels,textFields,providerOf,extract,other,category,logoFor,logoKey,logoArchive,withLogo,extractLogo,logoCandidates,LOGOS,scope,dataset,answer,signature};
+})();
+</script>
 <script id="lanna-bill-advanced">(()=>{
 const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 const num=v=>v!==null&&v!==undefined&&v!==''&&Number.isFinite(Number(v))?Number(v):null;
@@ -218,16 +317,16 @@ function unexpected(e){try{var reason=e.type==='unhandledrejection'?e.reason:e.e
 window.addEventListener('error',function(e){if(e.error||e.message)unexpected(e);});window.addEventListener('unhandledrejection',unexpected);
 })();
 </script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Wallet-PRO">
-<meta id="themeColorMeta" name="theme-color" content="#F2F2F7">
+
+
+
+
+
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
-<title>Wallet-PRO 4.1.0 – Il tuo portafoglio smart</title>
-<meta name="walletpro-build" content="wallet-pro-4.1.0">
+<title>Wallet-PRO 5.0.0 – Il tuo portafoglio smart</title>
+<meta name="walletpro-build" content="wallet-pro-5.0.0">
 <style>
   :root {
     --bg: #F2F2F7; --card: #FFFFFF; --text: #1C1C1E; --subtext: #8E8E93;
@@ -241,7 +340,7 @@ window.addEventListener('error',function(e){if(e.error||e.message)unexpected(e);
     --tab-bg: rgba(28, 28, 30, 0.94); --input-bg: #2C2C2E;
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif; }
-  body { margin: 0; padding: env(safe-area-inset-top) 0 calc(86px + env(safe-area-inset-bottom)) 0; background-color: var(--bg); color: var(--text); transition: background-color 0.25s, color 0.25s; }
+  body { margin: 0; padding: env(safe-area-inset-top) 0 calc(86px + env(safe-area-inset-bottom)) 0; background-color: var(--bg); color: var(--text); transition: color 0.25s; }
   .container { max-width: 540px; margin: 0 auto; padding: 16px; }
   .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; gap: 10px; }
   .header h1 { font-size: 26px; font-weight: 700; margin: 0; letter-spacing: -0.5px; }
@@ -704,7 +803,7 @@ window.LannaLocale=Object.freeze((function(){
  "Notifiche": "Notifications",
  "Avvisi all'apertura": "Alerts on Launch",
  "Notifiche sul dispositivo": "Device Notifications",
- "Promemoria un giorno prima delle scadenze. Gli avvisi all’apertura sono disponibili. Nella web app sono disponibili gli avvisi all’apertura; le notifiche native non sono disponibili.": "Reminders one day before due dates. Alerts on launch are available. Local iOS notifications are available on iPhone and scheduled for upcoming due dates.",
+ "Avvisi locali un giorno prima delle scadenze. Push OneSignal opzionale via Internet; per gli avvisi a app chiusa serve una pianificazione esterna.": "Local alerts one day before due dates. Optional OneSignal push requires Internet; closed-app reminders need external scheduling.",
  "Invia notifica di prova": "Send test notification",
  "Scadenze salvate solo sul dispositivo. Puoi aggiungerle al calendario del telefono con un avviso un giorno prima. Il calendario non si aggiorna automaticamente se modifichi o cancelli la scadenza. Non generano movimenti bancari.": "Reminders are stored on your device only. You can add them to your phone calendar with an alert one day before. The calendar does not update automatically if a reminder is edited or deleted. Reminders do not create bank transactions.",
  "Importo previsto (€)": "Expected amount (€)",
@@ -892,7 +991,7 @@ window.LannaLocale=Object.freeze((function(){
  "Avvio ascolto…": "Starting listening…",
  "Fine ascolto…": "Finishing listening…",
  "Sto ascoltando… Tocca di nuovo per fermare.": "Listening… Tap again to stop.",
- "Microfono offline disponibile nell’app iPhone.": "Offline microphone available in the iPhone app.",
+ "Il microfono web può richiedere Internet.": "Offline microphone available in the iPhone app.",
  "Microfono nativo non disponibile.": "Native microphone unavailable.",
  "Microfono non disponibile": "Microphone unavailable",
  "Messaggio inviato.": "Message sent.",
@@ -3260,9 +3359,21 @@ body.pa32-keyboard-open #view-pa.active .lanna-pa-conversation{
 </style>
 <style id="lanna131-contrast">#view-pa .lanna-pa-bubble:not(.user) svg text{fill:currentColor} #view-pa .l89-caption{color:inherit}</style>
 <style id="stability-inputs">input:not([type=checkbox]):not([type=radio]),select,textarea,[contenteditable="true"]{font-size:16px!important}</style>
-<style id="wp-web-only">#toggleLannaFaceID,#lannaFaceIDHint,#lannaWidgetRefresh,#lannaWidgetStatus,#wpNotifyDevice{display:none!important}.list-row:has(#toggleLannaFaceID),.list-row:has(#lannaWidgetRefresh),.wp-notify-line:has(#wpNotifyDevice){display:none!important}</style>
+<style id="wp-web-only">#toggleLannaFaceID,#lannaFaceIDHint,#lannaWidgetRefresh,#lannaWidgetStatus{display:none!important}.list-row:has(#toggleLannaFaceID),.list-row:has(#lannaWidgetRefresh){display:none!important}</style>
+<style id="wp412-status">html.wp-web-dark{--bg:#000000;color-scheme:dark}html:not(.wp-web-dark){color-scheme:light}</style>
+<style>.wp-notify-line input[type=checkbox]{appearance:auto!important;-webkit-appearance:checkbox!important;width:20px;height:20px;accent-color:var(--blue,#007aff);display:inline-block!important}</style>
+<style id="wp417-status-final">
+html{--wp-status-bg:#F2F2F7;background-color:var(--wp-status-bg)!important;}
+html.wp-web-dark{--wp-status-bg:#000000;--bg:#000000;color-scheme:dark;}
+html:not(.wp-web-dark){color-scheme:light;}
+html,body{background:var(--wp-status-bg)!important;transition-property:color!important;}
+html::before,body::before,#topFixed::before{content:none!important;}
+#wp417SafeTop{position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:var(--wp-status-bg);pointer-events:none;z-index:2147483645;}
+#lannaViewportBackdrop{background:var(--wp-status-bg)!important;}
+</style>
 </head>
 <body>
+<div id="wp417SafeTop" aria-hidden="true"></div>
 <div id="lannaViewportBackdrop" aria-hidden="true"></div>
 <div id="toast" class="toast"></div>
 <div id="wpResetOverlay" hidden>
@@ -3277,7 +3388,7 @@ body.pa32-keyboard-open #view-pa.active .lanna-pa-conversation{
 <div class="container">
   <div id="topFixed" class="mov-top">
   <div class="header">
-    <div class="wp-brand"><div class="lanna-brand-title"><h1>Wallet-PRO</h1><img class="lanna-brand-logo" src="./icon-192.png" alt="Logo Wallet-PRO"></div><div class="wp-brand-version">Il tuo portafoglio smart (Vers. 4.1.0)</div></div>
+    <div class="wp-brand"><div class="lanna-brand-title"><h1>Wallet-PRO</h1><img class="lanna-brand-logo" src="./icon-192.png" alt="Logo Wallet-PRO"></div><div class="wp-brand-version">Il tuo portafoglio smart (Vers. 4.1.6)</div></div>
     <div class="header-controls">
       <select id="yearSelect" class="year-select" aria-label="Seleziona Anno"></select>
 
@@ -3366,6 +3477,11 @@ body.pa32-keyboard-open #view-pa.active .lanna-pa-conversation{
     <form id="lannaPaForm" class="lanna-pa-form"><textarea id="lannaPaInput" rows="1" maxlength="2000" autocomplete="off" placeholder="Scrivi a Wallet-PRO…" aria-label="Messaggio a Wallet-PRO"></textarea><button type="submit" id="lannaPaSend142" disabled aria-label="Invia messaggio">↑</button><button type="button" id="lannaPaMic" class="lanna-pa-mic" aria-label="Tocca per parlare" aria-pressed="false" title="Tocca per parlare"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5m-4 0h8"/></svg></button></form><div id="lannaPaMicStatus" class="lanna-pa-mic-status" role="status" aria-live="polite"></div>
   </div>
   <div id="view-dashboard" class="view active">
+  <div id="wpBackupReminder" class="card" hidden data-lanna-user-text translate="no" style="padding:12px;margin-bottom:10px">
+   <strong>Proteggi i tuoi dati</strong><div id="wpBackupReminderText" class="row-sub"></div>
+   <button id="wpBackupReminderExport" type="button" class="action-btn">Esporta backup JSON</button>
+   <button id="wpBackupReminderLater" type="button" class="mini-btn">Ricordamelo domani</button>
+  </div>
     <div id="wpDashboardReminders" aria-live="polite" style="display:none"></div>
     
     <div id="eventsBanner" class="events-banner" style="display:none;">
@@ -3564,9 +3680,11 @@ body.pa32-keyboard-open #view-pa.active .lanna-pa-conversation{
 <div class="section-header">Notifiche</div>
 <div class="list-card" style="padding:14px">
  <label class="wp-notify-line"><span>Avvisi all'apertura</span><input id="wpNotifyOpen" type="checkbox"></label>
- <label class="wp-notify-line"><span>Notifiche sul dispositivo</span><input id="wpNotifyDevice" type="checkbox"></label>
- <div class="row-sub" style="margin:10px 0">Promemoria un giorno prima delle scadenze. Gli avvisi all’apertura sono disponibili. Nella web app sono disponibili gli avvisi all’apertura; le notifiche native non sono disponibili.</div>
- <button id="wpNotifyTest" type="button" class="action-btn">Invia notifica di prova</button>
+ <label class="wp-notify-line"><span>Notifiche sul dispositivo (OneSignal)</span><input id="wpNotifyDevice" type="checkbox" disabled></label>
+ 
+ <div class="row-sub" style="margin:10px 0">Avvisi locali un giorno prima delle scadenze. Push OneSignal opzionale via Internet; per gli avvisi a app chiusa serve una pianificazione esterna.</div>
+ <button id="wpNotifyConnect" type="button" class="action-btn">Connetti OneSignal (facoltativo)</button>
+ <button id="wpNotifyTest" type="button" class="action-btn">Verifica OneSignal</button>
  <div id="wpNotifyStatus" class="row-sub" role="status" aria-live="polite" style="margin-top:10px"></div>
  <div id="wpNotifyDue" role="status" aria-live="polite" style="margin-top:10px"></div>
  <div style="margin-top:14px"><details class="settings-accordion"><summary class="settings-accordion-title">Inserisci Scadenze <span class="settings-accordion-chevron" aria-hidden="true"></span></summary><div class="list-card" style="padding:14px"><div class="row-sub">Scadenze salvate solo sul dispositivo. Puoi aggiungerle al calendario del telefono con un avviso un giorno prima. Il calendario non si aggiorna automaticamente se modifichi o cancelli la scadenza. Non generano movimenti bancari.</div><label class="form-label">Descrizione</label><input id="wpRecurringName" class="form-input" placeholder="Affitto"><label class="form-label">Importo previsto (€)</label><input id="wpRecurringAmount" class="form-input" inputmode="text"><label class="form-label" for="wpReminderType">Ripetizione</label><select id="wpReminderType" class="form-input"><option value="monthly">Ogni mese</option><option value="yearly">Ogni anno</option><option value="weekly">Ogni settimana</option><option value="once">Una sola volta</option></select><div id="wpReminderDayWrap"><label class="form-label" for="wpRecurringDay">Giorno del mese (1–31)</label><input id="wpRecurringDay" class="form-input" type="text" min="1" max="31" value="1" inputmode="text"></div><div id="wpReminderDateWrap" style="display:none"><label class="form-label" for="wpReminderDate">Data della scadenza</label><input id="wpReminderDate" class="form-input" type="date"></div><label class="form-label" for="wpReminderCount">Numero scadenze (per ripetizioni; vuoto = senza fine)</label><input id="wpReminderCount" class="form-input" type="text" min="1" max="1200" placeholder="Es. 12" inputmode="text"><button id="wpAddRecurring" class="action-btn" type="button">Aggiungi scadenza</button><div id="wpRecurringList"></div></div></details></div>
@@ -3646,6 +3764,14 @@ body.pa32-keyboard-open #view-pa.active .lanna-pa-conversation{
        <p style="font-size:12px;line-height:1.45;color:var(--subtext);margin:8px 0">Il backup cifrato viene creato sul dispositivo con AES-GCM. Conserva la password separatamente: non può essere recuperata. Il backup JSON normale non è cifrato.</p>
        <input type="file" id="wpEncryptedFile" class="wp-accessible-file">
        <div class="row-sub" style="padding:5px 15px 10px">La password non viene memorizzata. Conserva il file in un luogo sicuro.</div>
+       <div id="wpProtectionPanel" data-lanna-user-text translate="no">
+        <div id="wpStorageStatus" class="row-sub" role="status" aria-live="polite">Verifica protezione archivio…</div>
+        <button type="button" id="wpStoragePersist" class="action-btn">Richiedi archiviazione persistente</button>
+        <div id="wpBackupStatus" class="row-sub" role="status" aria-live="polite"></div>
+        <button type="button" id="wpBackupConfirm" class="action-btn">Conferma backup salvato</button>
+        <button type="button" id="wpOfflinePrepare" class="action-btn">Verifica / prepara per l’utilizzo offline</button>
+        <div id="wpOfflineStatus" class="row-sub" role="status" aria-live="polite">Verifica le risorse locali anche offline; scarica quelle mancanti quando sei online.</div>
+       </div>
        <button type="button" id="btnExportJson" class="action-btn">Esegui backup completo JSON</button>
       <label id="btnImportJson" for="jsonFileInput" class="action-btn wp-file-label" role="button" tabindex="0">Ripristina backup completo JSON</label>
       <input type="file" id="jsonFileInput" accept=".json" class="wp-accessible-file">
@@ -3687,14 +3813,14 @@ body.pa32-keyboard-open #view-pa.active .lanna-pa-conversation{
 <div id="aboutWalletModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="aboutWalletTitle">
   <div class="modal-sheet">
     <div class="modal-top"><span class="modal-title" id="aboutWalletTitle">Informazioni su Wallet-PRO</span><button type="button" id="closeAboutWallet" class="close-btn">Chiudi</button></div>
-    <div class="about-message lanna-about-v172"><div class="lanna-about-brand"><img src="./apple-touch-icon.png" alt="Logo Wallet-PRO" width="56" height="56"><strong>Wallet-PRO</strong><p>Il tuo portafoglio smart</p><p class="lanna-about-version"><span>Versione</span> <span>4.1.0</span></p></div><div class="lanna-about-list"><details class="lanna-about-section"><summary><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>Informazioni sull’app</span><span class="lanna-about-chevron" aria-hidden="true"></span></summary><div class="lanna-about-content"><p>Wallet-PRO è gratuita, senza pubblicità, e ti aiuta a organizzare entrate, uscite, scadenze e documenti finanziari.</p></div></details><details class="lanna-about-section"><summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-8 9-8 9s-8-4-8-9V6zM8 12l3 3 5-5"/></svg><span>Informativa sulla privacy</span><span class="lanna-about-chevron" aria-hidden="true"></span></summary><div class="lanna-about-content"><p>Wallet-PRO conserva ed elabora i dati finanziari sul dispositivo. Le esportazioni e i backup sono sotto il tuo controllo: scegli dove salvarli e con chi condividerli. Se utilizzi iCloud Drive, i file esportati possono essere sincronizzati da Apple. Il riconoscimento vocale è disponibile soltanto se il browser supporta la trascrizione locale.</p></div></details><details class="lanna-about-section"><summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg><span>Condizioni di utilizzo</span><span class="lanna-about-chevron" aria-hidden="true"></span></summary><div class="lanna-about-content"><p>Wallet-PRO è uno strumento di gestione personale, non un servizio di consulenza finanziaria, fiscale o legale. Verifica i dati importati e i calcoli prima di utilizzarli per decisioni importanti. Conserva copie di sicurezza dei tuoi archivi.</p></div></details><details class="lanna-about-section"><summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 21h14M4 7h16M5 7l-3 6h6zM19 7l-3 6h6z"/></svg><span>Licenze di terze parti</span><span class="lanna-about-chevron" aria-hidden="true"></span></summary><div class="lanna-about-content"><p>Testi di licenza e riconoscimenti disponibili nel progetto. La verifica completa delle dipendenze OCR, dei relativi avvisi e delle risorse grafiche resta da completare prima della pubblicazione.</p><pre id="lanna-about-license-text" translate="no" lang="en">Wallet-PRO — Third-party licence inventory / Inventario licenze (1.0 A.2, sviluppo privato)
+    <div class="about-message lanna-about-v172"><div class="lanna-about-brand"><img src="./apple-touch-icon.png" alt="Logo Wallet-PRO" width="56" height="56"><strong>Wallet-PRO</strong><p>Il tuo portafoglio smart</p><p class="lanna-about-version"><span>Versione</span> <span>4.1.6</span></p></div><div class="lanna-about-list"><details class="lanna-about-section"><summary><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>Informazioni sull’app</span><span class="lanna-about-chevron" aria-hidden="true"></span></summary><div class="lanna-about-content"><p>Wallet-PRO è gratuita, senza pubblicità, e ti aiuta a organizzare entrate, uscite, scadenze e documenti finanziari.</p></div></details><details class="lanna-about-section"><summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-8 9-8 9s-8-4-8-9V6zM8 12l3 3 5-5"/></svg><span>Informativa sulla privacy</span><span class="lanna-about-chevron" aria-hidden="true"></span></summary><div class="lanna-about-content"><p>Wallet-PRO conserva ed elabora i dati finanziari sul dispositivo. Le esportazioni e i backup sono sotto il tuo controllo: scegli dove salvarli e con chi condividerli. Se utilizzi iCloud Drive, i file esportati possono essere sincronizzati da Apple. Il riconoscimento vocale è disponibile soltanto se il browser supporta la trascrizione locale. Se attivi OneSignal, il servizio esterno tratta dati tecnici di connessione e iscrizione push. Wallet-PRO non gli invia documenti o movimenti finanziari. Puoi usare gli avvisi all’apertura e il calendario senza attivare OneSignal.</p></div></details><details class="lanna-about-section"><summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg><span>Condizioni di utilizzo</span><span class="lanna-about-chevron" aria-hidden="true"></span></summary><div class="lanna-about-content"><p>Wallet-PRO è uno strumento di gestione personale, non un servizio di consulenza finanziaria, fiscale o legale. Verifica i dati importati e i calcoli prima di utilizzarli per decisioni importanti. Conserva copie di sicurezza dei tuoi archivi.</p></div></details><details class="lanna-about-section"><summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 21h14M4 7h16M5 7l-3 6h6zM19 7l-3 6h6z"/></svg><span>Licenze di terze parti</span><span class="lanna-about-chevron" aria-hidden="true"></span></summary><div class="lanna-about-content"><p>Testi di licenza e riconoscimenti disponibili nel progetto. La verifica completa delle dipendenze OCR, dei relativi avvisi e delle risorse grafiche resta da completare prima della pubblicazione.</p><pre id="lanna-about-license-text" translate="no" lang="en">Wallet-PRO — Third-party licence inventory / Inventario licenze (1.0 A.2, sviluppo privato)
 
 PDF.js 6.5.438 — Copyright 2024 Mozilla Foundation; Apache-2.0. The standard build worker matches the npm package byte for byte; pdf.mjs matches after normalizing only the generated INTERNAL_EVT UUID. The 13 release licence documents are reproduced below, including reference notices for optional distribution assets (not evidence that all such assets are shipped by Wallet-PRO).
 SheetJS CE 0.20.3 — Apache-2.0. The bundled file matches the original package; source map identifies misc/suppress_export.js, dist/cpexcel.js and dist/xlsx.js. Codepage 1.15.0 licence and distribution licence are reproduced below. The package has no root NOTICE; further embedded attributions remain subject to final review.
 Tesseract.js and worker 4.1.4 — original npm licence and bundle notices retained below. Full notices for embedded JavaScript dependencies (including regenerator-runtime, buffer, ieee754, zlib.js and other bundled dependencies) remain to be checked against exact versions.
 Tesseract.js-core 4.0.4 — original package licence retained. Source commit 99f107886b4f917ba7a70b0d12421a3336f8348c; the build tree identifies nine components at the revisions below. Original component licence documents and relevant header notices are reproduced. A source/build inventory does not prove that every component or every file is linked into the shipped binary. Openlibm test files are identified upstream as LGPL; their inclusion in the distributed binary has not been established. Emscripten 3.1.18 and system-library notices are included for review.
 This software is based in part on the work of the Independent JPEG Group.
-OCR language models eng/ita — tessdata_fast; decompressed bytes match Debian tesseract-ocr-eng and tesseract-ocr-ita 1:4.1.0-2. Original Debian copyright notice reproduced below; Apache-2.0 text retained. This confirms byte identity, not the historical download source.
+OCR language models eng/ita — tessdata_fast; decompressed bytes match Debian tesseract-ocr-eng and tesseract-ocr-ita 1:4.1.2-2. Original Debian copyright notice reproduced below; Apache-2.0 text retained. This confirms byte identity, not the historical download source.
 SQLite — Wallet-PRO uses the SQLite3 library supplied by iOS for its local archive, with IndexedDB as a local compatibility/recovery store. SQLite upstream core is public domain (https://www.sqlite.org/copyright.html). No separately bundled SQLite binary is added by this update.
 Capacitor 7.6.10; Filesystem 7.1.9; Haptics 7.0.5; Keyboard 7.0.6; Local Notifications 7.0.7; Share 7.0.4; IONFilesystemLib 1.1.4 — existing CocoaPods acknowledgements retained below. Vite 7.3.8 and Capacitor CLI are build tools.
 This update is documentation only, not release clearance. Before public distribution: complete exact embedded JavaScript/runtime attribution review, confirm actual linked components and any additional per-file notices, audit graphic assets, and verify final app package. No change to executable libraries.
@@ -9521,7 +9647,7 @@ THE SOFTWARE.
   var CUSTOM_ICONS_KEY = 'walletpro_custom_category_icons_v1';
   var customCategoryIcons = {};
   try { customCategoryIcons = JSON.parse(localStorage.getItem(CUSTOM_ICONS_KEY) || '{}') || {}; } catch(e) { customCategoryIcons = {}; }
-  function categoryIcon(c) { var icon = (customCategoryIcons && Object.prototype.hasOwnProperty.call(customCategoryIcons,c) ? customCategoryIcons[c] : null) || CAT_ICONS[c] || '🏷️'; return escapeHtml(String(icon).slice(0,32)); }
+  function categoryIcon(c) { var icon = (customCategoryIcons && Object.prototype.hasOwnProperty.call(customCategoryIcons,c) ? customCategoryIcons[c] : null) || (Object.prototype.hasOwnProperty.call(CAT_ICONS,c)?CAT_ICONS[c]:null) || '🏷️'; return escapeHtml(String(icon).slice(0,32)); }
   var EXTRA_CATEGORY_EMOJIS = ['🎂', '🏍️', '🦷', '👮🏼\u200d♂️', '🪡', '🐶', '🐱', '🐠', '🌏', '❄️', '☀️', '⛄️', '🍔', '🍕', '🦴', '⚽️', '🎾', '🚑', '🚚', '🚙', '🛵', '🛩️', '🚝', '⛵️', '🏖️', '🏥', '🏨', '💵', '💎'];
   function fillCategoryEmojiSelect(sel, initial) {
     if (!sel) return;
@@ -9825,7 +9951,7 @@ THE SOFTWARE.
   }
 
   function escapeHtml(s) {
-    return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
   }
 
   function getAvailableYears() {
@@ -9987,7 +10113,7 @@ THE SOFTWARE.
       return;
     }
 
-    var catTotals = {};
+    var catTotals = Object.create(null);
     yearExpenses.forEach(function(ex) {
       var c = ex.category || 'Altro';
       catTotals[c] = (catTotals[c] || 0) + (Number(ex.amount) || 0);
@@ -10589,6 +10715,7 @@ THE SOFTWARE.
     }
   }
   function applyPrefsUI() {
+    document.documentElement.classList.toggle('wp-web-dark', !!prefs.dark);
     document.body.classList.toggle('dark', prefs.dark);
     var metaTheme = document.getElementById('themeColorMeta');
     if (metaTheme) metaTheme.setAttribute('content', prefs.dark ? '#000000' : '#F2F2F7');
@@ -10684,13 +10811,13 @@ THE SOFTWARE.
 
 
   // Wallet-PRO 1.7.2: strings for the existing About sheet.
-  Object.assign(I18N.en, {"Informazioni sull’app": "About the app", "Wallet-PRO è gratuita, senza pubblicità, e ti aiuta a organizzare entrate, uscite, scadenze e documenti finanziari.": "Wallet-PRO is free, ad-free, and helps you organise income, expenses, reminders and financial documents.", "Informativa sulla privacy": "Privacy policy", "Wallet-PRO conserva ed elabora i dati finanziari sul dispositivo. Le esportazioni e i backup sono sotto il tuo controllo: scegli dove salvarli e con chi condividerli. Se utilizzi iCloud Drive, i file esportati possono essere sincronizzati da Apple. Il riconoscimento vocale è disponibile soltanto se il browser supporta la trascrizione locale.": "Wallet-PRO stores and processes financial data on your device. You control exports and backups: choose where to save them and whom to share them with. If you use iCloud Drive, Apple may sync exported files. Speech recognition is available only with browser-supported on-device processing.", "Condizioni di utilizzo": "Terms of use", "Wallet-PRO è uno strumento di gestione personale, non un servizio di consulenza finanziaria, fiscale o legale. Verifica i dati importati e i calcoli prima di utilizzarli per decisioni importanti. Conserva copie di sicurezza dei tuoi archivi.": "Wallet-PRO is a personal management tool, not a financial, tax or legal advisory service. Check imported data and calculations before using them for important decisions. Keep backups of your records.", "Licenze di terze parti": "Third-party licences", "Testi di licenza e riconoscimenti disponibili nel progetto. La verifica completa delle dipendenze OCR, dei relativi avvisi e delle risorse grafiche resta da completare prima della pubblicazione.": "Licence texts and acknowledgements available in the project. The complete review of OCR dependencies, related notices and graphic resources must be completed before publication.", "Riconoscimenti": "Acknowledgements", "Versione": "Version", "Il tuo portafoglio smart": "Your smart wallet", "I tuoi dati finanziari rimangono sul tuo dispositivo": "Your financial data stays on your device", "Gratuita · Senza pubblicità": "Free · Ad-free", "Tutti i diritti riservati sul codice proprietario.": "All rights reserved for proprietary code."});
+  Object.assign(I18N.en, {"Informazioni sull’app": "About the app", "Wallet-PRO è gratuita, senza pubblicità, e ti aiuta a organizzare entrate, uscite, scadenze e documenti finanziari.": "Wallet-PRO is free, ad-free, and helps you organise income, expenses, reminders and financial documents.", "Informativa sulla privacy": "Privacy policy", "Wallet-PRO conserva ed elabora i dati finanziari sul dispositivo. Le esportazioni e i backup sono sotto il tuo controllo: scegli dove salvarli e con chi condividerli. Se utilizzi iCloud Drive, i file esportati possono essere sincronizzati da Apple. Il riconoscimento vocale è disponibile soltanto se il browser supporta la trascrizione locale. Se attivi OneSignal, il servizio esterno tratta dati tecnici di connessione e iscrizione push. Wallet-PRO non gli invia documenti o movimenti finanziari. Puoi usare gli avvisi all’apertura e il calendario senza attivare OneSignal.": "Wallet-PRO stores and processes financial data on your device. You control exports and backups: choose where to save them and whom to share them with. If you use iCloud Drive, Apple may sync exported files. Speech recognition is available only with browser-supported on-device processing. If you enable OneSignal, the external service processes technical connection and push subscription data. Wallet-PRO does not send documents or financial transactions to it. In-app reminders and calendar export do not require OneSignal.", "Condizioni di utilizzo": "Terms of use", "Wallet-PRO è uno strumento di gestione personale, non un servizio di consulenza finanziaria, fiscale o legale. Verifica i dati importati e i calcoli prima di utilizzarli per decisioni importanti. Conserva copie di sicurezza dei tuoi archivi.": "Wallet-PRO is a personal management tool, not a financial, tax or legal advisory service. Check imported data and calculations before using them for important decisions. Keep backups of your records.", "Licenze di terze parti": "Third-party licences", "Testi di licenza e riconoscimenti disponibili nel progetto. La verifica completa delle dipendenze OCR, dei relativi avvisi e delle risorse grafiche resta da completare prima della pubblicazione.": "Licence texts and acknowledgements available in the project. The complete review of OCR dependencies, related notices and graphic resources must be completed before publication.", "Riconoscimenti": "Acknowledgements", "Versione": "Version", "Il tuo portafoglio smart": "Your smart wallet", "I tuoi dati finanziari rimangono sul tuo dispositivo": "Your financial data stays on your device", "Gratuita · Senza pubblicità": "Free · Ad-free", "Tutti i diritti riservati sul codice proprietario.": "All rights reserved for proprietary code."});
 
   // Etichette categorie localizzate; i valori salvati restano in italiano.
   var CATEGORY_TRANSLATIONS = {"en":{"Alimentari":"Groceries & supermarkets","Casa & Utenze":"Home, bills & utilities","Auto & Trasporti":"Car, fuel & transport","Salute":"Health & pharmacy","Tempo Libero":"Restaurants & leisure","Rate & Finanziamenti":"Installments, loans & financing","Altro":"Other"}};
   function categoryLabel(category) {
     var labels = CATEGORY_TRANSLATIONS[prefs.language] || {};
-    return labels[category] || (['Stipendio','Pensione','Bonifici','Rimborsi','Interessi','Vendite','Utenze','Carburante','Shopping'].includes(category)?(window.LannaLocale?.text(category,prefs.language)??category):category);
+    return (Object.prototype.hasOwnProperty.call(labels,category)?labels[category]:null) || (['Stipendio','Pensione','Bonifici','Rimborsi','Interessi','Vendite','Utenze','Carburante','Shopping'].includes(category)?(window.LannaLocale?.text(category,prefs.language)??category):category);
   }
   function translateExpenseCategories() {
     var select = document.getElementById('expCategory');
@@ -10788,7 +10915,7 @@ THE SOFTWARE.
     (state.bankIncomeEntries || []).forEach(function(e){if(e.category)found[e.category]=true;});
     return Object.keys(found);
   }
-  function incomeIcon(c) { return customCategoryIcons[c] ? categoryIcon(c) : (({Stipendio:'💼',Pensione:'🏦',Bonifici:'💸',Rimborsi:'↩️',Interessi:'📈',Vendite:'🛍️',Altro:'🏷️'})[c] || categoryIcon(c)); }
+  function incomeIcon(c) { var icons={Stipendio:'💼',Pensione:'🏦',Bonifici:'💸',Rimborsi:'↩️',Interessi:'📈',Vendite:'🛍️',Altro:'🏷️'};return (customCategoryIcons&&Object.prototype.hasOwnProperty.call(customCategoryIcons,c)&&customCategoryIcons[c]) ? categoryIcon(c) : (Object.prototype.hasOwnProperty.call(icons,c)?icons[c]:categoryIcon(c)); }
   function syncIncomeCategoryOptions() {
     var sel=document.getElementById('monthlyIncomeCategory');if(!sel)return;
     var old=sel.value;
@@ -12122,6 +12249,41 @@ THE SOFTWARE.
     }
     return fields;
   }
+  // PAY-DATE-START: calendario civile italiano, esclusivamente locale (UTC).
+  function payIso(y,m,d){
+    if(!Number.isInteger(y)||y<1900||y>2100||!Number.isInteger(m)||m<0||m>11||!Number.isInteger(d)||d<1||d>31)return '';
+    var date=new Date(Date.UTC(y,m,d));
+    return date.getUTCFullYear()===y&&date.getUTCMonth()===m&&date.getUTCDate()===d?date.toISOString().slice(0,10):'';
+  }
+  function payEasterMonday(y){
+    var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,n=Math.floor((a+11*h+22*l)/451),v=h+l-7*n+114;
+    return new Date(Date.UTC(y,Math.floor(v/31)-1,v%31+2)).toISOString().slice(0,10);
+  }
+  function payWorkingDate(y,m){
+    y=Number(y);m=Number(m);if(!payIso(y,m,27))return '';
+    var holidays=['01-01','01-06','04-25','05-01','06-02','08-15','11-01','12-08','12-25','12-26'];
+    var date=new Date(Date.UTC(y,m,27)),easter=payEasterMonday(y);
+    while(date.getUTCDay()===0||date.getUTCDay()===6||holidays.includes(date.toISOString().slice(5,10))||date.toISOString().slice(0,10)===easter)date.setUTCDate(date.getUTCDate()-1);
+    return date.toISOString().slice(0,10);
+  }
+  function payFullDate(text){
+    text=String(text||'').trim();
+    var iso=/^(\d{4})[./-](\d{1,2})[./-](\d{1,2})(?!\d)/.exec(text);
+    if(iso)return payIso(+iso[1],+iso[2]-1,+iso[3]);
+    var num=/^(\d{1,2})[./-](\d{1,2})[./-](\d{4}|\d{2})(?!\d)/.exec(text);
+    if(num){var y=+num[3];if(num[3].length===2)y+=y>=90?1900:2000;return payIso(y,+num[2]-1,+num[1]);}
+    var named=new RegExp('^(\\d{1,2})\\s+'+MON_ABBR+'\\.?\\s+(\\d{4})(?!\\d)','i').exec(text);
+    return named?payIso(+named[3],monthFromName(named[2]),+named[1]):'';
+  }
+  function payExplicitDate(lines){
+    var found=new Set();
+    var label=/\b(?:data\s+(?:(?:di|del|dell['’])\s*)?(?:pagamento|accredito|erogazione|liquidazione)|pagamento\s+(?:il|del|in\s+data)|accredito\s+(?:il|del|in\s+data)|pagato\s+il|accreditato\s+il|payment\s+date|pay\s+date)\s*[:=\-]?\s*/i;
+    lines.forEach(function(line,i){var match=label.exec(String(line||''));if(!match)return;var tail=String(line).slice(match.index+match[0].length).trim();var date=payFullDate(tail||String(lines[i+1]||''));if(date)found.add(date);});
+    return found.size===1?Array.from(found)[0]:'';
+  }
+  function payRowDate(r){return r.dateOverride||r.paymentDate||payWorkingDate(+r.y,+r.m);}
+  // PAY-DATE-END
+
   function parsePayslip(lines, fileName) {
     var amount = findNetto(lines);
     if (amount !== null && (isNaN(amount) || amount <= 0 || amount > 1000000)) amount = null;
@@ -12129,7 +12291,7 @@ THE SOFTWARE.
     var fn = periodFromName(fileName || '');
     var detail=extractLannaPayslipData(lines);
     detail.fields=Object.assign(legacyPayFields(lines,amount),detail.fields);
-    return { amount: amount, m: per.m >= 0 ? per.m : fn.m, y: per.y ? per.y : fn.y, detail: detail };
+    return { amount: amount, m: per.m >= 0 ? per.m : fn.m, y: per.y ? per.y : fn.y, detail: detail, paymentDate: payExplicitDate(lines) };
   }
   // PAY-PURE-END
 
@@ -12248,7 +12410,7 @@ THE SOFTWARE.
     return {
       name: name, m: info.m, y: info.y || '',
       amount: info.amount !== null ? toDisplayAmount(info.amount).toFixed(2).replace('.', ',') : '',
-      ok: ok, note: note || '', detail: info.detail || null
+      ok: ok, note: note || '', detail: info.detail || null, paymentDate: info.paymentDate || '', dateOverride: ''
     };
   }
 
@@ -12325,16 +12487,25 @@ THE SOFTWARE.
     return {entries:entries, same:same};
   }
 
+  function payRowStatus(r,amount){
+    var y=+r.y,m=+r.m,status=pdfSalaryStatus(y,m,amount),actual=payRowDate(r);
+    if(actual&&actual.slice(0,7)!==String(y)+'-'+String(m+1).padStart(2,'0')){
+      var actualStatus=pdfSalaryStatus(+actual.slice(0,4),+actual.slice(5,7)-1,amount);
+      if(actualStatus.same)status.same=true;
+    }
+    return status;
+  }
   function updateRowUI(i) {
     var rowEl = document.querySelector('#payRows .pay-row[data-i="' + i + '"]');
     if (!rowEl) return;
     var r = payRows[i], notes = [], color = 'var(--subtext)';
     rowEl.querySelector('[data-f="ok"]').checked = r.ok;
+    rowEl.querySelector('[data-f="date"]').value = payRowDate(r);
     if (!rowValid(r)) { notes.push('Compila mese, anno e importo'); color = 'var(--orange)'; }
     else {
       var y = parseInt(r.y, 10);
       var amount = toEuroAmount(parseNumberInput(r.amount, 'it'));
-      var status = pdfSalaryStatus(y, r.m, amount);
+      var status = payRowStatus(r, amount);
       if (status.same) { notes.push('Stipendio già presente: ' + fmtEur(amount) + ' · verranno aggiornati solo i dettagli riconosciuti'); color = 'var(--green)'; }
       else if (status.entries.length) { notes.push('Stipendio già registrato: ' + status.entries.map(function(en){return fmtEur(en.amount);}).join(', ') + ' · importazione bloccata per evitare sostituzioni'); color = 'var(--orange)'; }
       else { notes.push('Nuovo stipendio: ' + fmtEur(amount) + ' · le altre entrate non saranno modificate'); }
@@ -12352,7 +12523,7 @@ THE SOFTWARE.
     var hasDuplicates = payRows.some(function(r) {
       if (!r.ok || !rowValid(r)) return false;
       var amount = toEuroAmount(parseNumberInput(r.amount, 'it'));
-      return pdfSalaryStatus(parseInt(r.y, 10), Number(r.m), amount).same;
+      return payRowStatus(r, amount).same;
     });
     b.textContent = n === 0 ? 'Nessuna busta selezionata' :
       hasDuplicates ? 'Importa / aggiorna dettagli di ' + n + (n === 1 ? ' cedolino' : ' cedolini') :
@@ -12372,7 +12543,7 @@ THE SOFTWARE.
           '<select class="form-input" data-f="m">' + opts + '</select>' +
           '<input class="form-input" data-f="y" type="text" inputmode="text" placeholder="Anno" value="' + escapeHtml(String(r.y)) + '">' +
           '<input class="form-input" data-f="amount" type="text" inputmode="text" placeholder="Netto €" value="' + escapeHtml(r.amount) + '">' +
-        '</div><div class="row-sub pay-note"></div>' + (r.detail ? '<div class="row-sub" style="padding:4px 10px">Dati aggiuntivi rilevati: '+Object.keys(r.detail.fields||{}).length+' · Ferie/permessi: '+Object.keys(r.detail.leave||{}).length+' sezioni · Avvisi: '+(r.detail.warnings||[]).length+'. Verifica il cedolino originale.</div>' : '') + '</div>';
+        '</div><label class="row-sub" style="display:block;padding:4px 10px">Data entrata <input class="form-input" data-f="date" type="date" value="'+escapeHtml(payRowDate(r))+'"></label><div class="row-sub pay-note"></div>' + (r.detail ? '<div class="row-sub" style="padding:4px 10px">Dati aggiuntivi rilevati: '+Object.keys(r.detail.fields||{}).length+' · Ferie/permessi: '+Object.keys(r.detail.leave||{}).length+' sezioni · Avvisi: '+(r.detail.warnings||[]).length+'. Verifica il cedolino originale.</div>' : '') + '</div>';
     }).join('');
     for (var i = 0; i < payRows.length; i++) updateRowUI(i);
     updatePayCount();
@@ -12443,8 +12614,9 @@ THE SOFTWARE.
     var wasValid = rowValid(r);
     if (f === 'ok') r.ok = el.checked;
     else {
-      if (f === 'm') r.m = parseInt(el.value, 10);
-      else if (f === 'y') r.y = el.value;
+      if (f === 'm') {r.m = parseInt(el.value, 10);r.dateOverride='';r.paymentDate='';}
+      else if (f === 'y') {r.y = el.value;r.dateOverride='';r.paymentDate='';}
+      else if (f === 'date') r.dateOverride = payFullDate(el.value);
       else if (f === 'amount') r.amount = el.value;
       r.note = '';
       if (!wasValid && rowValid(r)) r.ok = true;
@@ -12461,7 +12633,7 @@ THE SOFTWARE.
       if (!r.ok || !rowValid(r)) return;
       var y = parseInt(r.y, 10), m = Number(r.m);
       var payAmount = toEuroAmount(parseNumberInput(r.amount, 'it'));
-      var status = pdfSalaryStatus(y, m, payAmount);
+      var status = payRowStatus(r, payAmount);
       if (status.same) { duplicates++; if(lannaSavePayslipDetail(y,m,payAmount,r.detail))updated++;else noDetails++; return; }
       // Se esiste uno stipendio diverso, non sostituire né sommare senza verifica.
       if (status.entries.length) { conflicts++; return; }
@@ -12469,15 +12641,17 @@ THE SOFTWARE.
       if (!Array.isArray(state.bankIncomeEntries)) state.bankIncomeEntries = [];
       if (!Array.isArray(state.paySalaryKeys)) state.paySalaryKeys = [];
       if (!Array.isArray(state.payslips)) state.payslips = [];
-      var payDate = String(y)+'-'+String(m+1).padStart(2,'0')+'-01';
+      var payDate = payRowDate(r);
+      var actualYear=+payDate.slice(0,4), actualMonth=+payDate.slice(5,7)-1;
+      if(!state.monthly[actualYear]) state.monthly[actualYear]=makeZeroYear();
       state.bankIncomeEntries.push({date:payDate, amount:payAmount, desc:'Busta paga', category:'Stipendio', source:'payslip'});
       // monthly rappresenta TUTTE le entrate; aggiungere soltanto un nuovo stipendio.
-      state.monthly[y][m] = Math.round(((Number(state.monthly[y][m]) || 0) + payAmount) * 100) / 100;
+      state.monthly[actualYear][actualMonth] = Math.round(((Number(state.monthly[actualYear][actualMonth]) || 0) + payAmount) * 100) / 100;
       if (!state.monthlyIncomeCategories) state.monthlyIncomeCategories = {};
       // Non classificare l'intero totale del mese come stipendio.
       state.payslips.push({year:y,month:m,amount:payAmount});
       state.paySalaryKeys.push(paySalaryKey(y,m,payAmount));
-      if(!lannaSavePayslipDetail(y,m,payAmount,r.detail))noDetails++; last = y; imported++;
+      if(!lannaSavePayslipDetail(y,m,payAmount,r.detail))noDetails++; last = actualYear; imported++;
     });
     if (imported) {
       currentYear = last;
@@ -12560,7 +12734,7 @@ THE SOFTWARE.
     if(learned) return learned;
     var d = bankNorm(desc);
     if (/supermerc|alimentari|conad|lidl|coop|carrefour|esselunga|spesa/.test(d)) return 'Alimentari';
-    if (/enel|energia|luce|gas|acqua|utenze|telefon|internet|plenitude|edison|a2a|acea|iren|fastweb|vodafone|tim\b/.test(d)) return 'Utenze';
+    if (/enel|energia|luce|gas|acqua|utenze|telefon|internet|plenitude|edison|a2a|acea|iren|fastweb|vodafone|iliad|windtre|wind telecom|tiscali|eolo|sky wifi|tim\b/.test(d)) return 'Casa & Utenze';
     if (/affitto|condominio/.test(d)) return 'Casa & Utenze';
     if (/benzina|carburante|autostrada|parcheggio|treno|trenitalia|italo|taxi|trasport/.test(d)) return 'Auto & Trasporti';
     if (/farmac|medic|ospedale|salute/.test(d)) return 'Salute';
@@ -12895,7 +13069,8 @@ THE SOFTWARE.
         if(uncertain)throw Error('Estratto PDF con righe o segni ambigui. Usa il formato Excel o CSV della banca.');
         return {kind:'Estratto conto',rows:universalClassifyRows(bankRows)};
       }
-      if(isBill){
+      var telecomCandidate=!isPay?window.LannaTelecom.extract(text,name):null;
+      if(isBill&&!telecomCandidate){
         var bill=window.Lanna91.extractBill(text,name);
         if(!['Luce','Gas'].includes(bill.type))throw Error('Tipo di utenza da verificare.');
         var fields=bill.fields;
@@ -12904,13 +13079,24 @@ THE SOFTWARE.
         var debit=universalIso(fields.debitDate),due=universalIso(fields.dueDate);
         var date=debit||due||universalIso(fields.periodEnd)||'';
         var row={type:'expense',date:date,amount:amount,category:'Utenze',desc:'Fattura '+[bill.provider,bill.type.toLowerCase()].filter(Boolean).join(' ')};
-        return learnableDocument({kind:'Bolletta '+bill.type.toLowerCase(),ocr:ocr,rows:[row],bill:bill,dateReason:debit?'Addebito':due?'Scadenza':date?'Fine periodo':'Data da scegliere'},billText.join('\n').split('\n'));
+        var energyDoc=learnableDocument({kind:'Bolletta '+bill.type.toLowerCase(),ocr:ocr,rows:[row],bill:bill,dateReason:debit?'Addebito':due?'Scadenza':date?'Fine periodo':'Data da scegliere'},billText.join('\n').split('\n'));
+        if(!ocr)energyDoc.logoCandidate=await window.LannaTelecom.extractLogo(pdf,pdfjs,bill.provider,header);
+        return energyDoc;
       }
       if(isPay){
         var pay=parsePayslip(lines,name);
         if(!pay.amount||!pay.y||pay.m<0||pay.m>11)throw Error('Netto o periodo del cedolino da verificare.');
         var period=pay.y+'-'+String(pay.m+1).padStart(2,'0');
-        return learnableDocument({kind:'Busta paga',ocr:ocr,rows:[{type:'income',date:period+'-01',amount:pay.amount,category:'Stipendio',desc:'Busta paga '+MONTHS[pay.m]+' '+pay.y,source:'payslip'}],pay:{period:period,net:pay.amount,fields:pay.detail.fields,leave:pay.detail.leave,warnings:pay.detail.warnings}},lines);
+        return learnableDocument({kind:'Busta paga',ocr:ocr,rows:[{type:'income',date:pay.paymentDate||payWorkingDate(+pay.y,+pay.m),amount:pay.amount,category:'Stipendio',desc:'Busta paga '+MONTHS[pay.m]+' '+pay.y,source:'payslip'}],pay:{period:period,net:pay.amount,fields:pay.detail.fields,leave:pay.detail.leave,warnings:pay.detail.warnings},dateReason:pay.paymentDate?'Pagamento indicato':'Data stipendio proposta'},lines);
+      }
+      var telecom=telecomCandidate;
+      if(telecom?.error)telecom=null;
+      var other=telecom||window.LannaTelecom.other(text,name);
+      if(other){
+        var f=other.fields||{},date=universalIso(f.debitDate)||universalIso(f.dueDate)||universalIso(f.invoiceDate)||'';
+        var amount=other.amount==null?null:Number(other.amount);
+        var eligible=Number.isFinite(amount)&&amount>0;
+        return {kind:other.type,ocr:ocr,rows:[{type:'expense',date:date,amount:amount,category:other.type==='Altro'?'Altro':'Utenze',desc:'Fattura '+other.provider+(f.installation!=null?' – Installazione':'')}],bill:other,logoCandidate:ocr?null:await window.LannaTelecom.extractLogo(pdf,pdfjs,other.provider,header),documentOnly:!other.paid||!eligible,newDocument:true,dateReason:f.debitDate?'Pagamento indicato':f.dueDate?'Scadenza proposta':f.invoiceDate?'Emissione proposta':'Data da scegliere'};
       }
       throw Error('Tipo di PDF non riconosciuto.');
     }finally{await task.destroy();}
@@ -12924,13 +13110,33 @@ THE SOFTWARE.
     state.bankIncomeEntries.forEach(function(row){register(row,'income');});
     (state.paySalaryKeys||[]).forEach(function(key){if(!keys.has(key))keys.set(key,null);});
     var plan=[];
+    var knownDocuments=new Map(universalArray(universalBillsKey).filter(Boolean).map(function(b){return [window.LannaTelecom.signature(b),b];}));
     // Prima i movimenti degli estratti: le schede si possono collegare anche a quelli del lotto.
     documents.slice().sort(function(a,b){return Number(!!(a.bill||a.pay))-Number(!!(b.bill||b.pay));}).forEach(function(doc){
       doc.rows.forEach(function(row){
+        if(doc.newDocument){
+          var signature=window.LannaTelecom.signature(doc.bill),oldDoc=knownDocuments.get(signature);
+          var linked=oldDoc?.linkedMovement||null;
+          if(doc.documentOnly){
+            // Una fattura non pagata non crea un'uscita. Conserva un eventuale collegamento già noto.
+            if(!linked&&row.amount>0&&row.date){
+              var candidates=Array.from(new Set([...state.expenses,...Array.from(keys.entries()).filter(function(e){return e[0].startsWith('expense|')&&e[1];}).map(function(e){return e[1];})])).filter(function(x){return x.type!=='income'&&x.date===row.date&&Math.round(x.amount*100)===Math.round(row.amount*100)&&window.Lanna91.normalize(x.desc).includes(window.Lanna91.normalize(doc.bill.provider));});
+              if(candidates.length===1)linked=candidates[0];
+            }
+            plan.push({doc:doc,row:row,duplicate:!!oldDoc,previous:linked,documentOnly:true});
+            if(!oldDoc)knownDocuments.set(signature,doc.bill);
+            return;
+          }
+          if(oldDoc&&(linked||oldDoc.newPendingMovement)){
+            plan.push({doc:doc,row:row,duplicate:true,previous:linked,invoiceDuplicate:true});return;
+          }
+          knownDocuments.set(signature,Object.assign({},doc.bill,{newPendingMovement:true}));
+        }
         var aliases=movementKeys(row,row.type);
         var key=aliases.find(function(key){return keys.has(key);});
         var previous=key?keys.get(key):null;
-        if(!key&&doc.bill){
+        if(doc.newDocument&&previous&&!window.Lanna91.normalize(previous.desc).includes(window.Lanna91.normalize(doc.bill.provider))){previous=null;}
+        if(!key&&doc.bill&&!doc.newDocument){
           var same=window.Lanna91.findBillMatches(doc.bill);
           if(same.length===1&&Math.round(same[0].amount*100)===Math.round(row.amount*100)&&(!universalIso(doc.bill.fields.debitDate)||same[0].date===row.date)){
             previous=same[0];key='bill-linked';
@@ -12962,10 +13168,11 @@ THE SOFTWARE.
   }
   function universalCommit(plan,keep,onlyDetails){
     var next=onlyDetails?null:JSON.parse(JSON.stringify(state)),pay=universalArray(LANNA_PAY_DETAIL_KEY),bills=universalArray(universalBillsKey);
-    var added=0,skipped=0,savedDetails=new Set();
+    var added=0,skipped=0,savedDetails=new Set(),logos=window.LannaTelecom.logoArchive(),logosChanged=false;
     plan.forEach(function(item){
       var row=item.row,doc=item.doc,stored=item.previous;
-      if(!onlyDetails&&(!item.duplicate||keep)){
+      if(onlyDetails&&doc.bill&&stored){var candidate=stored;stored=state.expenses.find(function(x){return x.date===candidate.date&&Math.round(Number(x.amount)*100)===Math.round(Number(candidate.amount)*100)&&String(x.desc||'')===String(candidate.desc||'');})||null;}
+      if(!onlyDetails&&!item.documentOnly&&!item.invoiceDuplicate&&(!item.duplicate||keep)){
         stored={date:row.date,amount:window.LannaMoney.round(row.amount),category:row.category,desc:row.desc,source:row.source||'universal',duplicateConfirmed:item.duplicate};
         if(row.type==='income'){
           next.bankIncomeEntries.push(stored);
@@ -12983,7 +13190,7 @@ THE SOFTWARE.
           next.monthly[year][month]=window.LannaMoney.add(next.monthly[year][month]||0,stored.amount);
         }else next.expenses.push(stored);
         added++;
-      }else if(!onlyDetails)skipped++;
+      }else if(!onlyDetails&&!item.documentOnly)skipped++;
       if(doc.pay){
         savedDetails.add('pay|'+doc.pay.period+'|'+doc.pay.net);
         var at=pay.findIndex(function(p){return p.period===doc.pay.period&&Math.abs(Number(p.net)-doc.pay.net)<0.005;});
@@ -12992,16 +13199,19 @@ THE SOFTWARE.
       }
       if(doc.bill){
         var b=doc.bill, norm=window.Lanna91.normalize;
+        if(doc.logoCandidate&&!doc.rejectLogo&&window.LannaTelecom.withLogo(logos,b.provider,doc.logoCandidate))logosChanged=true;
         var signature=[norm(b.provider),norm(b.fields.invoiceNumber),String(b.amount||''),norm(b.type)].join('|');
         if(!b.fields.invoiceNumber)signature+='|'+norm(b.file);
+        if(doc.newDocument)signature=window.LannaTelecom.signature(b);
         savedDetails.add('bill|'+signature);
-        var at=bills.findIndex(function(x){return x.signature===signature;});
+        var at=bills.findIndex(function(x){return x.signature===signature||(doc.newDocument&&window.LannaTelecom.signature(x)===signature);});
         var detail={signature:signature,type:b.type,provider:b.provider,amount:b.amount,fields:b.fields,sourceName:b.file,savedAt:new Date().toISOString(),linkedMovement:stored?{date:stored.date,amount:stored.amount,desc:stored.desc}:null};
-        if(onlyDetails)detail.linkedMovement=bills[at]?.linkedMovement||null;
-        if(at<0)bills.push(detail);else bills[at]=detail;
+        if(onlyDetails||!detail.linkedMovement)detail.linkedMovement=bills[at]?.linkedMovement||detail.linkedMovement||null;
+        if(at<0)bills.push(detail);else if(doc.newDocument)bills[at]=Object.assign({},bills[at],detail,{fields:Object.assign({},bills[at].fields,detail.fields)});else bills[at]=detail;
       }
     });
     var writes=[[LANNA_PAY_DETAIL_KEY,pay],[universalBillsKey,bills]];
+    if(logosChanged)writes.push([window.LannaTelecom.LOGOS,logos]);
     var pending=plan.flatMap(function(item){return item.doc.pendingRules||[];});
     if(pending.length){
       var rules=universalArray(documentRulesKey);
@@ -13039,33 +13249,46 @@ THE SOFTWARE.
     documents.forEach(function(doc){
       var group=groups.get(doc.kind)||{files:0,income:0,expense:0};
       group.files++;
-      doc.rows.forEach(function(row){group[row.type]++;});
+      doc.rows.forEach(function(row){if(!doc.documentOnly)group[row.type]++;});
       groups.set(doc.kind,group);
     });
-    groups.forEach(function(group,kind){
-      universalElement('p',kind+' · '+group.files+' documenti · '+group.income+' entrate · '+group.expense+' uscite',host);
-    });
+    var groupSummary=universalElement('div',null,host);
+    function drawGroupSummary(){groupSummary.replaceChildren();groups.clear();documents.forEach(function(doc){var group=groups.get(doc.kind)||{files:0,income:0,expense:0};group.files++;doc.rows.forEach(function(row){if(!doc.documentOnly)group[row.type]++;});groups.set(doc.kind,group);});groups.forEach(function(group,kind){universalElement('p',kind+' · '+group.files+' documenti · '+group.income+' entrate · '+group.expense+' uscite',groupSummary);});}
+    drawGroupSummary();
+    var rejected=null;
     if(issues.length){
-      var rejected=universalElement('details',null,host);rejected.open=true;
+      rejected=universalElement('details',null,host);rejected.open=true;
       universalElement('summary','File da verificare · '+issues.length,rejected);
       issues.forEach(function(issue){universalElement('p',issue,rejected);});
     }
     if(!documents.length)return;
     var dates=universalElement('div',null,host),summary=universalElement('div',null,host);
-    documents.filter(function(doc){return doc.bill;}).forEach(function(doc){
+    documents.filter(function(doc){return doc.bill||doc.pay;}).forEach(function(doc){
       var label=universalElement('label',doc.name+' · '+doc.dateReason+' ',dates);
       var date=universalElement('input',null,label);
       date.type='date';date.className='form-input';date.value=doc.rows[0].date;
       date.addEventListener('change',function(){doc.rows[0].date=date.value;refresh();});
+      if(doc.newDocument){
+        var choice=universalElement('label',null,dates),check=universalElement('input',null,choice);check.type='checkbox';check.checked=!doc.documentOnly;
+        check.disabled=!(doc.rows[0].amount>0);
+        universalElement('span',' Registra anche l’uscita (conferma che sia stata pagata)',choice);
+        check.addEventListener('change',function(){doc.documentOnly=!check.checked;refresh();});
+        if(check.disabled)universalElement('p','Importo non riconosciuto: verrà salvata soltanto la scheda tecnica.',dates);
+      }
     });
     documents.filter(function(doc){return doc.bill||doc.pay;}).forEach(function(doc){
       var detail=universalElement('details',null,dates);
       universalElement('summary','Scheda · '+doc.name,detail);
       if(doc.ocr){detail.open=true;universalElement('p','Letto con OCR locale: confronta importo, periodo e dati tecnici con il documento originale prima di confermare.',detail);}
+      if(doc.bill){
+        var logo=doc.logoCandidate||window.LannaTelecom.logoFor(doc.bill.provider);
+        if(logo){var image=universalElement('img',null,detail);image.src=logo;image.alt='Logo '+doc.bill.provider;image.style.cssText='max-width:76px;max-height:42px;object-fit:contain;background:white;padding:3px;border-radius:6px';
+          if(doc.logoCandidate){var choice=universalElement('label',null,detail),cb=universalElement('input',null,choice);cb.type='checkbox';cb.checked=!doc.rejectLogo;universalElement('span',' Memorizza il logo proposto (verifica che appartenga al gestore)',choice);cb.addEventListener('change',function(){doc.rejectLogo=!cb.checked;});}}
+      }
       var fields=(doc.bill||doc.pay).fields;
       Object.entries(fields||{}).forEach(function(entry){
         if(entry[1]==null||entry[1]===''||typeof entry[1]==='object')return;
-        universalElement('p',(window.Lanna91?.billFieldLabels[entry[0]]||legacyPayLabels[entry[0]]||entry[0].replace(/_/g,' '))+' · '+entry[1],detail);
+        universalElement('p',((doc.newDocument?window.LannaTelecom.labels[entry[0]]:null)||window.Lanna91?.billFieldLabels[entry[0]]||legacyPayLabels[entry[0]]||entry[0].replace(/_/g,' '))+' · '+entry[1],detail);
       });
       (doc.pay?.warnings||[]).forEach(function(warning){universalElement('p',warning,detail);});
       if(!doc.trainingLines)return;
@@ -13100,6 +13323,9 @@ THE SOFTWARE.
     var detailsOnly=universalButton('Salva solo dati',host,function(){commit(true);});
     detailsOnly.disabled=!documents.some(function(doc){return doc.bill||doc.pay;});
     var save=universalButton('Salva',host,function(){commit(false);});
+    // Riepilogo e azioni prima di tutte le schede e delle date, anche nelle importazioni massive.
+    if(rejected)host.appendChild(rejected);
+    host.appendChild(dates);
     var committing=false;
     async function commit(onlyDetails){
       if(committing||(onlyDetails?detailsOnly.disabled:save.disabled))return;
@@ -13123,9 +13349,10 @@ THE SOFTWARE.
     }
     var shown=[];
     function refresh(){
+      drawGroupSummary();
       summary.replaceChildren();
       shown=universalPlan(documents);
-      var duplicates=shown.filter(function(item){return item.duplicate;});
+      var duplicates=shown.filter(function(item){return item.duplicate&&!item.documentOnly;});
       policy.hidden=!duplicates.length;
       if(!duplicates.length)select.value='skip';
       detailsOnly.disabled=!documents.some(function(doc){return doc.bill||doc.pay;});
@@ -13146,16 +13373,17 @@ THE SOFTWARE.
           var fragment=document.createDocumentFragment();
           items.forEach(function(item){
             var r=item.row,action=r.type==='income'?'Entrata':'Uscita';
-            if(item.doc.bill)action+=item.duplicate?' · Scheda tecnica':' in Utenze · Scheda tecnica';
+            if(item.doc.bill)action+=item.duplicate?' · Scheda tecnica':' in '+r.category+' · Scheda tecnica';
             universalElement('p',[action,r.date||'Data da scegliere',fmtEur(r.amount),r.desc,item.doc.name].filter(Boolean).join(' · '),fragment);
           });
           list.appendChild(fragment);
         });
       }
-      movementList('Movimenti Nuovi',shown.filter(function(item){return !item.duplicate;}));
-      movementList('Doppioni Trovati',duplicates);
-      save.disabled=shown.some(function(item){return !universalIso(item.row.date);});
-      if(save.disabled)universalElement('p','Inserisci la data delle bollette evidenziate prima di confermare.',summary);
+      movementList('Movimenti Nuovi',shown.filter(function(item){return !item.documentOnly&&!item.duplicate;}));
+      movementList('Doppioni Trovati',duplicates.filter(function(item){return !item.documentOnly;}));
+      var onlyCount=shown.filter(function(item){return item.documentOnly;}).length;if(onlyCount)universalElement('p','Solo schede tecniche · '+onlyCount,summary);
+      save.disabled=shown.some(function(item){return !item.documentOnly&&!universalIso(item.row.date);});
+      if(save.disabled)universalElement('p','Inserisci la data dei documenti evidenziati prima di confermare.',summary);
     }
     refresh();
   }
@@ -13179,7 +13407,7 @@ THE SOFTWARE.
       var row=universalElement('details',null,group);
       var period=String(entry.period||'');
       var title=isPay?[window.LannaLocale?.language()==='en'&&/^(?:19|20)\d{2}-(?:0[1-9]|1[0-2])$/.test(period)?new Intl.DateTimeFormat('en-US',{month:'long',timeZone:'UTC'}).format(new Date(period+'-01T00:00:00Z')):MONTHS[Number(period.slice(5))-1],period.slice(0,4)].filter(Boolean).join(' '):
-        [entry.provider||entry.type,entry.fields?.period?.replace(/(?:^|[\s–—-])\p{L}/gu,function(letter){return letter.toLocaleUpperCase('it-IT');})||entry.fields?.dueDate||entry.fields?.invoiceNumber].filter(Boolean).join(' · ');
+        [entry.provider||entry.type,entry.fields?.period?.replace(/(?:^|[\s–—-])\p{L}/gu,function(letter){return letter.toLocaleUpperCase('it-IT');})||entry.fields?.invoiceDate||entry.fields?.dueDate||entry.fields?.invoiceNumber].filter(Boolean).join(' · ');
       universalElement('summary',title||t('Scheda tecnica'),row);
       var body=universalElement('div',null,row);
       function currentList(){
@@ -13192,11 +13420,17 @@ THE SOFTWARE.
         body.replaceChildren();
         var copy=JSON.parse(JSON.stringify(entry)),inputs=[];
         if(isPay&&entry.net!=null)universalElement('p',t('Netto del cedolino')+' · '+fmtEur(entry.net),body);
-        if(!isPay&&entry.amount!=null)universalElement('p',t('Totale bolletta')+' · '+fmtEur(entry.amount),body);
+        if(!isPay){
+          var logo=window.LannaTelecom.logoFor(entry.provider);
+          var brand=universalElement('div',null,body);brand.style.cssText='display:flex;align-items:center;gap:12px;margin:8px 0 12px';
+          if(logo){var img=universalElement('img',null,brand);img.src=logo;img.alt=entry.provider||'';img.loading='lazy';img.style.cssText='width:44px;height:40px;object-fit:contain;background:white;padding:3px;border-radius:6px';img.onerror=function(){img.remove();};}else{var generic=universalElement('span',window.LannaTelecom.category(entry.type)==='Luce'?'⚡':window.LannaTelecom.category(entry.type)==='Gas'?'♨':window.LannaTelecom.category(entry.type)===window.LannaTelecom.TYPE?'📶':'📄',brand);generic.setAttribute('aria-hidden','true');generic.style.fontSize='26px';}
+          universalElement('strong',entry.provider||t('Fornitore da verificare'),brand);
+          if(entry.amount!=null)universalElement('p',t('Totale bolletta')+' · '+fmtEur(entry.amount),body);
+        }
         function fields(object,parent){
           Object.keys(object||{}).forEach(function(key){
             if(key==='source')return;
-            var value=object[key],label=t(labels[key]||key.replace(/_/g,' '));
+            var value=object[key],label=t((!isPay&&!['Luce','Gas'].includes(entry.type)?window.LannaTelecom.labels[key]:null)||labels[key]||key.replace(/_/g,' '));
             if(value&&typeof value==='object'){
               if(Object.keys(value).length){var sub=universalElement('details',null,parent);universalElement('summary',label,sub);fields(value,sub);}
               return;
@@ -13208,25 +13442,31 @@ THE SOFTWARE.
             var field=universalElement('label',label,parent),control=universalElement('input',null,field);
             control.className='form-input';control.value=value??'';
             inputs.push(function(){
-              var text=control.value.trim(),numeric=typeof value==='number'||(value===null&&!isPay&&!window.Lanna91.billTextFields.has(key));
+              var text=control.value.trim(),numeric=typeof value==='number'||(value===null&&!isPay&&(!['Luce','Gas'].includes(entry.type)?!window.LannaTelecom.textFields.has(key):!window.Lanna91.billTextFields.has(key)));
               if(numeric&&text&&!Number.isFinite(Number(text.replace(',','.'))))throw Error('Controlla il campo '+label+'.');
               object[key]=numeric?(text?Number(text.replace(',','.')):null):text;
             });
           });
         }
         if(!isPay&&editing){
+          var cat=universalElement('label','Categoria documento',body),catSelect=universalElement('select',null,cat);catSelect.className='form-input';
+          ['Luce','Gas',window.LannaTelecom.TYPE,'Altro'].forEach(function(v){universalElement('option',v,catSelect).value=v;});catSelect.value=window.LannaTelecom.category(copy.type);
+          var providerLabel=universalElement('label','Fornitore',body),providerInput=universalElement('input',null,providerLabel);providerInput.className='form-input';providerInput.value=copy.provider||'';
+          inputs.push(function(){copy.type=catSelect.value;copy.provider=providerInput.value.trim()||'Fornitore da verificare';});
           copy.fields=copy.fields||{};
           if(copy.fields.invoiceDate==null)copy.fields.invoiceDate=copy.documentDate||'';
+          if(!['Luce','Gas'].includes(entry.type)){for(var fieldName of ['invoiceNumber','dueDate','debitDate','payable','description','paymentStatus','paymentMethod'])if(!Object.hasOwn(copy.fields,fieldName))copy.fields[fieldName]=null;inputs.push(function(){/* total synchronized after fields */});}
         }
         fields(copy.fields,body);
         if(isPay)fields(copy.leave,body);
         if(editing){
           universalButton(t('Salva modifiche'),body,function(){
-            try{inputs.forEach(function(read){read();});var list=currentList();list[index]=copy;universalWrite([[key,list]]);if(key===universalBillsKey)window.dispatchEvent(new Event('lanna:utilities-changed'));refreshAcquiredDocuments();}
+            try{inputs.forEach(function(read){read();});if(!isPay&&!['Luce','Gas'].includes(entry.type)&&copy.fields?.payable!=null){copy.amount=Number(copy.fields.payable);}var list=currentList();list[index]=copy;universalWrite([[key,list]]);if(key===universalBillsKey)window.dispatchEvent(new Event('lanna:utilities-changed'));refreshAcquiredDocuments();}
             catch(error){showToast(error.message);}
           });
           universalButton(t('Annulla'),body,function(){draw(false);});
         }else{
+          if(!isPay&&window.LannaTelecom.logoFor(entry.provider))universalButton('Rimuovi logo del gestore',body,function(){if(!confirm('Rimuovere il logo da tutte le schede di questo gestore?'))return;try{var logos=window.LannaTelecom.logoArchive();delete logos[window.LannaTelecom.logoKey(entry.provider)];universalWrite([[window.LannaTelecom.LOGOS,logos]]);refreshAcquiredDocuments();}catch(e){showToast(e.message);}});
           universalButton(t('✎ Modifica scheda'),body,function(){draw(true);});
           universalButton(t('Elimina scheda tecnica'),body,function(){
             if(!confirm(t('Eliminare la scheda tecnica? Il movimento e il suo importo resteranno registrati.')))return;
@@ -13245,15 +13485,13 @@ THE SOFTWARE.
         .map(window.LannaPeriods.documentDate).find(Boolean)||'';
     }
     var categories=universalElement('div',null,host);
-    var extraTypes=Array.from(new Set(bills.filter(Boolean).map(function(entry){return entry.type||'Altri documenti';})))
-      .filter(function(type){return type!=='Luce'&&type!=='Gas';}).sort();
     var definitions=[['Buste Paga',pay,LANNA_PAY_DETAIL_KEY,null,'💵'],
-      ['Bollette Luce',bills,universalBillsKey,'Luce','⚡'],['Bollette Gas',bills,universalBillsKey,'Gas','♨']];
-    extraTypes.forEach(function(type){definitions.push([type,bills,universalBillsKey,type,'📄']);});
+      ['Luce',bills,universalBillsKey,'Luce','⚡'],['Gas',bills,universalBillsKey,'Gas','♨'],
+      ['Internet e Telefonia',bills,universalBillsKey,window.LannaTelecom.TYPE,'📶'],['Altro',bills,universalBillsKey,'Altro','📄']];
     definitions.forEach(function(category){
       var group=universalElement('details',null,categories);group.className='lanna-acquired-category';
       var entries=category[1].map(function(entry,index){return {entry:entry,index:index};})
-        .filter(function(item){return item.entry&&(!category[3]||(item.entry.type||'Altri documenti')===category[3]);});
+        .filter(function(item){return item.entry&&(!category[3]||window.LannaTelecom.category(item.entry.type)===category[3]);});
       var byYear=new Map();
       entries.forEach(function(item){
         item.date=dateFor(item.entry,category[2]);
@@ -13268,14 +13506,15 @@ THE SOFTWARE.
       var chevron=universalElement('span','›',header);chevron.className='lanna-doc-chevron';chevron.style.marginLeft='0';chevron.setAttribute('aria-hidden','true');
       var list=universalElement('div',null,group);
       if(!entries.length)universalElement('p',t('Nessuna scheda acquisita.'),list);
-      Array.from(byYear.keys()).sort().reverse().forEach(function(year){
-        var section=universalElement('details',null,list);
-        section.className='lanna-acquired-year';
-        var items=byYear.get(year);
-        universalElement('summary',(year||t('Anno da verificare'))+' · '+items.length,section);
-        items.sort(function(a,b){return b.date.localeCompare(a.date)||b.index-a.index;});
-        items.forEach(function(item){sheet(section,item.entry,item.index,category[2]);});
-      });
+      function drawYears(parent,selected){
+        var years=new Map();selected.forEach(function(item){var y=item.date.slice(0,4);if(!years.has(y))years.set(y,[]);years.get(y).push(item);});
+        Array.from(years.keys()).sort().reverse().forEach(function(year){
+          var section=universalElement('details',null,parent);section.className='lanna-acquired-year';var items=years.get(year);
+          universalElement('summary',(year||t('Anno da verificare'))+' · '+items.length,section);
+          items.sort(function(a,b){return b.date.localeCompare(a.date)||b.index-a.index;});items.forEach(function(item){sheet(section,item.entry,item.index,category[2]);});
+        });
+      }
+      if(category[3]===window.LannaTelecom.TYPE){var providers=new Map();entries.forEach(function(item){var p=window.LannaTelecom.providerOf(item.entry.provider)||item.entry.provider||'Gestore da verificare';if(!providers.has(p))providers.set(p,[]);providers.get(p).push(item);});Array.from(providers.keys()).sort((a,b)=>a.localeCompare(b,'it')).forEach(function(p){var group=universalElement('details',null,list);group.className='lanna-acquired-year';universalElement('summary',p+' · '+providers.get(p).length,group);drawYears(group,providers.get(p));});}else drawYears(list,entries);
     });
   }
   (function(){
@@ -13602,6 +13841,7 @@ THE SOFTWARE.
       var file=new File([data],window.lannaBackupFilename('Lanna_backup_completo','json'),{type:'application/json'});
       window.LannaBackupIntegrity.checkSize(file);
       await window.lannaNativeBackupExport(file);
+      window.WalletProProtection?.prepared();
       showToast('Backup preparato: verifica di aver scelto Salva su File.');
     }catch(e){
       console.error('Wallet-PRO backup JSON:',e);
@@ -13664,7 +13904,7 @@ THE SOFTWARE.
         if (perMatch && perMatch.length > 1) negozio = perMatch.pop().trim();
         var up = negozio.toUpperCase();
         if (/PICCOLO|SI\.DI|CONAD|LIDL|DECO|SUPERMERCATO|IPERCOOP|AUCHAN|CARREFOUR|PENNY|EUROSPIN|MD |DOK|FAMILA|CRAI|SIGMA|SIMPLY|ALIMENTARI/.test(up)) categoria = 'Alimentari';
-        else if (/ENEL|FASTWEB|TIM|VODAFONE|WIND|GAS|ACQUA|ENI GAS|PLENITUDE|A2A|ACEA|IREN|EDISON/.test(up)) categoria = 'Utenze';
+        else if (/ENEL|FASTWEB|TIM|VODAFONE|WIND|GAS|ACQUA|ENI GAS|PLENITUDE|A2A|ACEA|IREN|EDISON|ILIAD|WINDTRE|TISCALI|EOLO|SKY WIFI/.test(up)) categoria = 'Casa & Utenze';
         else if (/AGIP|ENI|Q8|ESSO|TAMOIL|IP |DISTRIBUTORE|AUTOSTRADE|TRENITALIA|ITALO|ANAS|PARCHEGGIO/.test(up)) categoria = 'Auto & Trasporti';
         else if (/FARMACIA|PARAFARMACIA|ANALISI|MEDICO|DENTISTA|OSPEDALE/.test(up)) categoria = 'Salute';
         else if (/RISTORANTE|PIZZERIA|MC DONALD|BAR |CAFFE|CINEMA|PUB|TRATTORIA/.test(up)) categoria = 'Tempo Libero';
@@ -13692,9 +13932,9 @@ THE SOFTWARE.
 /* Trascinamento iOS – modulo indipendente e reversibile. */
 (function(){
  'use strict';
- var view=document.getElementById('view-dashboard');if(!view)return;
+ var view=document.getElementById('view-dashboard');if(!view||document.getElementById('dashboardWidgetGrid'))return;
  var grid=document.createElement('div');grid.id='dashboardWidgetGrid';
- var cards=Array.from(view.querySelectorAll('.card[id^="card-"], #wpBalanceCard'));
+ var cards=Array.from(view.querySelectorAll('.card[id^="card-"], #wpBalanceCard, [data-lanna99-chart], [data-lanna-custom-chart]'));
  var first=view.querySelector('.kpi-grid');if(!first||!first.parentNode)return;
  first.parentNode.insertBefore(grid,first);
  cards.forEach(function(card){
@@ -13705,7 +13945,7 @@ THE SOFTWARE.
  var help=document.createElement('div');help.id='widgetHelp';help.textContent='Tieni premuto un riquadro e trascinalo per riordinarlo';view.appendChild(help);
  var key='walletpro_dashboard_widget_order_v1';
  try{var order=JSON.parse(localStorage.getItem(key)||'[]');if(Array.isArray(order))order.forEach(function(id){var el=document.getElementById(id);if(el&&el.parentNode===grid)grid.appendChild(el)})}catch(e){}
- var pending=null,drag=null,timer=null,ghost=null,slot=null,raf=0,suppressClickUntil=0,settling=false;
+ var pending=null,drag=null,timer=null,ghost=null,slot=null,raf=0,suppressClickUntil=0,settling=false,deferred=null,deferredTimer=null;
  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  function haptic(kind){
    try{
@@ -13718,16 +13958,21 @@ THE SOFTWARE.
  }
  function save(){try{window.safeSet(key,JSON.stringify(Array.from(grid.children).map(function(el){return el.id}).filter(Boolean)))}catch(e){}}
  function clearTimer(){if(timer!==null){clearTimeout(timer);timer=null;}}
- function stopPending(){clearTimer();pending=null;}
+ function flush(){if(!deferred||pending||drag||settling)return;if(deferredTimer!==null)clearTimeout(deferredTimer);deferredTimer=setTimeout(function(){deferredTimer=null;if(pending||drag||settling)return;var fn=deferred;deferred=null;if(fn)fn();},120);}
+ // Keep the DOM stable from pointer-down through drag settlement; callbacks coalesce.
+ window.LannaDashboardDrag={defer:function(fn){if(pending||drag||settling){deferred=fn;return true;}return false;}};
+ function stopPending(){clearTimer();pending=null;flush();}
  function positions(){var map=new Map();Array.from(grid.children).forEach(function(el){if(el!==slot)map.set(el,el.getBoundingClientRect())});return map;}
- function animateShift(before){if(reduced)return;Array.from(grid.children).forEach(function(el){if(el===slot||el===drag.card)return;var old=before.get(el);if(!old)return;var now=el.getBoundingClientRect();var dx=old.left-now.left,dy=old.top-now.top;if(Math.abs(dx)+Math.abs(dy)<1)return;el.getAnimations().forEach(function(a){if(a.id==='lanna-widget-shift')a.cancel()});var anim=el.animate([{transform:'translate('+dx+'px,'+dy+'px)'},{transform:'translate(0,0)'}],{duration:270,easing:'cubic-bezier(.2,.8,.2,1)'});anim.id='lanna-widget-shift';});}
- function reset(){clearTimer();if(raf)cancelAnimationFrame(raf);raf=0;if(ghost){ghost.remove();ghost=null;}if(slot){slot.remove();slot=null;}if(drag){drag.card.style.visibility='';drag=null;}pending=null;document.body.classList.remove('widget-moving','lanna-ios-dragging');settling=false;}
+ function animateShift(before){if(reduced)return;Array.from(grid.children).forEach(function(el){if(el===slot||el===drag.card)return;var old=before.get(el);if(!old)return;var now=el.getBoundingClientRect();var dx=old.left-now.left,dy=old.top-now.top;if(Math.abs(dx)+Math.abs(dy)<1)return;if(!el.animate)return;(el.getAnimations?el.getAnimations():[]).forEach(function(a){if(a.id==='lanna-widget-shift')a.cancel()});var anim=el.animate([{transform:'translate('+dx+'px,'+dy+'px)'},{transform:'translate(0,0)'}],{duration:270,easing:'cubic-bezier(.2,.8,.2,1)'});anim.id='lanna-widget-shift';});}
+ function reset(){clearTimer();if(raf)cancelAnimationFrame(raf);raf=0;if(ghost){ghost.remove();ghost=null;}if(slot){slot.remove();slot=null;}if(drag){drag.card.style.visibility='';drag=null;}pending=null;document.body.classList.remove('widget-moving','lanna-ios-dragging');settling=false;flush();}
  function activate(){
    if(!pending||drag||settling)return;
-   var card=pending.card,rect=card.getBoundingClientRect();
+   var card=pending.card;
+   if(!grid.isConnected||card.parentNode!==grid||!card.isConnected){stopPending();return;}
+   var rect=card.getBoundingClientRect();if(!rect.width||!rect.height){stopPending();return;}
    slot=document.createElement('div');slot.className='widget-placeholder '+(card.classList.contains('widget-half')?'widget-half':'widget-wide');slot.style.height=rect.height+'px';
    grid.insertBefore(slot,card);
-   ghost=card.cloneNode(true);ghost.removeAttribute('id');ghost.querySelectorAll('[id]').forEach(function(el){el.removeAttribute('id')});
+   ghost=card.cloneNode(true);ghost.removeAttribute('id');ghost.removeAttribute('data-lanna99-chart');ghost.removeAttribute('data-lanna-custom-chart');ghost.setAttribute('aria-hidden','true');ghost.querySelectorAll('[id]').forEach(function(el){el.removeAttribute('id')});
    ghost.classList.add('widget-drag-preview','lanna-ios-ghost');
    Object.assign(ghost.style,{position:'fixed',zIndex:'99999',pointerEvents:'none',margin:'0',width:rect.width+'px',height:rect.height+'px',left:rect.left+'px',top:rect.top+'px',transform:'scale(1.035)',transformOrigin:'center center'});
    document.body.appendChild(ghost);
@@ -13743,11 +13988,12 @@ THE SOFTWARE.
  }
  function paint(){raf=0;if(!drag||!ghost)return;ghost.style.left=(drag.x-drag.dx)+'px';ghost.style.top=(drag.y-drag.dy)+'px';}
  function move(id,x,y){
-   if(!pending||pending.id!==id)return false;
+   if(!pending||pending.id!==id||settling)return false;
+   if(!grid.isConnected||pending.card.parentNode!==grid||(drag&&(!slot||slot.parentNode!==grid||!ghost||!ghost.isConnected))){reset();return false;}
    if(!drag){if(Math.hypot(x-pending.x,y-pending.y)>10)stopPending();return false;}
    drag.x=x;drag.y=y;if(!raf)raf=requestAnimationFrame(paint);
    var hit=document.elementFromPoint(x,y),card=hit&&hit.closest('#dashboardWidgetGrid > .card');
-   if(card&&card!==drag.card){
+   if(card&&card.parentNode===grid&&card!==drag.card){
      var r=card.getBoundingClientRect(),before=positions(),beforeSlot=slot.nextElementSibling;
      if(card.classList.contains('widget-half')&&drag.card.classList.contains('widget-half'))grid.insertBefore(slot,x<r.left+r.width/2?card:card.nextSibling);
      else grid.insertBefore(slot,y<r.top+r.height/2?card:card.nextSibling);
@@ -13760,26 +14006,30 @@ THE SOFTWARE.
  function finish(id){
    if(!pending||pending.id!==id)return;
    if(!drag){stopPending();return;}
-   clearTimer();settling=true;suppressClickUntil=Date.now()+650;
+   clearTimer();suppressClickUntil=Date.now()+650;
+   if(!grid.isConnected||drag.card.parentNode!==grid||!slot||slot.parentNode!==grid||!ghost||!ghost.isConnected){reset();return;}
+   settling=true;
    var card=drag.card,from=ghost.getBoundingClientRect(),before=positions();grid.insertBefore(card,slot);slot.remove();slot=null;
    card.style.visibility='hidden';var to=card.getBoundingClientRect();animateShift(before);save();haptic('end');
    var dx=to.left-from.left,dy=to.top-from.top;
    if(!reduced&&ghost.animate){
      var anim=ghost.animate([{transform:'translate(0px,0px) scale(1.035)',opacity:1},{transform:'translate('+dx+'px,'+dy+'px) scale(1)',opacity:1}],{duration:260,easing:'cubic-bezier(.2,1.35,.4,1)',fill:'forwards'});
-     anim.onfinish=reset;anim.oncancel=reset;setTimeout(function(){if(settling)reset()},400);
+     var preview=ghost;var complete=function(){if(settling&&ghost===preview)reset();};anim.onfinish=complete;anim.oncancel=complete;setTimeout(complete,400);
    }else reset();
  }
- grid.addEventListener('touchstart',function(e){if(e.touches.length!==1)return;var t=e.changedTouches[0];start('t'+t.identifier,t.clientX,t.clientY,e.target)},{passive:true});
+ grid.addEventListener('touchstart',function(e){if(e.touches.length!==1){if(pending||drag)reset();return;}var t=e.changedTouches[0];start('t'+t.identifier,t.clientX,t.clientY,e.target)},{passive:true});
  window.addEventListener('touchmove',function(e){if(!pending||String(pending.id).charAt(0)!=='t')return;for(var t of e.changedTouches){if(pending.id==='t'+t.identifier){if(move(pending.id,t.clientX,t.clientY))e.preventDefault();break;}}},{passive:false});
- window.addEventListener('touchend',function(e){for(var t of e.changedTouches)finish('t'+t.identifier)},{passive:true});
- window.addEventListener('touchcancel',function(){if(pending&&String(pending.id).charAt(0)==='t')reset()});
+ window.addEventListener('touchend',function(e){for(var t of e.changedTouches)finish('t'+t.identifier)},{passive:true,capture:true});
+ window.addEventListener('touchcancel',function(){if(pending&&String(pending.id).charAt(0)==='t')reset()},true);
  grid.addEventListener('pointerdown',function(e){if(e.pointerType==='touch'||e.button!==0)return;start('p'+e.pointerId,e.clientX,e.clientY,e.target)});
  window.addEventListener('pointermove',function(e){if(e.pointerType!=='touch'&&move('p'+e.pointerId,e.clientX,e.clientY))e.preventDefault()},{passive:false});
- window.addEventListener('pointerup',function(e){if(e.pointerType!=='touch')finish('p'+e.pointerId)});
- window.addEventListener('pointercancel',function(e){if(pending&&pending.id==='p'+e.pointerId)reset()});
+ window.addEventListener('pointerup',function(e){if(e.pointerType!=='touch')finish('p'+e.pointerId)},true);
+ window.addEventListener('pointercancel',function(e){if(pending&&pending.id==='p'+e.pointerId)reset()},true);
  grid.addEventListener('click',function(e){if(Date.now()<suppressClickUntil){e.preventDefault();e.stopImmediatePropagation()}},true);
  grid.addEventListener('contextmenu',function(e){if(pending||drag)e.preventDefault()});
  window.addEventListener('blur',reset);
+ document.addEventListener('visibilitychange',function(){if(document.hidden)reset();});
+ window.addEventListener('pagehide',reset);
 })();
 </script>
 <script type="application/x-lanna-deferred">
@@ -13892,6 +14142,7 @@ encryptedSaveButton.addEventListener('click',async function(){
  encryptedSaveButton.disabled=true;
  try{
   await window.lannaNativeBackupExport(walletEncryptedFile);
+  window.WalletProProtection?.prepared();
   encryptedMessage('Backup preparato. Verifica di aver scelto «Salva su File» e controlla il file nella destinazione selezionata.');
  }catch(err){
   console.error('Wallet-PRO backup cifrato:',err);
@@ -14039,95 +14290,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
  var toggle=document.getElementById('wpNotifyOpen');if(toggle)toggle.addEventListener('change',render);
 })();
 </script>
-<script type="application/x-lanna-deferred">
-/* Wallet-PRO 1.0: promemoria locali iOS con Capacitor 7, senza OneSignal. */
-(function(){'use strict';
- const KEY='walletpro_notify_settings_v1', REM='walletpro_simple_v2', IDS='lanna_ios_notification_ids_v1';
- const $=id=>document.getElementById(id);
- const plugin=()=>window.Capacitor?.Plugins?.LocalNotifications;
- const native=()=>window.Capacitor?.isNativePlatform?.()===true && !!plugin();
- let prefs;try{prefs=Object.assign({onOpen:true,onDevice:false},JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){prefs={onOpen:true,onDevice:false}}
- const tr=t=>window.LannaLocale?.text(t)??t;
- const status=t=>{$('wpNotifyStatus').textContent=tr(t)};
- const store=()=>window.safeSet(KEY,JSON.stringify(prefs));
- const read=()=>{try{return JSON.parse(localStorage.getItem(REM)||'{}').reminders||[]}catch(e){return []}};
- const oldIds=()=>{try{return JSON.parse(localStorage.getItem(IDS)||'[]').filter(Number.isInteger)}catch(e){return []}};
- const day=(y,m,d)=>new Date(y,m,d,12,0,0,0);
- const fmt=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
- function occurs(x,d){
-   const y=d.getFullYear(),m=d.getMonth(),date=fmt(d),last=new Date(y,m+1,0).getDate();
-   if(x.type==='once')return x.date===date;
-   if(x.type==='yearly'){
-     const parts=String(x.date||'').split('-').map(Number);
-     return parts.length===3&&parts[1]===m+1&&Math.min(parts[2],last)===d.getDate();
-   }
-   if(x.type==='weekly'){
-     const base=new Date(String(x.date||'')+'T12:00:00');
-     return Number.isFinite(base.getTime())&&d>=base&&Math.round((d-base)/86400000)%7===0;
-   }
-   const n=Number(x.day);
-   return x.type==='monthly'&&Number.isInteger(n)&&n>=1&&n<=31&&Math.min(n,last)===d.getDate();
- }
- function dueTomorrow(){const n=new Date(),t=day(n.getFullYear(),n.getMonth(),n.getDate()+1);return read().filter(x=>occurs(x,t))}
- function draw(){const due=dueTomorrow(),el=$('wpNotifyDue');el.replaceChildren();if(!prefs.onOpen||!due.length)return;
-   const box=document.createElement('div');box.className='wp-notify-due';const title=document.createElement('strong');title.textContent=due.length===1?tr('Hai una scadenza domani'):(window.LannaLocale?.dueCount(due.length)??('Hai '+due.length+' scadenze domani'));box.append(title);
-   due.forEach(x=>{const row=document.createElement('div');row.setAttribute('data-lanna-user-text','');row.textContent=String(x.name||tr('Scadenza'));row.style.marginTop='6px';box.append(row)});el.append(box);
- }
- let running=Promise.resolve();
- function sync(){running=running.then(async()=>{
-   if(!native()||window.__lannaResetInProgress)return;
-   const api=plugin(),existing=oldIds();
-   if(existing.length)await api.cancel({notifications:existing.map(id=>({id}))});
-   window.safeSet(IDS,'[]');
-   if(!prefs.onDevice)return;
-   const perm=await api.checkPermissions();if(perm.display!=='granted'){status('Autorizza le notifiche nelle Impostazioni di iOS.');return}
-   const now=new Date(),list=[],reminders=read();let id=110000;
-   // Pianifica un massimo di 60 notifiche nei prossimi 60 giorni. Rinnovo quando si apre Wallet-PRO.
-   for(let offset=1;offset<=60&&list.length<60;offset++){
-     const due=day(now.getFullYear(),now.getMonth(),now.getDate()+offset);
-     reminders.forEach(x=>{
-       if(list.length>=60||!occurs(x,due))return;
-       const when=day(due.getFullYear(),due.getMonth(),due.getDate()-1);when.setHours(9,0,0,0);
-       if(when<=now)return;
-       list.push({id:++id,title:tr('Wallet-PRO · Scadenza domani'),body:String(x.name||tr('Scadenza')).slice(0,100),schedule:{at:when},smallIcon:undefined});
-     });
-   }
-   if(list.length){await api.schedule({notifications:list});window.safeSet(IDS,JSON.stringify(list.map(x=>x.id)))}
-   status('Notifiche iOS attive · '+list.length+' avvisi programmati.');
- }).catch(e=>status('Notifiche non programmate: '+String(e.message||e)));return running}
- $('wpNotifyOpen').checked=!!prefs.onOpen;
- $('wpNotifyDevice').disabled=!native();$('wpNotifyDevice').checked=native()&&!!prefs.onDevice;
- $('wpNotifyOpen').addEventListener('change',e=>{prefs.onOpen=e.target.checked;store();draw()});
- $('wpNotifyDevice').addEventListener('change',async e=>{
-   if(!native()){e.target.checked=false;return}
-   if(e.target.checked){try{const result=await plugin().requestPermissions();if(result.display!=='granted'){e.target.checked=false;status('Permesso notifiche non concesso.')}}catch(err){e.target.checked=false;status(String(err.message||err))}}
-   prefs.onDevice=e.target.checked;store();sync();
- });
- $('wpNotifyTest').addEventListener('click',async()=>{
-   if(!native()){status('Notifiche native disponibili solo nell’app iPhone.');return}
-   try{const permission=await plugin().requestPermissions();if(permission.display!=='granted'){status('Permesso notifiche non concesso.');return}
-     await plugin().schedule({notifications:[{id:999999,title:'Wallet-PRO',body:tr('Notifica locale di prova'),schedule:{at:new Date(Date.now()+7000)}}]});status('Notifica di prova programmata tra 7 secondi.');
-   }catch(e){status('Errore notifica di prova: '+String(e.message||e))}
- });
- status(native()?'Notifiche locali Apple disponibili.':'Notifiche iOS disponibili dopo l’installazione nativa.');
- // Runs after the archive commit; cancel only notifications owned by this app.
- window.LannaResetNotifications=async()=>{
-   await running;
-   if(!native())return;
-   const api=plugin(),pending=await api.getPending();
-   if(!Array.isArray(pending?.notifications))throw Error('Notifiche non verificabili');
-   if(pending.notifications.length)await api.cancel({notifications:pending.notifications.map(x=>({id:x.id}))});
-   await api.removeAllDeliveredNotifications();
-   const checked=await api.getPending();
-   if(!Array.isArray(checked?.notifications)||checked.notifications.length)throw Error('Notifiche residue');
-   localStorage.removeItem(IDS);
- };
- draw();if(prefs.onDevice||oldIds().length)sync();
- window.addEventListener('lanna:language-changed',()=>{draw();if(prefs.onDevice)sync()});
- window.addEventListener('walletpro:reminders-changed',()=>{draw();sync()});
- document.addEventListener('visibilitychange',()=>{if(!document.hidden){draw();if(prefs.onDevice)sync()}});
-})();
-</script>
+<script type="application/x-lanna-deferred">window.walletProStartNotifications();</script>
 <script type="application/x-lanna-deferred">
 /* Wallet-PRO: abbonamenti e analisi locali, nessuna chiamata di rete. */
 (function(){'use strict';
@@ -14145,14 +14308,14 @@ el('wpsList').innerHTML=a.length?a.map(x=>'<div class="list-row"><div style="min
 }
 function readExpenses(){try{let d=JSON.parse(localStorage.getItem(DATA)||'{}');return Array.isArray(d.expenses)?d.expenses:[]}catch(e){return []}}
 function monthSum(ex,prefix){return ex.filter(x=>String(x.date||'').slice(0,7)===prefix).reduce((a,x)=>a+(Number(x.amount)||0),0)}
-function renderInsights(){let ex=readExpenses().filter(x=>/^\d{4}-\d{2}-\d{2}$/.test(String(x.date||''))&&Number.isFinite(Number(x.amount))&&Number(x.amount)>0),now=new Date(),y=now.getFullYear(),m=now.getMonth(),current=y+'-'+String(m+1).padStart(2,'0'),prev=new Date(y,m-1,1),previous=prev.getFullYear()+'-'+String(prev.getMonth()+1).padStart(2,'0'),cur=monthSum(ex,current),old=monthSum(ex,previous),cats={};
+function renderInsights(){let ex=readExpenses().filter(x=>/^\d{4}-\d{2}-\d{2}$/.test(String(x.date||''))&&Number.isFinite(Number(x.amount))&&Number(x.amount)>0),now=new Date(),y=now.getFullYear(),m=now.getMonth(),current=y+'-'+String(m+1).padStart(2,'0'),prev=new Date(y,m-1,1),previous=prev.getFullYear()+'-'+String(prev.getMonth()+1).padStart(2,'0'),cur=monthSum(ex,current),old=monthSum(ex,previous),cats=Object.create(null);
 ex.filter(x=>String(x.date).slice(0,7)===current).forEach(x=>{let c=String(x.category||'Altro');cats[c]=(cats[c]||0)+Number(x.amount)});
 let ordered=Object.entries(cats).sort((a,b)=>b[1]-a[1]),out=[];
 out.push('<div class="list-row"><div><strong>Questo mese</strong><div class="row-sub">'+esc(current)+'</div></div><strong>'+money(cur)+'</strong></div>');
 out.push('<div class="list-row"><div><strong>Mese precedente</strong><div class="row-sub">'+esc(previous)+'</div></div><strong>'+money(old)+'</strong></div>');
 if(old>0){let delta=(cur-old)/old*100;out.push('<div class="list-row"><div><strong>Variazione</strong><div class="row-sub">Confronto fra mesi interi o parziali, non una previsione</div></div><strong>'+ (delta>=0?'+':'')+delta.toFixed(1)+'%</strong></div>')}
 if(ordered.length)out.push('<div class="list-row"><div><strong>Categoria principale del mese</strong><div class="row-sub">'+esc(ordered[0][0])+'</div></div><strong>'+money(ordered[0][1])+'</strong></div>');
-const grouped={};ex.forEach(x=>{let key=String(x.desc||x.description||'').trim().toLocaleLowerCase('it');if(key.length<4)return;(grouped[key]??=[]).push(x)});
+const grouped=Object.create(null);ex.forEach(x=>{let key=String(x.desc||x.description||'').trim().toLocaleLowerCase('it');if(key.length<4)return;(grouped[key]??=[]).push(x)});
 let recurring=Object.entries(grouped).filter(([k,v])=>new Set(v.map(x=>String(x.date).slice(0,7))).size>=2).sort((a,b)=>b[1].length-a[1].length).slice(0,5);
 if(recurring.length)out.push('<div style="padding:12px 0"><strong>Possibili spese ricorrenti</strong><div class="row-sub">Stessa descrizione rilevata in almeno due mesi (da verificare)</div>'+recurring.map(([k,v])=>'<div class="row-sub" style="padding:5px 0">'+esc(k)+' · '+v.length+' movimenti</div>').join('')+'</div>');
 if(!ex.length)out=['<div class="row-sub">Non ci sono ancora spese da analizzare.</div>'];el('wpsInsights').innerHTML=out.join('')}
@@ -14219,7 +14382,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <div id="wpHelpCount" aria-live="polite"></div><div id="wpHelpResults"></div></div></div><script type="application/x-lanna-deferred">
 (function(){
 'use strict';
-var topics={"it":[{"id":"intro","title":"Introduzione a Wallet-PRO","body":"Wallet-PRO — Le tue finanze, sotto il tuo controllo. Un’app per gestire entrate, uscite, stipendi, budget ed eventi, con dashboard, grafici e riepiloghi. Punti di forza: privacy e dati finanziari conservati sul dispositivo; principali funzioni disponibili offline; importazione di Excel, CSV, buste paga PDF e scontrini tramite OCR locale; budget, obiettivi, spese ricorrenti e promemoria; backup JSON e cifrati; interfaccia multilingua e valuta selezionabile. Le notifiche push e il controllo aggiornamenti richiedono una connessione Internet. Nessun abbonamento necessario per la gestione quotidiana."},{"id":"dashboard","title":"Dashboard","body":"Visualizza saldo disponibile, entrate, uscite, grafici e riepiloghi. Seleziona l'anno in alto per cambiare periodo."},{"id":"income","title":"Entrate","body":"Aggiungi stipendi e altre entrate. Cerca per descrizione, filtra per mese e modifica le categorie."},{"id":"expenses","title":"Uscite","body":"Registra spese, cerca movimenti, filtra per mese e organizza le uscite per categoria."},{"id":"add","title":"Registrare entrate e uscite in chat","body":"Apri P.A. e scrivi o pronuncia una sola di queste parole: «aggiungi», «inserisci», «entrata», «uscita», «spesa», «evento». Nel fumetto arancione scegli Entrata, Uscita o Evento. Per un movimento, controlla la data e inserisci descrizione, categoria e importo. Se serve, attiva Movimento ricorrente. Tocca Conferma per salvare o Annulla per chiudere il modulo.\n\nCon una frase completa, ad esempio «Oggi ho speso 50 € di carburante», Wallet-PRO propone già importo, data e descrizione («Rifornimento carburante»). Verifica i campi, completa quelli mancanti e conferma."},{"id":"voice","title":"Pulsante Microfono","body":"Nella chat P.A., su iPhone tocca il Pulsante Microfono per parlare e toccalo di nuovo per terminare. La frase riconosciuta viene inviata alla chat. Per registrare un movimento, controlla l’anteprima prima di toccare Conferma."},{"id":"receipt","title":"Scontrini in chat","body":"Scrivi o pronuncia «scansiona scontrino» per aprire la fotocamera. Dopo la foto, Wallet-PRO prova a leggere in locale data, esercente e importo. Controlla i valori riconosciuti, completa i campi e tocca Conferma. Per compilare a mano, usa «scontrino senza scansione»."},{"id":"events","title":"Registrare un evento in chat","body":"In P.A. scrivi o pronuncia «evento» e scegli Evento nel fumetto. Inserisci data e descrizione. Ora e importo sono facoltativi. Tocca Conferma per salvare."},{"id":"budget","title":"Budget","body":"Imposta un budget mensile e limiti per categoria dalle Impostazioni. Controlla i progressi nella Dashboard."},{"id":"goals","title":"Obiettivi di risparmio","body":"Crea obiettivi indicando importo desiderato e somme già accantonate."},{"id":"charts","title":"Grafici e analisi","body":"Consulta grafici mensili, annuali e per categoria. Tocca i controlli per cambiare visualizzazione."},{"id":"pdf","title":"Importazione PDF","body":"In Impostazioni > Importa dati scegli una o più buste paga PDF oppure una cartella. Controlla i valori riconosciuti prima di importarli."},{"id":"excel","title":"Importazione Excel","body":"In Impostazioni > Importa dati scegli l'estratto conto Excel e il tipo di movimenti. Verifica l'anteprima prima del salvataggio."},{"id":"csv","title":"File CSV","body":"Importa entrate o uscite da CSV ed esporta i movimenti. Puoi scaricare i modelli CSV dalle Impostazioni."},{"id":"backup","title":"Backup e ripristino","body":"Esegui un backup JSON completo oppure cifrato. Conserva il file in un luogo sicuro e usa Ripristina per recuperare i dati."},{"id":"reminders","title":"Scadenze e notifiche","body":"Inserisci scadenze mensili, annuali o singole. Gli avvisi locali si verificano all'apertura; le notifiche push richiedono autorizzazione e configurazione."},{"id":"subscriptions","title":"Abbonamenti","body":"Registra nome, costo, frequenza e prossimo rinnovo degli abbonamenti. Non vengono inseriti automaticamente nelle uscite."},{"id":"balance","title":"Saldo disponibile","body":"Imposta un saldo reale e una data di riferimento nelle Impostazioni per monitorare il saldo disponibile."},{"id":"appearance","title":"Aspetto e lingua","body":"Attiva Dark Mode, scegli il colore grafico, personalizza i riquadri della Dashboard e cambia lingua o valuta di visualizzazione."},{"id":"privacy","title":"Privacy e dati locali","body":"I movimenti e le impostazioni finanziarie sono conservati sul dispositivo. Le notifiche native iOS sono in preparazione; il controllo aggiornamenti usa la rete."},{"id":"updates","title":"Aggiornamenti","body":"Quando viene rilevata una nuova versione pubblicata, puoi utilizzare Aggiorna ora. Esegui regolarmente un backup dei dati."},{"id":"web41","title":"Installazione e privacy web","body":"Apri il sito HTTPS, aggiungi alla schermata Home e attendi il completamento della cache offline. IndexedDB e LocalStorage sono locali al browser. Conserva un backup esterno prima di cambiare versione o cancellare i dati del sito. Face ID, widget e notifiche native iOS non sono disponibili. Il microfono funziona solo se il browser supporta il riconoscimento locale."}],"en":[{"id":"intro","title":"Introduction to Wallet-PRO","body":"Wallet-PRO — Your finances, under your control. Manage income, expenses, salaries, budgets and events with a dashboard, charts and summaries. Key strengths: financial data stored on your device, core features available offline, Excel and CSV imports, PDF payslips and local receipt OCR, budgets, savings goals, recurring expenses and reminders, JSON and encrypted backups, multiple languages and display currencies. Push notifications and update checks require Internet access. No subscription is needed for everyday financial management."},{"id":"dashboard","title":"Dashboard","body":"View your available balance, income, expenses, charts and summaries. Choose the year at the top."},{"id":"income","title":"Income","body":"Add salaries and other income. Search, filter by month and manage categories."},{"id":"expenses","title":"Expenses","body":"Record expenses, search transactions, filter by month and manage categories."},{"id":"add","title":"Record income and expenses in chat","body":"Open P.A. and type or say a single Italian command: «aggiungi», «inserisci», «entrata», «uscita», «spesa», «evento». Choose Income, Expense or Event in the orange chat form. For a transaction, check the date and enter the description, category and amount. You can mark it as recurring. Tap Confirm to save or Cancel to close.\n\nA complete sentence such as «Oggi ho speso 50 € di carburante» opens a prefilled preview with a short description. Check the fields before confirming."},{"id":"voice","title":"Microphone button","body":"In the P.A. chat on iPhone, tap the microphone to speak and tap it again to finish. The recognised text is sent to the chat. Check the preview before confirming."},{"id":"receipt","title":"Receipts in chat","body":"Use «scansiona scontrino» to open the camera. After taking a photo, Wallet-PRO tries to read the date, merchant and total on the device. Check the fields and confirm. Use «scontrino senza scansione» to enter the receipt manually."},{"id":"events","title":"Record an event in chat","body":"Use «evento» in P.A. and select Event in the chat form. Enter the date and description. Time and amount are optional. Tap Confirm to save."},{"id":"budget","title":"Budgets","body":"Set monthly and category budgets in Settings. Track progress on the Dashboard."},{"id":"goals","title":"Savings goals","body":"Create goals with a target amount and the amount already saved."},{"id":"charts","title":"Charts and insights","body":"Explore monthly, yearly and category charts. Switch chart views using the controls."},{"id":"pdf","title":"Import PDFs","body":"In Settings > Import data select payslip PDFs or a folder. Review detected amounts before importing."},{"id":"excel","title":"Import Excel","body":"In Settings > Import data select a bank statement and transaction types. Review the preview."},{"id":"csv","title":"CSV files","body":"Import or export income and expenses in CSV format. Download CSV templates in Settings."},{"id":"backup","title":"Backup and restore","body":"Create full JSON or encrypted backups. Store files securely and use Restore when needed."},{"id":"reminders","title":"Reminders and notifications","body":"Add monthly, yearly or one-off due dates. Local reminders run when opening the app; push requires permission and setup."},{"id":"subscriptions","title":"Subscriptions","body":"Track subscription name, cost, frequency and renewal date. They are not automatically recorded as expenses."},{"id":"balance","title":"Available balance","body":"Set a real balance and reference date in Settings to track your available balance."},{"id":"appearance","title":"Appearance and language","body":"Use Dark Mode, change accent color, customize Dashboard cards and select language or display currency."},{"id":"privacy","title":"Privacy and local data","body":"Financial records and settings stay on your device. Native iOS notifications are being prepared; update checks use the network."},{"id":"updates","title":"Updates","body":"When a new published version is detected, tap Update now. Back up your data regularly."},{"id":"web41","title":"Web installation and privacy","body":"Open the HTTPS site, add to Home Screen and wait for offline caching. IndexedDB and LocalStorage are browser-local. Keep an external backup before updating or deleting site data. Native Face ID, widgets and iOS notifications are unavailable. Voice requires local browser recognition."}]}, ui={"it":["Guida Wallet-PRO 4.1.0","Cerca una funzione, ad esempio budget, PDF, backup…","Nessun argomento trovato","argomenti","Chiudi guida","Guida e funzioni"],"en":["Wallet-PRO Guide 4.1.0","Search features, e.g. budget, PDF, backup…","No topics found","topics","Close guide","Guide and features"]};
+var topics={"it":[{"id":"intro","title":"Introduzione a Wallet-PRO","body":"Wallet-PRO — Le tue finanze, sotto il tuo controllo. Un’app per gestire entrate, uscite, stipendi, budget ed eventi, con dashboard, grafici e riepiloghi. Punti di forza: privacy e dati finanziari conservati sul dispositivo; principali funzioni disponibili offline; importazione di Excel, CSV, buste paga PDF e scontrini tramite OCR locale; budget, obiettivi, spese ricorrenti e promemoria; backup JSON e cifrati; interfaccia multilingua e valuta selezionabile. Le notifiche push e il controllo aggiornamenti richiedono una connessione Internet. Nessun abbonamento necessario per la gestione quotidiana."},{"id":"dashboard","title":"Dashboard","body":"Visualizza saldo disponibile, entrate, uscite, grafici e riepiloghi. Seleziona l'anno in alto per cambiare periodo."},{"id":"income","title":"Entrate","body":"Aggiungi stipendi e altre entrate. Cerca per descrizione, filtra per mese e modifica le categorie."},{"id":"expenses","title":"Uscite","body":"Registra spese, cerca movimenti, filtra per mese e organizza le uscite per categoria."},{"id":"add","title":"Registrare entrate e uscite in chat","body":"Apri P.A. e scrivi o pronuncia una sola di queste parole: «aggiungi», «inserisci», «entrata», «uscita», «spesa», «evento». Nel fumetto arancione scegli Entrata, Uscita o Evento. Per un movimento, controlla la data e inserisci descrizione, categoria e importo. Se serve, attiva Movimento ricorrente. Tocca Conferma per salvare o Annulla per chiudere il modulo.\n\nCon una frase completa, ad esempio «Oggi ho speso 50 € di carburante», Wallet-PRO propone già importo, data e descrizione («Rifornimento carburante»). Verifica i campi, completa quelli mancanti e conferma."},{"id":"voice","title":"Pulsante Microfono","body":"Nella chat P.A., su iPhone tocca il Pulsante Microfono per parlare e toccalo di nuovo per terminare. La frase riconosciuta viene inviata alla chat. Per registrare un movimento, controlla l’anteprima prima di toccare Conferma."},{"id":"receipt","title":"Scontrini in chat","body":"Scrivi o pronuncia «scansiona scontrino» per aprire la fotocamera. Dopo la foto, Wallet-PRO prova a leggere in locale data, esercente e importo. Controlla i valori riconosciuti, completa i campi e tocca Conferma. Per compilare a mano, usa «scontrino senza scansione»."},{"id":"events","title":"Registrare un evento in chat","body":"In P.A. scrivi o pronuncia «evento» e scegli Evento nel fumetto. Inserisci data e descrizione. Ora e importo sono facoltativi. Tocca Conferma per salvare."},{"id":"budget","title":"Budget","body":"Imposta un budget mensile e limiti per categoria dalle Impostazioni. Controlla i progressi nella Dashboard."},{"id":"goals","title":"Obiettivi di risparmio","body":"Crea obiettivi indicando importo desiderato e somme già accantonate."},{"id":"charts","title":"Grafici e analisi","body":"Consulta grafici mensili, annuali e per categoria. Tocca i controlli per cambiare visualizzazione."},{"id":"pdf","title":"Importazione PDF","body":"In Impostazioni > Importa dati scegli una o più buste paga PDF oppure una cartella. Controlla i valori riconosciuti prima di importarli."},{"id":"excel","title":"Importazione Excel","body":"In Impostazioni > Importa dati scegli l'estratto conto Excel e il tipo di movimenti. Verifica l'anteprima prima del salvataggio."},{"id":"csv","title":"File CSV","body":"Importa entrate o uscite da CSV ed esporta i movimenti. Puoi scaricare i modelli CSV dalle Impostazioni."},{"id":"backup","title":"Backup e ripristino","body":"Esegui un backup JSON completo oppure cifrato. Conserva il file in un luogo sicuro e usa Ripristina per recuperare i dati."},{"id":"reminders","title":"Scadenze e notifiche","body":"Inserisci scadenze mensili, annuali o singole. Gli avvisi locali si verificano all'apertura; le notifiche push richiedono autorizzazione e configurazione."},{"id":"subscriptions","title":"Abbonamenti","body":"Registra nome, costo, frequenza e prossimo rinnovo degli abbonamenti. Non vengono inseriti automaticamente nelle uscite."},{"id":"balance","title":"Saldo disponibile","body":"Imposta un saldo reale e una data di riferimento nelle Impostazioni per monitorare il saldo disponibile."},{"id":"appearance","title":"Aspetto e lingua","body":"Attiva Dark Mode, scegli il colore grafico, personalizza i riquadri della Dashboard e cambia lingua o valuta di visualizzazione."},{"id":"privacy","title":"Privacy e dati locali","body":"I movimenti e le impostazioni finanziarie sono conservati sul dispositivo. Le notifiche native iOS sono in preparazione; il controllo aggiornamenti usa la rete."},{"id":"updates","title":"Aggiornamenti","body":"Quando viene rilevata una nuova versione pubblicata, puoi utilizzare Aggiorna ora. Esegui regolarmente un backup dei dati."},{"id":"web41","title":"Installazione e privacy web","body":"Apri il sito HTTPS, aggiungi alla schermata Home e attendi il completamento della cache offline. IndexedDB e LocalStorage sono locali al browser. Conserva un backup esterno prima di cambiare versione o cancellare i dati del sito. Face ID, widget e notifiche native iOS non sono disponibili. Il microfono funziona solo se il browser supporta il riconoscimento locale."},{"id":"telecom","title":"Internet e telefonia","body":"Importa fatture internet, fibra e telefonia in Importazione intelligente. Controlla l’anteprima di importi, scadenze, consumi, canoni e dati tecnici; i campi non riconosciuti restano vuoti. Le fatture non pagate vengono proposte come sole schede tecniche. Conferma esplicitamente prima di salvare. In Documenti acquisiti → Internet e Telefonia trovi i gestori e gli anni. I loghi si apprendono solo da immagini compatibili presenti nei PDF, senza scaricarli da Internet. Puoi chiedere al P.A. ad esempio «Grafico canone Iliad 2026» o «Scadenza fattura TIM». Tocca i grafici temporali per alternare linee e barre, tieni premuto per riordinarli."}],"en":[{"id":"intro","title":"Introduction to Wallet-PRO","body":"Wallet-PRO — Your finances, under your control. Manage income, expenses, salaries, budgets and events with a dashboard, charts and summaries. Key strengths: financial data stored on your device, core features available offline, Excel and CSV imports, PDF payslips and local receipt OCR, budgets, savings goals, recurring expenses and reminders, JSON and encrypted backups, multiple languages and display currencies. Push notifications and update checks require Internet access. No subscription is needed for everyday financial management."},{"id":"dashboard","title":"Dashboard","body":"View your available balance, income, expenses, charts and summaries. Choose the year at the top."},{"id":"income","title":"Income","body":"Add salaries and other income. Search, filter by month and manage categories."},{"id":"expenses","title":"Expenses","body":"Record expenses, search transactions, filter by month and manage categories."},{"id":"add","title":"Record income and expenses in chat","body":"Open P.A. and type or say a single Italian command: «aggiungi», «inserisci», «entrata», «uscita», «spesa», «evento». Choose Income, Expense or Event in the orange chat form. For a transaction, check the date and enter the description, category and amount. You can mark it as recurring. Tap Confirm to save or Cancel to close.\n\nA complete sentence such as «Oggi ho speso 50 € di carburante» opens a prefilled preview with a short description. Check the fields before confirming."},{"id":"voice","title":"Microphone button","body":"In the P.A. chat on iPhone, tap the microphone to speak and tap it again to finish. The recognised text is sent to the chat. Check the preview before confirming."},{"id":"receipt","title":"Receipts in chat","body":"Use «scansiona scontrino» to open the camera. After taking a photo, Wallet-PRO tries to read the date, merchant and total on the device. Check the fields and confirm. Use «scontrino senza scansione» to enter the receipt manually."},{"id":"events","title":"Record an event in chat","body":"Use «evento» in P.A. and select Event in the chat form. Enter the date and description. Time and amount are optional. Tap Confirm to save."},{"id":"budget","title":"Budgets","body":"Set monthly and category budgets in Settings. Track progress on the Dashboard."},{"id":"goals","title":"Savings goals","body":"Create goals with a target amount and the amount already saved."},{"id":"charts","title":"Charts and insights","body":"Explore monthly, yearly and category charts. Switch chart views using the controls."},{"id":"pdf","title":"Import PDFs","body":"In Settings > Import data select payslip PDFs or a folder. Review detected amounts before importing."},{"id":"excel","title":"Import Excel","body":"In Settings > Import data select a bank statement and transaction types. Review the preview."},{"id":"csv","title":"CSV files","body":"Import or export income and expenses in CSV format. Download CSV templates in Settings."},{"id":"backup","title":"Backup and restore","body":"Create full JSON or encrypted backups. Store files securely and use Restore when needed."},{"id":"reminders","title":"Reminders and notifications","body":"Add monthly, yearly or one-off due dates. Local reminders run when opening the app; push requires permission and setup."},{"id":"subscriptions","title":"Subscriptions","body":"Track subscription name, cost, frequency and renewal date. They are not automatically recorded as expenses."},{"id":"balance","title":"Available balance","body":"Set a real balance and reference date in Settings to track your available balance."},{"id":"appearance","title":"Appearance and language","body":"Use Dark Mode, change accent color, customize Dashboard cards and select language or display currency."},{"id":"privacy","title":"Privacy and local data","body":"Financial records and settings stay on your device. Native iOS notifications are being prepared; update checks use the network."},{"id":"updates","title":"Updates","body":"When a new published version is detected, tap Update now. Back up your data regularly."},{"id":"web41","title":"Web installation and privacy","body":"Open the HTTPS site, add to Home Screen and wait for offline caching. IndexedDB and LocalStorage are browser-local. Keep an external backup before updating or deleting site data. Native Face ID, widgets and iOS notifications are unavailable. Voice in chat may use an external browser speech service after consent."},{"id":"telecom","title":"Internet and phone bills","body":"Import internet, fibre and phone invoices using Smart Import. Review the preview before saving. Unpaid bills default to document-only. Acquired Documents groups telecom bills by provider and year. Logos are learned only from suitable local PDF images. Tap time charts to switch between bars and lines; press and hold to reorder."}]}, ui={"it":["Guida Wallet-PRO 4.1.4","Cerca una funzione, ad esempio budget, PDF, backup…","Nessun argomento trovato","argomenti","Chiudi guida","Guida e funzioni"],"en":["Wallet-PRO Guide 4.1.4","Search features, e.g. budget, PDF, backup…","No topics found","topics","Close guide","Guide and features"]};
 topics.it.push({id:'chat131',title:'Inserimenti e archivio dalla chat',body:'Scrivi Aggiungi, Entrata, Uscita o Evento per aprire il modulo nella chat. Scrivi Scansiona scontrino per aprire la fotocamera. Controlla e conferma prima di salvare. I documenti acquisiti sono raggruppati per anno; se manca la data di emissione vengono considerate le date disponibili del periodo o della scadenza.'});
 topics.it.push({id:'locale192b',title:'Italiano e inglese',body:'Scegli Italiano o English in Opzioni → Lingua. L’italiano resta la lingua principale. La chat inglese riconosce i totali di uscite, entrate bancarie e stipendi per anno o mese. Per gli altri comandi usa le frasi italiane della guida. La lingua non modifica le categorie salvate o i dati finanziari.'});
 topics.en.push({id:'locale192b',title:'Italian and English',body:'Choose Italiano or English in Options → App language. Italian is the primary language. Try “Total expenses 2026”, “Total bank income 2026”, “Total salary January 2026” or “How much did I spend last month?”. Other assistant commands still use the Italian phrases in this guide. Language changes do not alter your financial records.'});
@@ -15221,7 +15384,7 @@ window.LannaIntelligence={normalize:normalize,respond:respond,learn:learn,period
    input.addEventListener('input',function(){if(input.value.trim()){robot.classList.remove('pa-curious','pa-closed');}});
    var mic=document.getElementById('lannaPaMic'),micStatus=document.getElementById('lannaPaMicStatus');
    if(mic){
-    var state='idle', plugin=null, draft='', stopAfterStart=false;
+    var state='idle', plugin=null, draft='', stopAfterStart=false, webRecognition=null, webFailed=false, webConsent=false;
     function status(text){micStatus.textContent=window.LannaLocale?.text(text)??text; if(text==='Messaggio inviato.')micStatus.textContent=''; scheduleStatus();}
     function scheduleStatus(){requestAnimationFrame(function(){window.dispatchEvent(new Event('resize'));});}
     function display(next){
@@ -15240,6 +15403,7 @@ window.LannaIntelligence={normalize:normalize,respond:respond,learn:learn,period
       if(typeof event?.text==='string'&&event.text.trim()){
         draft=event.text.trim();
         input.value=draft;
+        input.dispatchEvent(new Event('input',{bubbles:true}));
       }
     }
     function complete(){
@@ -15256,6 +15420,7 @@ window.LannaIntelligence={normalize:normalize,respond:respond,learn:learn,period
       if(state!=='listening')return;
       display('stopping');
       status('Fine ascolto…');
+      if(webRecognition){try{webRecognition.stop();}catch(e){webRecognition=null;display('idle');status('Microfono: '+(e.message||e));}return;}
       try{
         receive(await plugin.stopSpeech());
         complete();
@@ -15267,7 +15432,18 @@ window.LannaIntelligence={normalize:normalize,respond:respond,learn:learn,period
     async function start(){
       var cap=window.Capacitor;
       if(!cap?.isNativePlatform?.()){
-        status('Microfono offline disponibile nell’app iPhone.');
+        var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+        if(!SR){status('Riconoscimento vocale non supportato da questo browser. Usa la dettatura della tastiera.');return;}
+        if(!webConsent){if(!window.confirm('Il riconoscimento vocale del browser può inviare la voce al servizio del browser tramite Internet. Vuoi continuare?'))return;webConsent=true;}
+        try{
+          var r=new SR();webRecognition=r;webFailed=false;draft='';stopAfterStart=false;
+          r.lang=window.LannaLocale?.locale()||'it-IT';r.continuous=false;r.interimResults=true;r.maxAlternatives=1;
+          r.onstart=function(){if(webRecognition!==r)return;display('listening');status('Sto ascoltando… Tocca di nuovo per fermare.');if(stopAfterStart||document.hidden)stop();};
+          r.onresult=function(e){if(webRecognition!==r||webFailed)return;var text=Array.from(e.results).map(x=>x[0].transcript).join(' ').trim();if(text)receive({text:text});};
+          r.onerror=function(e){if(webRecognition!==r)return;webFailed=true;status('Microfono: '+(e.error||'errore di riconoscimento'));display('idle');webRecognition=null;};
+          r.onend=function(){if(webRecognition!==r)return;webRecognition=null;if(webFailed){display('idle');return;}if(document.hidden){display('idle');status('Ascolto interrotto.');return;}complete();};
+          display('starting');status('Avvio ascolto…');r.start();
+        }catch(e){webRecognition=null;display('idle');status('Microfono: '+(e.message||e));}
         return;
       }
       if(!plugin){
@@ -16668,27 +16844,43 @@ window.Lanna91={extractBill:extract,findBillMatches:findMatches,billPageText:bil
 (function(){'use strict';
 var KEY='lanna99_chat_dashboard_charts_v1',DATA='lamiabp_pro_data_v1';
 function read(){try{var a=JSON.parse(localStorage.getItem(KEY)||'[]');return Array.isArray(a)?a:[]}catch(e){return []}}
+function monthlyComparison(x){return !!(x.periodQuery&&/confronto mensile curve/.test(x.periodQuery))}
+function twoStyles(x){return !!(x.years||monthlyComparison(x)||window.LannaAccrualCharts?.decode(x.periodSubject))}
+function effectiveType(x){if(monthlyComparison(x)&&!x.comparisonStyle)return /modalita barre/.test(x.periodQuery)?'bar':'line';return x.type==='line'?'line':x.type==='pie'&&!twoStyles(x)?'pie':'bar'}
+function comparisonModel(x){var model=window.LannaPeriods?.comparisonModel(x.periodQuery,x.periodSubject);return model?Object.assign({},model,{bars:effectiveType(x)==='bar'}):null;}
+function toggle(x){window.Lanna99Sound?.('chart');if(!change(x.id,{type:effectiveType(x)==='line'?'bar':'line'}))detailAfterToggle.delete(x.id);}
+var detailAfterToggle=new Map();
+function addPlotToggle(plot,x){if(!plot)return;plot.addEventListener('click',function(e){
+ // The existing point listener updates the detail before this bubbling handler.
+ if(e.target.closest?.('circle[tabindex],rect[tabindex]'))detailAfterToggle.set(x.id,plot.lastElementChild?.textContent||'');
+ toggle(x);
+});}
+
 function norm(s){return String(s||'').toLocaleLowerCase('it-IT').normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim()}
-function write(a){try{window.safeSet(KEY,JSON.stringify(a));render();settings();window.lannaSyncDashboardWidget?.();return true}catch(e){return false}}
+function write(a,id){try{window.safeSet(KEY,JSON.stringify(a));render(id);settings();window.lannaSyncDashboardWidget?.();return true}catch(e){return false}}
 function add(x){
  var charts=read();
  var key=x.years ? [x.domain,x.filter,x.category,x.years.join('-')] : [x.domain,x.category,x.year||'all'];
  var id=x.periodQuery ? 'period|'+norm(x.periodQuery).replace(/\b(crea|fammi|mostra|grafico|grafici|diagramma|andamento|per favore)\b/g,'').replace(/\s+/g,' ').trim()+'|'+norm(x.periodSubject).replace(/\b(crea|fammi|mostra|grafico|grafici|diagramma|andamento|per favore)\b/g,'').replace(/\s+/g,' ').trim() : key.map(norm).join('|');
- var existing=charts.find(function(chart){return chart.id===id;});
+ var existing=charts.find(function(chart){return chart&&chart.id===id;});
+ if(!existing&&monthlyComparison(x)){var comparable=function(q){return norm(q).replace(/\bmodalita barre\b/g,'').replace(/\s+/g,' ').trim();};existing=charts.find(function(c){return c&&monthlyComparison(c)&&comparable(c.periodQuery)===comparable(x.periodQuery)&&norm(c.periodSubject)===norm(x.periodSubject);});if(existing)id=existing.id;}
  if(existing){
    existing.visible=true;
+   // A new explicit comparison request may specify a style; normal re-render/reload never resets it.
    if(window.LannaAccrualCharts?.decode(x.periodSubject))existing.type=x.type==='line'?'line':'bar';
-   if(x.years) existing.type=x.type;
+   if(x.years&&(x.type==='line'||x.type==='bar'))existing.type=x.type;
+   if(monthlyComparison(x)&&(x.type==='line'||x.type==='bar'||/modalita barre/.test(x.periodQuery))){existing.type=x.type==='line'?'line':'bar';existing.comparisonStyle=true;}
  }else{
    var chart={id:id,name:x.name,category:x.category,year:x.year||null,domain:x.domain,visible:true,type:'bar'};
-   if(x.years) Object.assign(chart,{years:x.years,filter:x.filter,type:x.type});
+   if(x.years) Object.assign(chart,{years:x.years,filter:x.filter,type:x.type==='line'?'line':'bar'});
    if(x.periodQuery)Object.assign(chart,{periodQuery:x.periodQuery,periodSubject:x.periodSubject});
    if(window.LannaAccrualCharts?.decode(x.periodSubject))chart.type=x.type==='line'?'line':'bar';
+   if(monthlyComparison(chart)){chart.type=x.type==='line'||x.type==='bar'?x.type:effectiveType(chart);chart.comparisonStyle=true;}
    charts.push(chart);
  }
- return write(charts);
+ return write(charts,id);
 }
-function change(id,patch){return write(read().map(function(x){if(x.id===id)Object.assign(x,patch);return x}))}
+function change(id,patch){return write(read().map(function(x){if(x&&x.id===id){Object.assign(x,patch);if(monthlyComparison(x)&&Object.prototype.hasOwnProperty.call(patch,'type'))x.comparisonStyle=true;}return x}),id)}
 function data(){try{return JSON.parse(localStorage.getItem(DATA)||'{}')}catch(e){return {}}}
 function chartSeries(x){
  if(!x.periodQuery)return window.Lanna99NativeCharts?.getSeries(x);
@@ -16708,20 +16900,20 @@ function chart(x){
  if(window.LannaAccrualCharts?.decode(x.periodSubject)){
   const a=window.LannaAccrualCharts,m=a.model(x.periodQuery,x.periodSubject,x.type),card=document.createElement('div');card.className='card widget-wide l99-chart-card';card.dataset.lanna99Chart=x.id;card.setAttribute('data-lanna-user-text','');
   const heading=document.createElement('h3');heading.className='chart-title';heading.textContent=displayName(x)+(m?' ('+m.unit+')':'');card.appendChild(heading);
-  if(m)a.draw(card,m,type=>{window.Lanna99Sound?.('chart');change(x.id,{type});});else {const note=document.createElement('div');note.textContent=a.notice(null);card.appendChild(note);}return card;
+  if(m){a.draw(card,m,type=>{window.Lanna99Sound?.('chart');change(x.id,{type});});addPlotToggle(card.querySelector('.l142-comparison'),x);}else {const note=document.createElement('div');note.textContent=a.notice(null);card.appendChild(note);}return card;
  }
- if(x.periodQuery && /confronto mensile curve/.test(x.periodQuery) && window.LannaPeriods?.comparisonModel){var model=window.LannaPeriods.comparisonModel(x.periodQuery,x.periodSubject);if(model){var card=document.createElement('div');card.className='card widget-wide l99-chart-card';card.dataset.lanna99Chart=x.id;card.setAttribute('data-lanna-user-text','');var title=document.createElement('h3');title.className='chart-title';title.textContent=displayName(x);card.append(title,window.LannaPeriods.comparisonPlot(model));return card;}}
+ if(monthlyComparison(x)&&window.LannaPeriods?.comparisonModel){var model=comparisonModel(x);if(model){var card=document.createElement('div');card.className='card widget-wide l99-chart-card';card.dataset.lanna99Chart=x.id;card.setAttribute('data-lanna-user-text','');var title=document.createElement('h3');title.className='chart-title';title.textContent=displayName(x);var plot=window.LannaPeriods.comparisonPlot(model);addPlotToggle(plot,x);card.appendChild(title);card.appendChild(plot);return card;}}
  if(x.years){
   var card=document.createElement('div');card.className='card widget-wide l99-chart-card';
   card.dataset.lanna99Chart=x.id;card.id='lanna-chart-'+x.id;
   var title=document.createElement('h3');title.className='chart-title';title.textContent=x.name+' (€)';
-  card.append(title,window.Lanna91.comparisonView(x,window.Lanna91.comparisonData(x,new Date()),function(type){
+  card.append(title,window.Lanna91.comparisonView(Object.assign({},x,{type:effectiveType(x)}),window.Lanna91.comparisonData(x,new Date()),function(type){
    change(x.id,{type:type});document.getElementById(card.id)?.querySelector('button')?.focus({preventScroll:true});
   }));
   return card;
  }
  var native=window.Lanna99NativeCharts;if(!native)return document.createElement('div');
- var dataset=chartSeries(x),labels=dataset.labels,values=dataset.values;
+ var dataset=chartSeries(x)||{labels:[],values:[]},labels=dataset.labels,values=dataset.values;
  var card=document.createElement('div');card.className='card widget-wide l99-chart-card';card.dataset.lanna99Chart=x.id;card.setAttribute('data-lanna-user-text','');
  var header=document.createElement('div');header.className='chart-header';
  var title=document.createElement('h3');title.className='chart-title';title.textContent=displayName(x)+' ('+tr(dataset.unit||'EUR')+')';header.appendChild(title);
@@ -16732,21 +16924,35 @@ function chart(x){
  });
  header.appendChild(pills);card.appendChild(header);
  var container=document.createElement('div');container.className='l99-native-chart';
- if(!labels.length){container.innerHTML='<div class="empty-state">'+tr('Nessun movimento nella categoria selezionata.')+'</div>'}
+ if(!labels.length){{const empty=document.createElement('div');empty.className='empty-state';empty.textContent=tr('Nessun movimento nella categoria selezionata.');container.replaceChildren(empty);}}
  else if(x.type==='pie'){container.innerHTML=native.pie(labels,values)}
  else if(x.type==='line'){container.innerHTML='<div class="annual-scroll">'+native.line(labels,values,-1)+'</div>'}
  else {
   var max=native.max(values),html='<div class="annual-scroll"><div class="bar-chart">';
   labels.forEach(function(label,i){var v=values[i],pct=v>0?Math.max(6,Math.round(v/max*100)):3;
-   html+='<div class="bar-col"><span class="bar-val">'+native.short(v)+'</span><div class="bar-fill" style="height:'+pct+'%"></div><span class="bar-lbl">'+label+'</span></div>'
+   html+='<div class="bar-col"><span class="bar-val">'+native.short(v)+'</span><div class="bar-fill" style="height:'+pct+'%"></div><span class="bar-lbl">'+String(label??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')+'</span></div>'
   });container.innerHTML=html+'</div></div>'
  }
  card.appendChild(container);
- container.addEventListener('click',function(){if(window.Lanna99Sound)window.Lanna99Sound('chart');var types=['bar','line','pie'];change(x.id,{type:types[(types.indexOf(x.type||'bar')+1)%3]})});
+ container.addEventListener('click',function(){toggle(x)});
  var note=document.createElement('div');note.className='l99-chart-caption';note.textContent=tr('Tocca il grafico per cambiare stile')+' · '+(x.periodQuery?tr('Filtro della chat'):x.year||tr('Tutti gli anni'));card.appendChild(note);
  return card;
 }
-function render(){var host=document.getElementById('dashboardWidgetGrid')||document.getElementById('view-dashboard');if(!host)return;document.querySelectorAll('[data-lanna99-chart]').forEach(function(el){el.remove()});var seen=new Set();read().filter(function(x){if(!x.visible||seen.has(x.id))return false;seen.add(x.id);return true}).forEach(function(x){host.appendChild(chart(x))})}
+function render(onlyId){
+ if(typeof onlyId!=='string')onlyId=null;
+ var host=document.getElementById('dashboardWidgetGrid')||document.getElementById('view-dashboard');if(!host)return;
+ if(window.LannaDashboardDrag?.defer(render))return;
+ var desired=new Map();read().forEach(function(x){if(x&&typeof x.id==='string'&&x.visible&&!desired.has(x.id))desired.set(x.id,x)});
+ var seen=new Set(),added=false;
+ // Replace only managed cards, in their current position. Never touch pre-defined widgets.
+ function make(x){var el=chart(x);el.dataset.lanna99Chart=x.id;el.id=x.years?'lanna-chart-'+x.id:'lanna99-chart-'+x.id;if(detailAfterToggle.has(x.id)){var plot=el.querySelector('.l142-comparison');if(plot?.lastElementChild)plot.lastElementChild.textContent=detailAfterToggle.get(x.id);detailAfterToggle.delete(x.id);}return el;}
+ Array.from(host.children).forEach(function(el){if(typeof el.dataset.lanna99Chart!=='string')return;var id=el.dataset.lanna99Chart;if(!desired.has(id)||seen.has(id)){el.remove();return;}seen.add(id);if(!onlyId||onlyId===id)el.replaceWith(make(desired.get(id)));});
+ desired.forEach(function(x,id){if(!seen.has(id)){host.appendChild(make(x));added=true;}});
+ // At startup/show, restore the saved order after the dynamic cards actually exist.
+ if(added&&host.id==='dashboardWidgetGrid'){try{var order=JSON.parse(localStorage.getItem('walletpro_dashboard_widget_order_v1')||'[]');if(Array.isArray(order)){
+ var rank=new Map(order.map(function(id,i){return [id,i]}));var children=Array.from(host.children);var sorted=children.slice().sort(function(a,b){return (rank.has(a.id)?rank.get(a.id):Infinity)-(rank.has(b.id)?rank.get(b.id):Infinity)});sorted.forEach(function(el,i){if(host.children[i]!==el)host.insertBefore(el,host.children[i]||null)});
+ }}catch(e){}}
+}
 function iconButton(symbol,title,action){
  var b=document.createElement('button');b.type='button';b.className='l99-icon-button';
  b.title=tr(title);b.setAttribute('aria-label',tr(title));
@@ -16761,14 +16967,14 @@ function iconButton(symbol,title,action){
  b.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+paths[type]+'</svg>';
  b.addEventListener('click',action);return b
 }
-function settings(){var host=document.getElementById('l99ChartSettings');if(!host)return;host.replaceChildren();var a=read();if(!a.length){host.textContent=tr('Nessun grafico aggiunto.');return}a.forEach(function(x){
+function settings(){var host=document.getElementById('l99ChartSettings');if(!host)return;host.replaceChildren();var seen=new Set(),a=read().filter(function(x){if(!x||typeof x.id!=='string'||seen.has(x.id))return false;seen.add(x.id);return true;});if(!a.length){host.textContent=tr('Nessun grafico aggiunto.');return}a.forEach(function(x){
  var row=document.createElement('div');row.className='l99-chart-settings-row';row.setAttribute('data-lanna-user-text','');
  var name=document.createElement('span');name.textContent=displayName(x);name.className='l99-settings-name';row.appendChild(name);
  var actions=document.createElement('div');actions.className='l99-chart-actions';
  actions.appendChild(iconButton('✎','Modifica grafico',function(){
   var name=prompt(tr('Nome del grafico'),x.name);if(name===null)return;name=name.trim();if(!name)return;
-  var linesOnly=!!(x.years||window.LannaAccrualCharts?.decode(x.periodSubject));
-  var type=prompt(tr(linesOnly?'Tipo grafico: barre o linee':'Tipo grafico: barre, linee oppure torta'),window.LannaLocale?.language()==='en'?(x.type==='line'?'lines':x.type==='pie'?'pie':'bars'):(x.type==='line'?'linee':x.type==='pie'?'torta':'barre'));if(type===null)return;type=norm(type);type=({bars:'barre',lines:'linee',line:'linee',pie:'torta'})[type]||type;
+  var linesOnly=twoStyles(x);
+  var type=prompt(tr(linesOnly?'Tipo grafico: barre o linee':'Tipo grafico: barre, linee oppure torta'),window.LannaLocale?.language()==='en'?(effectiveType(x)==='line'?'lines':effectiveType(x)==='pie'?'pie':'bars'):(effectiveType(x)==='line'?'linee':effectiveType(x)==='pie'?'torta':'barre'));if(type===null)return;type=norm(type);type=({bars:'barre',lines:'linee',line:'linee',pie:'torta'})[type]||type;
   if(type!=='barre'&&type!=='linee'&&(linesOnly||type!=='torta')){alert(tr(linesOnly?'Scegli barre o linee':'Scegli barre, linee o torta'));return}
   change(x.id,{name:name,type:type==='linee'?'line':type==='torta'?'pie':'bar',visible:true})
  }));
@@ -16782,7 +16988,8 @@ function settings(){var host=document.getElementById('l99ChartSettings');if(!hos
  actions.appendChild(toggleLabel);
  row.appendChild(actions);host.appendChild(row)
  })}
-function init(){render();settings();window.addEventListener('walletpro:data-changed',render);window.addEventListener('lanna:utilities-changed',render);window.addEventListener('lanna:language-changed',function(){render();settings()});document.addEventListener('click',function(e){if(e.target.closest('[data-tab], [data-view], #yearSelect, .wp-appearance-dashboard'))setTimeout(function(){render();settings()},80)});window.addEventListener('storage',function(e){if(e.key===KEY||e.key===DATA||e.key==='lamiabp_utility_details_v1'){render();settings()}})}
+var initialized=false;
+function init(){if(initialized||!document.getElementById('dashboardWidgetGrid'))return;initialized=true;render();settings();window.addEventListener('walletpro:data-changed',render);window.addEventListener('walletpro:legacy-restored',function(){render();settings()});window.addEventListener('lanna:utilities-changed',render);window.addEventListener('lanna:language-changed',function(){render();settings()});document.addEventListener('click',function(e){if(e.target.closest('button[data-tab], button[data-view], .wp-appearance-dashboard > summary'))setTimeout(function(){render();settings()},80)});document.getElementById('yearSelect')?.addEventListener('change',render);window.addEventListener('storage',function(e){if(e.key===KEY||e.key===DATA||e.key==='lamiabp_utility_details_v1'){render();settings()}})}
 // Widget payload: only derived chart data, never raw movements/documents.
 window.Lanna99WidgetCharts=function(){
  const en=window.LannaLocale?.language()==='en',months=en?['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']:['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
@@ -16792,7 +16999,7 @@ window.Lanna99WidgetCharts=function(){
  }
  return read().filter(chart=>chart&&chart.visible&&typeof chart.id==='string'&&!seen.has(chart.id)&&(seen.add(chart.id),true)).map(chart=>{
   try{
-   const base={id:'pa99:'+chart.id,title:displayName(chart),type:['bar','line','pie'].includes(chart.type)?chart.type:'bar'};
+   const base={id:'pa99:'+chart.id,title:displayName(chart),type:effectiveType(chart)};
    const a=window.LannaAccrualCharts;
    if(a?.decode(chart.periodSubject)){
     const m=a.model(chart.periodQuery,chart.periodSubject,chart.type);if(!m)return null;
@@ -16800,7 +17007,7 @@ window.Lanna99WidgetCharts=function(){
     return {...grouped({...base,type:m.bars?'bar':'line'},months,m.years.map((year,i)=>({year,values:m.series[i]})),m.unit),estimated:true,warning};
    }
    if(chart.periodQuery&&/confronto mensile curve/.test(chart.periodQuery)){
-    const m=window.LannaPeriods?.comparisonModel(chart.periodQuery,chart.periodSubject);return m?grouped({...base,type:m.bars?'bar':'line'},months,m.years.map((year,i)=>({year,values:m.series[i]})),m.unit):null;
+    const m=comparisonModel(chart);return m?grouped({...base,type:m.bars?'bar':'line'},months,m.years.map((year,i)=>({year,values:m.series[i]})),m.unit):null;
    }
    if(chart.years){const m=window.Lanna91?.comparisonData(chart,new Date());return m?{...grouped(base,months,m.series,'€'),warning:m.partial?(en?'Current year partial':'Anno corrente parziale'):null}:null;}
    const m=chartSeries(chart);if(!m||!Array.isArray(m.labels)||!Array.isArray(m.values))return null;
@@ -16809,7 +17016,7 @@ window.Lanna99WidgetCharts=function(){
  }).filter(Boolean);
 };
 window.lannaSyncDashboardWidget?.();
-window.Lanna99Charts={add:add,render:render};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init()
+window.Lanna99Charts={add:add,render:render};document.addEventListener('DOMContentLoaded',init);if(document.readyState!=='loading')init()
 })();
 </script>
 <script id="lanna99-local-chat-sounds">
@@ -17204,6 +17411,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   const list = value => Array.isArray(value) ? value : [];
   function dataset(question) {
     if(question.startsWith('lanna metric '))return window.LannaDocumentMetrics?.dataset(question)||null;
+    const telecom=window.LannaTelecom?.dataset(question);if(telecom)return telecom;
     const state0 = local('lamiabp_pro_data_v1', null) || local('lamiabp_new_data_v2', {});
     const has = s => (' '+question+' ').includes(' '+normalize(s)+' ');
     const pay = list(local('lamiabp_payslip_details_v1', []));
@@ -17511,8 +17719,9 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     if (!input?.value.trim() || !chat) return;
     const raw = input.value.trim();
     let question = normalize(raw);
+    if(!/^(?:nota|ricordami|promemoria|aggiungi|crea evento)\b/.test(question)){const telecomAnswer=window.LannaTelecom?.answer(raw);if(telecomAnswer){event.preventDefault();event.stopImmediatePropagation();window.lannaSendChatMessage?.(raw,telecomAnswer);return;}}
     if(/^(?:azzera|dimentica|cancella) (?:il )?contesto/.test(question))clarification=null;
-    try { if(advanced(raw,question,input,chat)){event.preventDefault();event.stopImmediatePropagation();return;} } catch(e){console.warn('Wallet-PRO 1.5',e);event.preventDefault();event.stopImmediatePropagation();window.lannaSendChatMessage?.(raw,'Non riesco a completare questa analisi.');return;}
+    try { if(advanced(raw,question,input,chat)){event.preventDefault();event.stopImmediatePropagation();return;} } catch(e){console.warn('Lanna 1.5',e);event.preventDefault();event.stopImmediatePropagation();window.lannaSendChatMessage?.(raw,'Non riesco a completare questa analisi.');return;}
     const correction = /^(?:scusa |no |invece )?(?:intendevo|volevo dire|rifai per) (.+)$/.exec(question);
     if(correction && context) question=correction[1];
     const same = /^(?:fai lo stesso|stessa cosa|stesso grafico) (?:per |con )?(.+)$/.exec(question);
@@ -18160,7 +18369,19 @@ body > .tab-bar > [data-tab="pa"] > .tab-icon > img{width:100%;height:100%;objec
  window.LannaMascotE5=Object.freeze({saved});expression();
 })();
 </script>
+
 <script id="wp-pwa-register">if ("serviceWorker" in navigator && window.isSecureContext) { window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js",{scope:"./",updateViaCache:"none"}).catch(e=>console.warn("Wallet-PRO offline cache:",e))); }</script>
+<style>#wpUpdateBanner{position:fixed;z-index:110;left:12px;right:12px;bottom:calc(75px + env(safe-area-inset-bottom));max-width:520px;margin:auto;background:var(--card,#fff);color:var(--text,#111);border:1px solid var(--border,#ddd);border-radius:16px;box-shadow:0 6px 25px rgba(0,0,0,.22);padding:14px;display:none;align-items:center;gap:12px}
+#wpUpdateBanner strong{display:block;font-size:14px}
+#wpUpdateBanner small{display:block;margin-top:3px;color:var(--subtext,#666);font-size:12px}
+#wpUpdateNow{background:var(--blue,#007aff);color:#fff;border:0;border-radius:10px;padding:10px 12px;font-size:13px;font-weight:700;white-space:nowrap}
+#wpUpdateDismiss{border:0;background:transparent;color:var(--subtext,#666);font-size:22px;padding:4px}</style>
+<div id="wpUpdateBanner" role="status" aria-live="polite"><div style="flex:1"><strong>Nuova versione disponibile</strong><small>Aggiorna Wallet-PRO senza cancellare i tuoi dati.</small></div><button type="button" id="wpUpdateNow">Aggiorna ora</button><button type="button" id="wpUpdateDismiss" aria-label="Chiudi avviso">×</button></div>
+<script id="wp-update-check">(()=>{'use strict';const banner=document.getElementById('wpUpdateBanner');let dismissed='',remote='',last=0;
+async function check(){if(!navigator.onLine||Date.now()-last<15000)return;last=Date.now();try{const u=new URL('version.json',location.href);u.searchParams.set('walletpro_check',String(Date.now()));const r=await fetch(u,{cache:'no-store',credentials:'same-origin',referrerPolicy:'no-referrer'});if(!r.ok)return;const data=await r.json();if(!/^wallet-pro-\d+\.\d+\.\d+$/.test(data.build))return;remote=data.build;const current=document.querySelector('meta[name="walletpro-build"]').content;banner.style.display=remote!==current&&remote!==dismissed?'flex':'none';}catch(e){}}
+document.getElementById('wpUpdateDismiss').onclick=()=>{dismissed=remote;banner.style.display='none'};
+document.getElementById('wpUpdateNow').onclick=async()=>{const btn=document.getElementById('wpUpdateNow');btn.disabled=true;try{const root=new URL('./',location.href).href,sw=navigator.serviceWorker,reg=sw&&await sw.getRegistration(root);if(reg&&reg.scope===root){await reg.update();const candidate=reg.installing||reg.waiting;if(candidate&&candidate.state!=='activated'){await new Promise((resolve,reject)=>{let timer;const clean=()=>{clearTimeout(timer);candidate.removeEventListener('statechange',changed);};const changed=()=>{if(candidate.state==='activated'){clean();resolve();}else if(candidate.state==='redundant'){clean();reject(Error('Installazione non riuscita'));}};candidate.addEventListener('statechange',changed);timer=setTimeout(()=>{clean();reject(Error('Aggiornamento non ancora pronto'));},15000);changed();});}}const u=new URL('index.html',location.href);u.searchParams.set('walletpro_refresh',String(Date.now()));location.replace(u.href);}catch(e){btn.disabled=false;banner.querySelector('small').textContent='Aggiornamento non pronto. Riprova con una connessione stabile.';}};
+setTimeout(check,2500);window.addEventListener('focus',check);window.addEventListener('online',check);document.addEventListener('visibilitychange',()=>{if(!document.hidden)check()});setInterval(check,60000);})();</script>
 </body>
 </html>
 

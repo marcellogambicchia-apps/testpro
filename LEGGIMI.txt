@@ -1,9 +1,29 @@
-WALLET-PRO 4.1.0 — conversione web di Lanna 1.0.0
+PACCHETTO COMPLETO — tutti i file della release (non una patch).
+Per una nuova installazione, estrai e carica il contenuto dello ZIP nella root del repository; includi .nojekyll e .github se crei un nuovo repository. Per aggiornare un repository esistente 4.1.9, 4.2.0 o 4.2.1 non personalizzato, usa preferibilmente la patch cumulativa. Conserva workflow personalizzati e Secrets. Non caricare lo ZIP stesso su Pages.
 
-Caricare il contenuto di questo ZIP nella root del repository GitHub Pages esistente (non la cartella contenitore). Conservare la cronologia e le configurazioni GitHub. Usare HTTPS.
+Wallet-PRO 5.0.0 — release completa candidata al collaudo, 27 novembre 2026
+Base: Wallet-PRO 4.2.1. PWA HTML/CSS/JavaScript per GitHub Pages. Nessun Vite, Node.js, npm o build per l’installazione.
 
-Interfaccia e motore di Lanna 1.0.0; nome, logo e icone originali Wallet-PRO. Archivio browser IndexedDB/LocalStorage; formati di backup originali conservati nel codice. Prima di sostituire la web app eseguire un backup esterno, non cancellare i dati del sito. Compatibilità con gli archivi Wallet-PRO preesistenti non collaudata.
+PRIMA DI AGGIORNARE
+1. Esporta un backup JSON e verifica il file mediante Verifica integrità backup; conserva anche una copia del repository precedente. Il backup JSON non è cifrato: proteggilo. Puoi usare il backup cifrato AES-GCM.
+2. Mantieni esattamente lo stesso dominio, repository/percorso e ramo Pages: cambiare origine può rendere inaccessibili i dati locali. Non cancellare i dati Safari o l’app Home, i Secrets o i workflow GitHub Actions.
+3. Pubblica i file tutti insieme nello stesso commit. Attendi il deployment Pages; apri l’app online e premi Aggiorna ora se disponibile. Controlla che la pagina e version.json mostrino 5.0.0. Non svuotare lo storage per forzare l’aggiornamento.
+4. Il nuovo worker verifica i byte SHA-256 dei file essenziali della release. Carica i file esattamente come forniti. Una risorsa mancante o di una versione diversa fa fallire l’installazione del worker senza cancellare la precedente cache. Se hai configurazioni o manifest personalizzati, non sovrascriverli alla cieca: occorre una variante della release con gli hash aggiornati. Non editare index.html senza aggiornare anche gli hash CSP, né cambiare file verificati senza rigenerare gli hash nel worker e usare un nuovo nome cache.
 
-Face ID nativo, WidgetKit e notifiche native non disponibili; avvisi in apertura mantenuti. Dettatura solo con riconoscimento locale supportato dal browser. Nessun fallback remoto aggiunto. Cache offline dopo prima apertura online e installazione del service worker.
+COSA È INCLUSO
+- Tutte le funzioni della 4.2.1, compresi P.A., movimenti, budget, import PDF/Excel/CSV, OCR, bollette luce/gas/internet/telefonia, acquisizione locale dei loghi, grafici linee/barre, confronto e trascinamento. Chiavi dati, schema IndexedDB, librerie, icone, manifest e workflow conservati.
+- Archiviazione persistente su richiesta esplicita, verifica esito, promemoria dopo 30 giorni senza backup confermato. Il browser può eliminare i dati; conferma un backup solo dopo aver verificato il file salvato fuori dall’app. Il checksum non è una firma e non sostituisce la cifratura.
+- CSP senza unsafe-inline per gli script, hash dei blocchi eseguibili e differiti, niente attributi evento HTML inline, correzioni mirate ai rendering testuali/etichette e agli accessi alle mappe. Rimane il CSS inline per compatibilità e restano autorizzati gli endpoint necessari a OneSignal; non è una certificazione di sicurezza né un audit di ogni possibile input.
+- Cache essenziale separata dalle risorse PDF, Excel e OCR. Le 17 risorse statiche note sono verificate tramite SHA-256 prima di essere aggiunte; le risorse facoltative già presenti nella cache 4.2.0/4.2.1 possono essere migrate se identiche. Il worker non memorizza richieste arbitrarie. Verifica / prepara per l’utilizzo offline controlla le nove risorse facoltative, anche senza rete se già presenti; riscarica eventuali risorse mancanti o non integre quando online. In caso di spazio insufficiente il download in cache può fallire: controlla l'esito prima di andare offline. La cache non è il database finanziario.
+- OneSignal resta facoltativo: connetti il servizio con consenso, poi attiva la spunta. La disattivazione confermata salva la preferenza e impedisce la riconnessione automatica nei successivi avvii. Riapri l’app per chiudere una sessione SDK già caricata. Non vengono inviati documenti o movimenti finanziari dall’app a OneSignal; il servizio gestisce dati tecnici di connessione e iscrizione. Gli avvisi all’apertura e l’esportazione calendario rimangono disponibili. Non sono equivalenti alle notifiche push a PWA chiusa, che richiedono rete e infrastruttura di invio.
+- Nessuna migrazione a Vite. Consolidamento conservativo: il grande index.html e l’ordine dei moduli restano, evitando una riscrittura rischiosa. I tre moduli di protezione e notifiche sono separati e versionati. Il codice non è stato interamente rifattorizzato.
 
-Verifiche: sintassi 52 blocchi JavaScript e service worker; presenza 20 risorse precache; icone e manifest. Test browser bloccato dall'ambiente (ERR_BLOCKED_BY_ADMINISTRATOR). Non certificata come release finale collaudata. Testare importazione, backup/ripristino e aggiornamento da 3.1/4.0 con dati fittizi prima di usare dati reali.
+COLLAUDO PRIMA DI DICHIARARE STABILE
+1. Controlla totali, dati storici, buste paga, bollette, categorie e apprendimenti P.A. esistenti.
+2. Prova alternanza grafici linee/barre, riordino, riavvio e assenza di errori DEBUG.
+3. Importa una fattura telefonica reale, prova anteprima, doppioni, collegamenti e solo dati tecnici.
+4. Prova backup e verifica integrità JSON/cifrato; verifica ripristino su archivio separato di prova.
+5. Prepara l’offline online, poi riapri la PWA in modalità aereo; prova import PDF, Excel e OCR. Controlla la migrazione della cache e l’aggiornamento Pages.
+6. Verifica consenso, disattivazione e ricezione reale di Web Push OneSignal su iPhone. Non modificare la configurazione push in produzione senza test.
+
+TEST: vedi VERIFICA-5.0.0.txt. L’avvio integrale HTTPS non è stato eseguibile nell’ambiente (ERR_BLOCKED_BY_ADMINISTRATOR). Nessuna pubblicazione GitHub, nessun accesso ai dati reali dell'utente, nessun collaudo Safari/iPhone eseguito. Release completa candidata, non stabilità definitiva certificata.

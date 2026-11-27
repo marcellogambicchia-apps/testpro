@@ -1,0 +1,82 @@
+STORICO — materiale di riferimento. Le istruzioni valide sono esclusivamente nel LEGGIMI della release 5.0.0.
+
+PACCHETTO COMPLETO — tutti i file della release (non una patch).
+Per nuova installazione, estrai e carica il contenuto della cartella nella root del repository; includi .nojekyll e .github se crei un nuovo repository. Per aggiornare un repository 4.2.0 esistente, preferisci lo ZIP Patch-GitHub. Nel pacchetto completo sono conservati manifest, icone, librerie, worker push e workflow originali; NON sostituire i workflow già personalizzati nel repository. Non sovrascrivere una configurazione personalizzata senza confrontarla.
+
+Wallet-PRO 4.2.1 — versione candidata al collaudo, 27 novembre 2026
+Base: Wallet-PRO 4.2.0. Web app PWA tradizionale, nessun Vite, nessuna compilazione.
+
+PRIMA DI AGGIORNARE
+- Esporta un backup JSON e verifica il file. Conserva una copia del repository e lo ZIP della versione precedente.
+- Pubblica nello stesso repository, ramo, percorso e indirizzo HTTPS. Non cancellare i dati Safari, l’app Home, i Secrets o i workflow GitHub Actions. Non modificare la configurazione OneSignal se già operativa.
+- Attendi il deployment Pages. Apri la PWA online, premi Aggiorna ora se disponibile, verifica version.json online (4.2.1) e il titolo della pagina. Se il vecchio worker è ancora attivo, riapri la PWA online; non cancellare lo storage.
+
+NOVITÀ
+- Correzioni grafici e bollette telecom della 4.2.0 mantenute; nessuna modifica alle chiavi finanziarie o al database IndexedDB.
+- Opzioni > BackUp dati: richiesta manuale di archiviazione persistente; esito del browser esplicito, non una garanzia. Conferma il backup solo dopo aver verificato il file salvato. Avviso in Dashboard se nessun backup è confermato o sono trascorsi 30 giorni. La conferma è locale a questo dispositivo, non è un controllo automatico del file. Il pulsante di verifica integrità del backup già presente è conservato.
+- CSP: hash SHA-256 per gli script inline e differiti, niente unsafe-inline per gli script, eventi HTML inline vietati; escaping dell’etichetta grafico, rinforzo escapeHtml e alcune mappe. Rimangono style-src unsafe-inline, blob/wasm per compatibilità e l’origine autorizzata del servizio push. Non è un audit di sicurezza completo. Se modifichi manualmente uno script inline, rigenera gli hash CSP prima di pubblicare: altrimenti il browser ne blocca l’esecuzione.
+- Cache essenziale separata da PDF/Excel/OCR. Al primo uso online le risorse sono memorizzate; prima di andare offline premi Prepara per l’utilizzo offline e verifica l’esito. Le risorse già presenti nella cache esatta della 4.2.0 vengono recuperate quando possibile. La cache può essere eliminata dal browser, quindi controllala prima di usare l’app offline. Nessun CDN per le librerie PDF/Excel/OCR.
+- OneSignal: per una nuova attivazione, Opzioni > Notifiche > Connetti OneSignal, conferma il servizio esterno, attendi l’inizializzazione e poi attiva la spunta con un secondo tocco. Chi ha già scelto di attivare le push mantiene la preferenza. Il servizio riceve dati tecnici di connessione/iscrizione; non è offline. Per disattivare usa la spunta e verifica l'esito. Se avevi un'iscrizione precedente ma la preferenza non era salvata, riconnetti e verifica/disattiva manualmente. Gli avvisi all'apertura e .ics restano disponibili. Push a app chiusa richiedono rete e pianificazione esterna.
+
+COLLAUDO PRIMA DI CONSIDERARE STABILE
+1. Verifica movimenti, buste paga, dati bollette e P.A.; confronta i totali con la versione precedente.
+2. Tocca grafici personalizzati, prova linee/barre, confronto tra anni e riordino, poi riavvia.
+3. Importa una bolletta telefonica reale, verifica anteprima, doppioni, pagamento e salvataggio soli dati.
+4. Verifica persistenza, esportazione JSON/cifrata, conferma backup e verifica integrità; prova ripristino su un archivio di test separato.
+5. Prepara l’offline, chiudi e riapri in modalità aereo; prova PDF, Excel e OCR. Verifica aggiornamento dalla versione precedente.
+6. Verifica OneSignal su iPhone con l’app aperta e chiusa; prova l’opt-out, la diagnostica e il percorso calendario.
+
+RISULTATI: 60 blocchi/file JavaScript con sintassi verificata, 55 hash CSP verificati con DOM Chromium e nessun attributo evento inline; test mirato CSP (script autorizzato anche dinamico e blocco di onerror iniettato); 40/40 test isolati grafici, 34/34 estrazione e collegamento telecom su dati simulati, 13/13 test service worker con cache/rete simulate, 12/12 test protezione locale e loader SDK con stub. La navigazione HTTPS del browser di test è bloccata dall’ambiente (ERR_BLOCKED_BY_ADMINISTRATOR). Non sono stati verificati l’avvio completo, la cache offline reale, Safari/iPhone, SDK reale, PDF nuovi o la ricezione push. Non considerare ancora la release stabile certificata. Nessun file del repository pubblicato o alterato da ChatGPT.
+
+
+STORICO — istruzioni obsolete, solo riferimento. Non seguire le procedure delle vecchie versioni.
+
+Wallet-PRO 4.2.0 — CANDIDATA AL COLLAUDO (27 novembre 2026)
+Base: Wallet-PRO 4.1.9. Correzioni portate selettivamente da Lanna 1.1.3 e 1.1.1.
+
+INSTALLAZIONE GITHUB PAGES
+1. Esporta un backup JSON dei tuoi dati dalla versione installata. Conserva lo ZIP 4.1.9.
+2. Estrai Wallet-PRO-4.2.0-Patch-GitHub.zip. Sostituisci i quattro file omonimi nella root dello stesso repository GitHub, nello stesso ramo. Non cancellare altri file, i dati Safari, l’app Home, i Secrets o i workflow. Non caricare lo ZIP come file dell’app.
+3. Aspetta il deployment Pages. Apri la stessa web app online e usa il banner Aggiorna se disponibile. Verifica che version.json riporti 4.2.0. Non disinstallare la PWA.
+4. In caso di problemi, ripubblica i quattro file della 4.1.9; prima conserva anche un backup della 4.2.0. Non presumere che tutti i nuovi campi siano leggibili in release precedenti.
+
+NOVITÀ
+- Grafici P.A.: alternanza linee/barre al tocco, pressione lunga distinta, protezione del DOM, ordine e stile persistenti, niente torta nei confronti; niente ricostruzione inutile al tocco. Torta per visualizzazioni compatibili non di confronto.
+- Importazione PDF locale: Internet e Telefonia, gestori e anni, dati tecnici ed economici quando riconosciuti, schede modificabili. Fatture non pagate proposte come sole schede tecniche. Conferma esplicita, doppioni, collegamenti a movimenti effettivi. Le uscite delle fatture telefoniche usano Utenze, come le bollette già presenti in Wallet-PRO. Sezione Altro per fatture non classificate.
+- Loghi: solo immagine raster compatibile estratta localmente dal PDF con conferma; nessun logo precaricato, nessun download. PDF vettoriali/scansionati o ambigui possono non fornire logo. Dati mancanti non inventati. Guida integrata aggiornata.
+- P.A.: consultazione fatture, scadenze, consumi, canoni, confronto e grafici; esempi: Grafico canone Iliad 2026, Grafico canone TIM 2025 e 2026, Scadenza fattura Fastweb.
+- Identità Wallet-PRO, IndexedDB, chiavi storage, icone, manifest, vendor, OneSignal e workflow invariati. Cache aggiornata; nessuna funzionalità nativa nuova. OneSignal opzionale richiede rete.
+
+VERIFICHE E LIMITI
+60 blocchi/file JavaScript verificati sintatticamente; 40 test mirati Chromium su moduli reali e DOM/archivio simulati; 34 controlli su estrazione da testo sintetico, pianificazione, salvataggio, deduplicazione, logo, dataset e confronti P.A. con archivio simulato. 26 file originali identici byte per byte; quattro file sostituiti. Verificati riferimenti precache. Non sono stati verificati nuovi PDF reali, avvio completo della PWA (navigazione locale bloccata dall’ambiente), offline end-to-end, Safari/iPhone o ricezione effettiva OneSignal. Collaudare prima di considerare stabile. Nessun aggiornamento GitHub effettuato da ChatGPT.
+
+STORICO 4.1.9 E ISTRUZIONI PRECEDENTI
+Wallet-PRO 4.1.9 — riepilogo importazione e azioni prima delle date e schede.
+Patch da 4.1.8: index.html, sw.js, version.json, LEGGIMI.txt. Backup dati prima dell’aggiornamento.
+
+Wallet-PRO 4.1.8 — data stipendio
+Modifiche rispetto alla 4.1.7: data di accredito esplicita, oppure 27 o giorno lavorativo italiano precedente, nelle due modalità di importazione PDF. Anteprima modificabile. OneSignal e grafica della 4.1.7 conservati. Eseguire backup JSON e sovrascrivere i file senza cancellare repository o dati.
+
+Wallet-PRO 4.1.7 — candidata alla correzione OneSignal e barra superiore
+Base: Wallet-PRO 4.1.6. Riferimento: 3.1.0 UFFICIALE.
+
+NON cancellare il repository, le GitHub Actions, i Secrets, la web app dalla Home o i dati Safari. Eseguire prima il backup JSON dall'app.
+
+Pubblicazione sul repository esistente, stesso ramo e stesso indirizzo HTTPS:
+- Lo ZIP completo contiene direttamente index.html, sw.js, manifest.json, version.json, assets/, vendor/, icone, .nojekyll e .github/workflows/.
+- Caricare i contenuti, non lo ZIP o una cartella contenitore. Sovrascrivere i file omonimi; conservare i file precedenti non sostituiti.
+- Per la sola patch usare Wallet-PRO-4.1.9-Patch-GitHub.zip. Assicurarsi che siano presenti anche le librerie vendor, le icone e .nojekyll della release precedente.
+- Conservare i workflow .github/workflows/notifica-aggiornamento.yml e invia-messaggio-utenti.yml; se assenti ripristinarli. Non cambiare i secrets ONESIGNAL_APP_ID / ONESIGNAL_REST_API_KEY né la variabile WALLET_PRO_URL. Non caricare chiavi API nel codice pubblico.
+- Attendere la conclusione del deployment Pages; aprire la web app dalla stessa icona Home, in rete. Usare il banner Aggiorna se disponibile; altrimenti chiudere e riaprire l'app online. Verificare che version.json online riporti 4.1.9.
+- In Opzioni > Notifiche: dopo l'inizializzazione SDK, attivare la spunta Notifiche sul dispositivo (OneSignal). Se la preferenza era già attiva ma non risulta iscrizione, disattivare e riattivare. Accettare l'autorizzazione iOS. Toccare Verifica OneSignal e controllare ID, token, permesso, worker push e worker offline.
+- In OneSignal > Audience > Subscriptions, cercare l'ID indicato. Inviare una notifica di prova solo a quell'iscrizione. Verificare la ricezione a web app chiusa. Le GitHub Actions di invio sono manuali, non scattano a ogni commit.
+- Verificare tema chiaro/scuro, avvio a freddo, ritorno dalla tastiera e da altre app. Non cancellare i dati per risolvere la cache.
+
+Correzioni:
+- Config e worker OneSignal identici byte per byte alla 3.1.0; scope e percorso originali.
+- Ripristino start_url e identità implicita manifest 3.1.0; tema manifest neutro mantenuto dalla 4.1.6. Il colore di avvio è applicato prima del database.
+- Modulo notifiche adattato al database recente; SDK pronto prima di abilitare l'interruttore; richiesta permesso avviata direttamente dall'azione utente; preferenza separata dall'iscrizione; diagnostica con ID; nuovo nome fisico del modulo per evitare cache precedenti; nessuna cancellazione di cache OneSignal.
+- Workflow originali ripristinati; nuova versione cache PWA. CSP 4.1.6 conservata (non provato se blocchi richieste reali su iPhone).
+- Barra superiore: tema iniziale sincrono, fondo opaco fisso safe-area, nessuna transizione del fondo, rimozione pseudo-livelli concorrenti. Nessuna modifica alle dimensioni dei controlli, né migrazione dati aggiuntiva.
+
+Verifica tecnica: 60 blocchi/file JavaScript validati con node --check; 10 test simulati del modulo notifiche; 2 test simulati tema iniziale; controllo file cache, riferimenti locali, identità manifest, config, worker e workflow. Browser Chromium impedito dall'ambiente: nessun test visivo Safari, né consegna reale OneSignal. Il test iPhone e la dashboard OneSignal rimangono indispensabili. Non modificato GitHub.

@@ -2,11 +2,11 @@
   "name": "Wallet-PRO",
   "short_name": "Wallet-PRO",
   "description": "Gestione Entrate, Uscite e Bilancio Personale",
-  "start_url": "./",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#F2F2F7",
-  "theme_color": "#34C759",
+  "theme_color": "#F2F2F7",
   "orientation": "portrait",
   "icons": [
     {
@@ -27,6 +27,5 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ],
-  "id": "./"
+  ]
 }

@@ -1,0 +1,14 @@
+WALLET-PRO 5.0.0 — RAPPORTO VERIFICA, 27/11/2026
+Base originale 4.2.1; confronti byte-per-byte con 4.1.9, 4.2.0 e 4.2.1.
+60/60 blocchi e file JavaScript applicativi: node --check; vendor non modificati.
+55/55 hash CSP dei blocchi inline/differiti: DOMParser Chromium; nessun attributo evento inline; nessun ID statico duplicato.
+Test CSP isolato: script con hash autorizzato eseguito anche dinamicamente, evento HTML iniettato bloccato.
+40/40 test grafici: moduli effettivi della release in Dashboard sintetica Chromium, inclusi NotFoundError, confronto, riordino, doppioni e persistenza.
+34/34 test bollette telefoniche/P.A.: dati sintetici e moduli effettivi.
+30/30 test backup: WebCrypto reale, archivi e scritture simulati, checksum, AES-GCM, rollback e convalida.
+23/23 test import bancario/precisione: funzioni effettive e righe sintetiche.
+20/20 test worker: fetch e Cache Storage simulati con file reali e digest SHA-256, installazione parziale, migrazione, corruzione, retry e separazione della cache.
+12/12 test protezione locale e loader SDK: DOM/storage/SDK simulati.
+6/6 test ciclo notifiche: SDK simulato, consenso, opt-in, opt-out, focus e riconnessione esplicita.
+Totale 165 controlli funzionali mirati (40+34+30+23+20+12+6), oltre ai controlli statici e al test CSP isolato.
+Limiti: l'app completa via HTTPS è bloccata dalla policy del browser di test. Non verificati end-to-end Safari/iPhone, deployment, PDF reali nuovi, OCR offline reale, SDK e ricezione push reali. Nessun audit esaustivo di sicurezza. Non considerare ancora la versione stabile certificata.
